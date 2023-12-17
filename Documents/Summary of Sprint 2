@@ -1,0 +1,14 @@
+In this sprint, I was involved in installing virtual box, linux machine ubuntu, install Open5GS and UERANSIM in my computer.
+We faced challenges in installing Open5gs and found solutions to it.
+Download virtual box from https://www.virtualbox.org/.
+Download installer
+Go to ubuntu website https://ubuntu.com/download/desktop and download vrsion 22.04
+Open VirtualBox. Click on "New" to create a new virtual machine. Enter a name for your VM and choose "Linux" as the type and "Ubuntu" as the version.
+Allocate RAM to the VM (until its green). Create a virtual hard disk. Create a user account and complete the installation.
+No challenges were faced in installation until now.
+
+Open5GS is an open-source project focused on implementing the 3GPP 5G core network specifications. It includes essential components of a 5G core network,AMF SMF, UPF,etc
+3GPP is compatible with the 5G specifications outlined by the global telecommunications standards organization.
+Open5GS supports various protocols and interfaces, including NGAP (Next-Generation Application Part), N1, N2, N3 interfaces.
+We followed Quickstart process for installing Open5GS - https://open5gs.org/open5gs/docs/guide/01-quickstart/
+
