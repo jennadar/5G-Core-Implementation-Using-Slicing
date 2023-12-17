@@ -1,14 +1,29 @@
 In this sprint, I was involved in installing virtual box, linux machine ubuntu, install Open5GS and UERANSIM in my computer.
 We faced challenges in installing Open5gs and found solutions to it.
+
 Download virtual box from https://www.virtualbox.org/.
 Download installer
 Go to ubuntu website https://ubuntu.com/download/desktop and download vrsion 22.04
 Open VirtualBox. Click on "New" to create a new virtual machine. Enter a name for your VM and choose "Linux" as the type and "Ubuntu" as the version.
 Allocate RAM to the VM (until its green). Create a virtual hard disk. Create a user account and complete the installation.
-No challenges were faced in installation until now.
+No challenges were faced in the installation until now.
 
 Open5GS is an open-source project focused on implementing the 3GPP 5G core network specifications. It includes essential components of a 5G core network,AMF SMF, UPF,etc
 3GPP is compatible with the 5G specifications outlined by the global telecommunications standards organization.
 Open5GS supports various protocols and interfaces, including NGAP (Next-Generation Application Part), N1, N2, N3 interfaces.
 We followed Quickstart process for installing Open5GS - https://open5gs.org/open5gs/docs/guide/01-quickstart/
 
+Challenges faced:
+$ sudo apt install -y mongodb-org
+This command showed Error : No mongoDB package found
+Time taken to research and resolve - 6 hours
+Solution found :
+  sudo apt update
+  sudo apt-key list | grep mongodb-server-6.0.gpg
+
+Then we installed Open5GS successfully.
+Next step : Installation of WebUI of Open5GS
+The WebUI allows you to interactively edit subscriber data. 
+Much Configuration changes were not required as of now because we use local gNB from UERANSIM:
+
+No challenges were faced on installing UERANSIM.
