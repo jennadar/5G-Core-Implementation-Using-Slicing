@@ -12,6 +12,13 @@ To enact the changes, it is necessary to restart the Open5GS AMF service.
 This ensures that the modifications made to the configuration, particularly the adjustment in the "ngap addr" parameter, become active and are applied to the running instance of the AMF.
 
 Command - sudo systemcl restart open5gs-amfd
+Challenges faced:
+In Ubuntu terminal, on passing command "if config", we get 3 types:
+1. enp0s3 -  represents a wired Ethernet interface.
+2. lo - the loopback interface, enabling communication within the same device.
+3. ogstun - TUN, namely network TUNnel, simulates a network layer device and operates in layer 3 carrying IP packets. TUN is used with routing. 
+
+But we dont have any wireless extension that starts with wp in ubuntu linux environment
 
 
 
