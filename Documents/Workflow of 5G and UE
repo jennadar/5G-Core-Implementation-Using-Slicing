@@ -1,0 +1,17 @@
+AMF:-
+The Access and Mobility Function (AMF) is accessed by the gNodeB through the N2 interface. 
+It is responsible for managing 5G NAS (Non-Access Stratum) messaging, which serves as the communication protocol utilized by User Equipment (UEs) or devices to request data services, facilitate handovers between gNodeBs during network transitions, and authenticate with the network.
+By default, the AMF is configured to bind to a loopback IP address. 
+While this setup is suitable when all components are running on the same server, it poses challenges when dealing with actual gNodeBs or when using UERANSIM on a different machine. 
+In such cases, adjustments to the AMF configuration are necessary to enable seamless communication across different devices and locations within the network.
+To address this, it is imperative to configure the AMF to bind to the IP address of the machine on which it is running. 
+This configuration adjustment involves modifying the AMF settings in the /etc/open5gs/amf.yaml file. 
+Specifically, we need to modify the "ngap addr" parameter to bind the AMF to the IP address of the machine, ensuring seamless communication.
+
+To enact the changes, it is necessary to restart the Open5GS AMF service. 
+This ensures that the modifications made to the configuration, particularly the adjustment in the "ngap addr" parameter, become active and are applied to the running instance of the AMF.
+
+Command - sudo systemcl restart open5gs-amfd
+
+
+
