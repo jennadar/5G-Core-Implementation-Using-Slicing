@@ -13,3 +13,23 @@ ngap:
   - addr: 10.0.2.4
 ```
 
+![Images](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/amf_file.png)
+
+
+Also, Edit the GTPU ip in UPF.yaml file
+
+```bash
+gtpu:
+  - addr: 10.0.2.4
+```
+
+![Images](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/upf_file.png)
+
+
+After the changes of amf.yaml and upf.yaml files, save the changes and restart both services by following the below command.
+
+```bash
+
+sudo systemctl restart open5gs-amfd
+sudo systemctl restart open5gs-upfd
+```
