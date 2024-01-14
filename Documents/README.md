@@ -66,6 +66,7 @@ Repeat the process for the UERANSIM virtual machine.
 <h2 align="Left">2. Installing MongoDB and Open5GS</h2>
 
 <h3 align="Left">Getting MongoDB: </h3>
+Open a terminal on your Ubuntu machine. You can do this by pressing Ctrl + Alt + T or searching for "Terminal" in the applications menu.
 
 ```
 # Importing public key for package management system
@@ -88,6 +89,7 @@ $ sudo systemctl enable mongod
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/mongodb.png)
 
 <h3 align="Left">Next, we installed Open5GS in our Ubuntu.</h3>
+nstalling Open5GS on Ubuntu involves several steps, including installing dependencies, compiling the source code, and configuring the system. Below is a general guide to help installing Open5GS:
 
 ```
 #easy way to install Open5GS in ubuntu
@@ -95,6 +97,7 @@ $ sudo add-apt-repository ppa:open5gs/latest
 $ sudo apt update
 $ sudo apt install open5gs
 ```
+Ensure that the Open5GS components are running without errors. Check the terminal outputs for any error messages.
 
 <h2 align="Left">3. Installation of WebUI of Open5GS</h2>
 
