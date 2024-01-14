@@ -127,6 +127,7 @@ And here's command for building:
 cd ~/UERANSIM
 make
 ```
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM_build.png)
 And that's it. After successfully compiling the project, output binaries will be copied to ~/UERANSIM/build folder. And you should see the following files:
 
 nr-gnb       | Main executable for 5G gNB (RAN)
