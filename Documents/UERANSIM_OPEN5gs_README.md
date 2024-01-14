@@ -32,4 +32,23 @@ After the changes of amf.yaml and upf.yaml files, save the changes and restart b
 
 sudo systemctl restart open5gs-amfd
 sudo systemctl restart open5gs-upfd
+
 ```
+
+### UERANSIM
+
+### Configuring & Starting the gNodeB
+
+
+Although we won't be putting anything "on air" in the RF context, we still need to set up and initiate our gNodeB. The configuration for our gNodeB is contained in the "config/open5gs-gnb.yaml" file.
+
+Within this file, we must specify the parameters for our simulated gNodeB. For our case, assuming no alterations to the PLMN (Public Land Mobile Network), the primary adjustments involve configuring the Link IPs to which the gNodeB binds and specifying the IP address of the AMFs. In my situation, the AMF's IP is set to 10.0.2.5.
+
+![Diagram](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/gnb_yamlfile.png)
+
+
+Also, Edit the open5gs-ue.yaml file and modify gnbsearchList ip ( for me it is: 10.0.2.5 )
+
+
+![Diagram](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/ue_yaml_file.png)
+
