@@ -15,14 +15,46 @@
 <br/>
 
 <h2 align="Left">1. Installation of Virtual Box</h2>
+Download VirtualBox: Visit the official VirtualBox website (https://www.virtualbox.org/) and download the latest version of VirtualBox for your operating system (Windows, macOS, Linux).
+
+Install VirtualBox: Run the installer and follow the on-screen instructions to install VirtualBox on your computer.
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Virtual%20box.png)
 
 <h3 align="Left">Creation of two Virtual machines for both 5Gcore and UERANSIM  </h3>
+Open VirtualBox: Launch the VirtualBox application on your computer.
+
+Click "New": In the VirtualBox main window, click on the "New" button to create a new virtual machine.
+
+Set Name and Type: Provide a name for your virtual machine (e.g., 5Gcore_VM), select the type (Linux), and choose the version that matches your operating system.
+
+Allocate Memory: Specify the amount of RAM for the virtual machine. For 5G core and UERANSIM, allocate sufficient memory based on your system requirements.
+
+Create a Virtual Hard Disk: Create a virtual hard disk and choose the size. Allocate enough space for the operating system and applications.
+
+Click "Create" and "Create" again to confirm.
+
+Repeat the process to create another virtual machine for UERANSIM.
+<h3 align="Left"> Install Operating Systems</h3>
+
+Start the Virtual Machines: Select the virtual machines you created and click "Start" to power them on.
+
+Install Operating System: Follow the on-screen instructions to install the operating system on each virtual machine. This could involve mounting an ISO file with the installation media and going through the installation process.
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/twoVMs.png)
 
 <h3 align="Left">Go to Network settings in virtual box to enable Adapters 1 and 2 </h3>
+Select a Virtual Machine: Choose one of the virtual machines (e.g., 5Gcore_VM) and go to the "Settings."
+
+Navigate to "Network": In the VM settings, go to the "Network" tab.
+
+Enable Adapter 1: Check the "Enable Network Adapter" box. Choose "Bridged Adapter" from the drop-down menu. This will allow the VM to connect to the physical network.
+
+Enable Adapter 2: Click on "Adapter 2" and check the "Enable Network Adapter" box. Choose "Host-Only Adapter" from the drop-down menu. This creates a private network between the two virtual machines.
+
+Apply and Save: Click "OK" to apply the changes and save the settings.
+
+Repeat the process for the UERANSIM virtual machine.
 <h4 align="Left">Adapter 1:</h4>
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Adapter1%20settings.png)
