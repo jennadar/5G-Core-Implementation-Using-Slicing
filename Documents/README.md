@@ -92,7 +92,36 @@ $ sudo apt install open5gs
 ```
 Ensure that the Open5GS components are running without errors. Check the terminal outputs for any error messages.
 
-<h2 align="Left">3. Installation of UERANSIM</h2>
+<h2 align="Left">3. Installation of WebUI of Open5GS</h2>
+
+<h4 align="Left">Node.js is mandatory for installing WebUI of Open5GS </h4>
+
+Ensure that Node.js and npm (Node Package Manager) are installed on your system. You can typically install them using your system's package manager.
+```
+#Installing Node.js
+$ sudo apt update
+$ sudo apt install curl
+$ curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+$ sudo apt install nodejs
+```
+WebUI is a web interface that allows you to get access to user (subscriber) DB of Open5GS where you can add new user or change information for existing UE (subscribers).
+
+```
+#Installing WebUI of Open5GS
+$ curl -fsSL https://open5gs.org/open5gs/assets/webui/install | sudo -E bash -
+```
+
+<h4 align="Left">After WebUI installation, we get automatically generated username and password : </h4>
+
+```
+Username: admin
+Password: 1432
+```
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/webUI.png)
+
+
+<h2 align="Left">4. Installation of UERANSIM</h2>
 
 <h3 align="Left">Getting Started with UERANSIM</h4>
 Firstly, please make sure that you have the latest version of UERANSIM. Use the following commands to clone the UERANSIM repository.
@@ -141,31 +170,3 @@ nr-binder    | A tool for utilizing UE's internet connectivity.
 libdevbnd.so | A dynamic library for nr-binder
 
 Run `nr-gnb` and `nr-ue` to start using UE and gNB. 
-
-<h2 align="Left">4. Installation of WebUI of Open5GS</h2>
-
-<h4 align="Left">Node.js is mandatory for installing WebUI of Open5GS </h4>
-
-Ensure that Node.js and npm (Node Package Manager) are installed on your system. You can typically install them using your system's package manager.
-```
-#Installing Node.js
-$ sudo apt update
-$ sudo apt install curl
-$ curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-$ sudo apt install nodejs
-```
-WebUI is a web interface that allows you to get access to user (subscriber) DB of Open5GS where you can add new user or change information for existing UE (subscribers).
-
-```
-#Installing WebUI of Open5GS
-$ curl -fsSL https://open5gs.org/open5gs/assets/webui/install | sudo -E bash -
-```
-
-<h4 align="Left">After WebUI installation, we get automatically generated username and password : </h4>
-
-```
-Username: admin
-Password: 1432
-```
-
-![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/webUI.png)
