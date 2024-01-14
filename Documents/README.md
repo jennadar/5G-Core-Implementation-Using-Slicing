@@ -54,3 +54,38 @@ $ sudo systemctl enable mongod
 ```
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/mongodb.png)
+
+<h3 align="Left">Next, we installed Open5GS in our Ubuntu.</h3>
+
+```
+#easy way to install Open5GS in ubuntu
+$ sudo add-apt-repository ppa:open5gs/latest
+$ sudo apt update
+$ sudo apt install open5gs
+```
+
+<h2 align="Left">3. Installation of WebUI of Open5GS</h2>
+
+<h4 align="Left">Node.js is mandatory for installing WebUI of Open5GS </h4>
+
+```
+#Installing Node.js
+$ sudo apt update
+$ sudo apt install curl
+$ curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+$ sudo apt install nodejs
+```
+
+```
+#Installing WebUI of Open5GS
+$ curl -fsSL https://open5gs.org/open5gs/assets/webui/install | sudo -E bash -
+```
+
+<h4 align="Left">After WebUI installation, we get automatically generated username and password : </h4>
+
+```
+Username: admin
+Password: 1432
+```
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/webUI.png)
