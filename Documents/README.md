@@ -89,7 +89,7 @@ $ sudo systemctl enable mongod
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/mongodb.png)
 
 <h3 align="Left">Next, we installed Open5GS in our Ubuntu.</h3>
-nstalling Open5GS on Ubuntu involves several steps, including installing dependencies, compiling the source code, and configuring the system. Below is a general guide to help installing Open5GS:
+Installing Open5GS on Ubuntu involves several steps, including installing dependencies, compiling the source code, and configuring the system. Below is a general guide to help installing Open5GS:
 
 ```
 #easy way to install Open5GS in ubuntu
@@ -103,6 +103,7 @@ Ensure that the Open5GS components are running without errors. Check the termina
 
 <h4 align="Left">Node.js is mandatory for installing WebUI of Open5GS </h4>
 
+Ensure that Node.js and npm (Node Package Manager) are installed on your system. You can typically install them using your system's package manager.
 ```
 #Installing Node.js
 $ sudo apt update
@@ -110,6 +111,7 @@ $ sudo apt install curl
 $ curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 $ sudo apt install nodejs
 ```
+WebUI is a web interface that allows you to get access to user (subscriber) DB of Open5GS where you can add new user or change information for existing UE (subscribers).
 
 ```
 #Installing WebUI of Open5GS
