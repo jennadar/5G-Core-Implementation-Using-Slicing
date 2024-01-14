@@ -14,6 +14,24 @@
 </p>
 <br/>
 
+<h2 align="Left">5G Network Architecture </h2>
+This Guide includes all steps required to put the configured emulation into operation.
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM&5G-core.png)
+<h3 align="Left">Contents/Steps: </h3>
+<h4 align="Left">1. VirtualBox Installation </h4>
+<h4 align="Left">2. Network Settings to SSH </h4>
+<h4 align="Left">3. How to install and SSH into the server </h4>
+<h4 align="Left">4. Install Open5GS Core and Configuration </h4>
+<h4 align="Left">5. Install WebUI </h4>
+<h4 align="Left">6. Setting up UERANSIM </h4>
+<h4 align="Left">7. Adding the Subscriber </h4>
+<h4 align="Left">8. Running the UE Simulator </h4>
+<h4 align="Left">9. Test 5G Network </h4>
+<h4 align="Left">10. Wireshark Installation </h4>
+<h4 align="Left">11. Troubleshooting </h4>
+<h4 align="Left">12. Public Website Source </h4>
+
 <h2 align="Left">1. Installation of Virtual Box</h2>
 
 Download VirtualBox: Visit the official VirtualBox website (https://www.virtualbox.org/) and download the latest version of VirtualBox for your operating system (Windows, macOS, Linux).
