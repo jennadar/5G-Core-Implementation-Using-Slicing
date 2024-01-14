@@ -52,3 +52,16 @@ Also, Edit the open5gs-ue.yaml file and modify gnbsearchList ip ( for me it is: 
 
 ![Diagram](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/ue_yaml_file.png)
 
+We’ll start the gNodeB service from the UERANSIM directory by running the nr-gnb service with the config file in config/open5gs-gnb.yaml
+
+```bash
+$ build/nr-gnb -c config/open5gs-gnb.yaml
+```
+
+we will get the output as 
+
+![Diagram](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/ngsetup.png)
+
+
+
+
