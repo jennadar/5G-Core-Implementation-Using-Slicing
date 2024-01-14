@@ -92,7 +92,56 @@ $ sudo apt install open5gs
 ```
 Ensure that the Open5GS components are running without errors. Check the terminal outputs for any error messages.
 
-<h2 align="Left">3. Installation of WebUI of Open5GS</h2>
+<h2 align="Left">3. Installation of UERANSIM</h2>
+
+<h3 align="Left">Getting Started with UERANSIM</h4>
+Firstly, please make sure that you have the latest version of UERANSIM. Use the following commands to clone the UERANSIM repository.
+
+```
+$ cd ~
+$ git clone https://github.com/aligungr/UERANSIM
+```
+<h3 align="Left">Download the dependencies for UERANSIM</h4>
+Firstly it's better to update your apt repositories and upgrade the programs.
+
+```
+sudo apt update
+sudo apt upgrade
+```
+
+Here is the list of dependencies you need to install
+
+```
+sudo apt install make
+sudo apt install gcc
+sudo apt install g++
+sudo apt install libsctp-dev lksctp-tools
+sudo apt install iproute2
+sudo snap install cmake --classic
+```
+
+<h3 align="Left">Building and compiling  UERANSIM</h4>
+And here's command for building:
+
+```
+cd ~/UERANSIM
+make
+```
+And that's it. After successfully compiling the project, output binaries will be copied to ~/UERANSIM/build folder. And you should see the following files:
+
+nr-gnb       | Main executable for 5G gNB (RAN)
+
+nr-ue        | Main executable for 5G UE
+
+nr-cli       | CLI tool for 5G gNB and UE
+
+nr-binder    | A tool for utilizing UE's internet connectivity.
+
+libdevbnd.so | A dynamic library for nr-binder
+
+Run `nr-gnb` and `nr-ue` to start using UE and gNB. 
+
+<h2 align="Left">4. Installation of WebUI of Open5GS</h2>
 
 <h4 align="Left">Node.js is mandatory for installing WebUI of Open5GS </h4>
 
