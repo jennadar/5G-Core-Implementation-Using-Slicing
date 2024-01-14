@@ -62,6 +62,26 @@ we will get the output as
 
 ![Diagram](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/ngsetup.png)
 
+### Adding the Subscriber in WebUI
+
+ we’ll browse to the web interface for Open5GS HSS/UDR and add a subscribe
+
+ Open the browser and enter the URL 127.0.0.1:9999
+
+ We’ll enter the IMSI, K key and OP key (make sure you’ve selected OPc and not OP), and save. You may notice the values match the defaults in the Open5GS Web UI, just without the spaces.
+
+ ### Running the UE Simulator
+
+open up a new terminal to start the UE with:
+
+
+bash
+$ sudo ./build/nr-ue -c config/open5gs-ue.yaml
+
+The output is :
+
+![Diagram](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/PDU.png)
+
 
 
 
