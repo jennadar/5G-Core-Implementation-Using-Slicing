@@ -290,6 +290,18 @@ The output is :
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/WS%20FLOW.png)
 
+
+## Configuring Multiple UE's with one gNB
+
+1. Create the copy of open5gs-ue.yaml as open5gs-ue1.yaml and open5gs-ue2.yaml
+
+![Diagram](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UE1.png)
+
+
+![Diagram](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UE2.png)
+
+
+
 <h3 align="Left"> Multiple subscribers added to WebUI </h3>
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/webui_3_subscribers.png)
@@ -305,3 +317,6 @@ The output is :
 <h3 align="Left"> Subscriber 3 details </h3>
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Subscriber%203%20details.png)
+
+
+![Diagram](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/3UE's.png)
