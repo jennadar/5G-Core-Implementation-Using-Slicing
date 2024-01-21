@@ -148,7 +148,7 @@ Firstly, please make sure that you have the latest version of UERANSIM. Use the 
 $ cd ~
 $ git clone https://github.com/aligungr/UERANSIM
 ```
-<h3 align="Left">Download the dependencies for UERANSIM</h4>
+<h3 align="Left">Download the dependencies for UERANSIM</h3>
 Firstly it's better to update your apt repositories and upgrade the programs.
 
 ```
@@ -188,3 +188,18 @@ nr-binder    | A tool for utilizing UE's internet connectivity.
 libdevbnd.so | A dynamic library for nr-binder
 
 Run `nr-gnb` and `nr-ue` to start using UE and gNB. 
+
+<h2 align="Left">5. Configuration and Initiation of gNodeB </h2>
+<h3 align="Left">Wireshark traces for NGAP Request</h3>
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/WS_ngap_request.png)
+
+<h3 align="Left">Wireshark traces for NGAP Response</h3>
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/WS_ngap_response.png)
+
+<h3 align="Left">Flow diagram for NGAP request and response in Wireshark </h3>
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/WS%20FLOW.png)
+
+
