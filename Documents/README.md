@@ -3,9 +3,9 @@
 
 <h1 align="center">Team Gen5 Designers</h1>
 <p align="center">
-    <strong>Description</strong>
+    <strong>Master of Engineering</strong>
     <br>
-    Comment
+    Information Technology
     <br>
     Nastayeen Abdul Majid(1427970)
     Shiva Kumar Biru(1436929)
