@@ -292,31 +292,49 @@ The output is :
 
 
 ## Configuring Multiple UE's with one gNB
+<h3 align="Left"> Configuring multiple UE </h3>
 
-1. Create the copy of open5gs-ue.yaml as open5gs-ue1.yaml and open5gs-ue2.yaml
+Create the copy of open5gs-ue.yaml as `open5gs-ue1.yaml` and open5gs-ue2.yaml. 
 
 ![Diagram](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UE1.png)
 
+To create an UE1, you need to change the `supi number` to a unique number as shown in the figure above. 
+Each EU should have a different supi number. Simalarly create the copy of open5gs-ue.yaml as `open5gs-ue2.yaml` and change the supi number for UE2. 
 
 ![Diagram](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UE2.png)
 
+After changing the supi number for each EU. We’ll start the gNodeB service from the UERANSIM directory by running the nr-gnb service with the config file in config/open5gs-gnb.yaml
 
+```bash
+$ build/nr-gnb -c config/open5gs-gnb.yaml
+```
+
+Build this for UE1 and UE2 respectively.
 
 <h3 align="Left"> Multiple subscribers added to WebUI </h3>
+
+In order to add subscribers to the WebUI. Open the application on the webpage and add the `imsi number` of each EU. 
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/webui_3_subscribers.png)
 
 <h3 align="Left"> Subscriber 1 details </h3>
 
+The details of the Subscriber 1 are shown below:
+
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Subscriber%201%20details.png)
 
 <h3 align="Left"> Subscriber 2 details </h3>
+
+The details of the Subscriber 2 are shown below:
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Subscriber%202%20details.png)
 
 <h3 align="Left"> Subscriber 3 details </h3>
 
+The details of the Subscriber 3 are shown below:
+
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Subscriber%203%20details.png)
 
-
+The session between multiple UEs (UE1,UE2 and UE3) and gNB is established successfully here.
+ 
 ![Diagram](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/3UE's.png)
