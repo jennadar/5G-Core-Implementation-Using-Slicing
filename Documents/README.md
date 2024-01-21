@@ -1,5 +1,5 @@
 <!-- PROJECT LOGO -->
-<img src="resources/images/FRA-UAS_Logo_rgb.jpg" width="150"/>
+<img src="Figures/FRA-UAS_Logo_rgb.jpg" width="150"/>
 
 <h1 align="center">Team Gen5 Designers</h1>
 <p align="center">
@@ -202,4 +202,18 @@ Run `nr-gnb` and `nr-ue` to start using UE and gNB.
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/WS%20FLOW.png)
 
+<h3 align="Left"> Multiple subscribers added to WebUI </h3>
 
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/webui_3_subscribers.png)
+
+<h3 align="Left"> Subscriber 1 details </h3>
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Subscriber%201%20details.png)
+
+<h3 align="Left"> Subscriber 2 details </h3>
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Subscriber%202%20details.png)
+
+<h3 align="Left"> Subscriber 3 details </h3>
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Subscriber%203%20details.png)
