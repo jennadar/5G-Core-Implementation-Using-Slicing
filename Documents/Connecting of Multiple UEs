@@ -17,4 +17,4 @@
 
 **2. Configuring network files to connect to the internet**
 - Open the terminal and enter the root.
-- Navigate to the 
+- Navigate to the `systctl.yaml` and uncomment the `number-of-connection=1` and make changes according to your system requirements.
