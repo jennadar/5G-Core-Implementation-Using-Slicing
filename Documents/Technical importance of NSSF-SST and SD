@@ -24,3 +24,22 @@ It communicates with the Network Slice Repository Function (NSRF) to retrieve in
 NSSF plays a pivotal role in the orchestration and allocation of network slices, which are virtualized, end-to-end logical networks tailored to specific service requirements.
 It receives requests from services, applications, or users for network resources and determines the appropriate network slice(s) to fulfill those requirements.
 NSSF considers various factors including Quality of Service (QoS), latency, bandwidth, security policies, and SLAs during the selection process.
+
+SST and SD:
+SST stand for "Slice Selection Template" and SD for "Slice Differentiator". 
+These  are crucial for understanding how NSSF determines the appropriate network slice(s) to allocate based on the requirements of the requesting service, application, or user.
+
+1. Slice Selection Template (SST):
+   - A Slice Selection Template (SST) is a predefined template or profile that specifies the characteristics, attributes, and capabilities of a particular type of network slice.
+   - SSTs serve as blueprints or templates for creating and configuring network slices with predefined sets of parameters, such as Quality of Service (QoS) metrics, latency requirements, bandwidth allocation, and security policies.
+   - Each SST is associated with specific service types, use cases, or applications, allowing NSSF to match incoming service requests with the most suitable SSTs based on their requirements.
+   - When a service or application requests network resources, NSSF evaluates the associated SSTs to determine the most appropriate slice(s) that match the service's needs.
+
+2. Slice Differentiator (SD):
+   - A Slice Differentiator (SD) is a unique identifier or tag associated with a particular network slice instance within the same SST.
+   - SDs enable differentiation and identification of individual instances or variations of the same network slice type based on specific parameters or customization options.
+   - For example, multiple instances of a network slice with the same SST (e.g., an "Internet of Things" slice) may have different SDs to distinguish between them based on factors such as geographical coverage, performance characteristics, or customer preferences.
+   - NSSF uses SDs to select the most appropriate instance of a network slice within a given SST, ensuring that the allocated resources align closely with the requirements of the requesting service or application.
+
+ SSTs and SDs play essential roles in the network slicing architecture of 5G networks, enabling NSSF to dynamically select and allocate network slices tailored to the specific needs and preferences of services, applications, or users. 
+By leveraging predefined templates and unique identifiers, NSSF ensures efficient resource utilization and optimal service delivery across diverse use cases and scenarios.
