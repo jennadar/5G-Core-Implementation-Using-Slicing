@@ -1,0 +1,14 @@
+Network settings of Open5GS 5GC and UERANSIM UE / RAN:-
+UERANSIM/config/open5gs-gnb.yaml
+Changes in configuration files of UE[SST:1, SD:0x000001] (IMSI-1) in UERANSIM/config/open5gs-ue-sd1.yaml
+Changes in configuration files of UE[SST:1, SD:0x000002] (IMSI-2) in UERANSIM/config/open5gs-ue-sd2.yaml
+Add IP addresses for SMF1 and SMF2. enp0s8 is the network interface in  VirtualBox environment.
+Changes in configuration files of Open5GS 5GC C-Plane
+open5gs/install/etc/open5gs/amf.yaml
+open5gs/install/etc/open5gs/smf1.yaml
+open5gs/install/etc/open5gs/smf2.yaml
+
+
+
+
+
