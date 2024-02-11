@@ -1,12 +1,81 @@
 Network settings of Open5GS 5GC and UERANSIM UE / RAN:-
+Changes in configuration files of RAN (gNodeB)
 UERANSIM/config/open5gs-gnb.yaml
 Changes in configuration files of UE[SST:1, SD:0x000001] (IMSI-1) in UERANSIM/config/open5gs-ue-sd1.yaml
+UERANSIM/config/open5gs-ue-sd1.yaml
+
 Changes in configuration files of UE[SST:1, SD:0x000002] (IMSI-2) in UERANSIM/config/open5gs-ue-sd2.yaml
+UERANSIM/config/open5gs-ue-sd2.yaml
+
 Add IP addresses for SMF1 and SMF2. enp0s8 is the network interface in  VirtualBox environment.
 Changes in configuration files of Open5GS 5GC C-Plane
 open5gs/install/etc/open5gs/amf.yaml
 open5gs/install/etc/open5gs/smf1.yaml
 open5gs/install/etc/open5gs/smf2.yaml
+open5gs/install/etc/open5gs/nssf.yaml
+open5gs/install/etc/freeDiameter/smf1.conf
+open5gs/install/etc/freeDiameter/smf2.conf
+
+
+Changes in configuration files of Open5GS 5GC U-Plane1
+open5gs/install/etc/open5gs/upf.yaml
+open5gs/install/etc/open5gs/upf.yaml
+
+Network settings of Open5GS 5GC and UERANSIM UE / RAN
+Network settings of Open5GS 5GC C-Plane
+Add IP addresses for SMF1 and SMF2.
+
+Network settings of Open5GS 5GC U-Plane1
+net.ipv4.ip_forward=1
+# sysctl -p
+Next, configure the TUNnel interface and NAPT.
+ip tuntap add name ogstun mode tun
+ip addr add 10.45.0.1/16 dev ogstun
+ip link set ogstun up
+
+iptables -t nat -A POSTROUTING -s 10.45.0.0/16 ! -o ogstun -j MASQUERADE
+
+Network settings of Open5GS 5GC U-Plane2
+First, uncomment the next line in the /etc/sysctl.conf file and reflect it in the OS.
+net.ipv4.ip_forward=1
+# sysctl -p
+Next, configure the TUNnel interface and NAPT.
+ip tuntap add name ogstun mode tun
+ip addr add 10.46.0.1/16 dev ogstun
+ip link set ogstun up
+
+iptables -t nat -A POSTROUTING -s 10.46.0.0/16 ! -o ogstun -j MASQUERADE
+
+Build Open5GS and UERANSIM
+Run Open5GS 5GC C-Plane
+Run Open5GS 5GC U-Plane1 & U-Plane2
+Next, run Open5GS 5GC U-Plane.
+
+Open5GS 5GC U-Plane1
+./install/bin/open5gs-upfd &
+Open5GS 5GC U-Plane2
+./install/bin/open5gs-upfd &
+Then run tcpdump on one more terminal for each U-Plane.
+
+Run tcpdump on VM2 (U-Plane1)
+ tcpdump -i ogstun -n
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on ogstun, link-type RAW (Raw IP), capture size 262144 bytes
+Run tcpdump on VM3 (U-Plane2)
+ tcpdump -i ogstun -n
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on ogstun, link-type RAW (Raw IP), capture size 262144 bytes
+
+Run UERANSIM (gNodeB)
+Confirm that the packet goes through the DN of U-Plane1 based on SST:1 and SD:0x000001.
+Ping google.com going through DN on u-plane 1
+tcpdump log on U-Plane1
+Run UERANSIM (UE[SST:1, SD:0x000002])
+
+
+
+
+
 
 
 
