@@ -16,13 +16,12 @@
 
 ## Contents
 
-*   [What is this?](#what-is-this)
-*   [When should I use this?](#when-should-i-use-this)
-*   [Getting started](#getting-started)
+*   [Introduction](#what-is-this)
+*   [Requirements and Planning](#when-should-i-use-this)
+*   [Realization and Analysis](#getting-started)
     *   [Requirements](#requirements)
     *   [Install](#install)
     *   [Usage](#usage)
-*   [Here is where it's your turn](#here-is-where-its-your-turn)
 *   [Don't forget anything](#dont-forget-anything)
     * [Used Technologies](#used-technologies)
     * [Testing](#testing)
