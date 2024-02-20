@@ -14,3 +14,20 @@
 </p>
 <br/>
 
+## Contents
+
+*   [What is this?](#what-is-this)
+*   [When should I use this?](#when-should-i-use-this)
+*   [Getting started](#getting-started)
+    *   [Requirements](#requirements)
+    *   [Install](#install)
+    *   [Usage](#usage)
+*   [Here is where it's your turn](#here-is-where-its-your-turn)
+*   [Don't forget anything](#dont-forget-anything)
+    * [Used Technologies](#used-technologies)
+    * [Testing](#testing)
+    * [Logging](#logging)
+*   [Contribute](#contribute)
+*   [License](#license)
+*   [Sources](#sources)
+*   [Conclusion](#conclusion)
