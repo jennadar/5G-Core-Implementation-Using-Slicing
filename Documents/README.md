@@ -1,9 +1,16 @@
-# Open5GS 5GC & UERANSIM UE / RAN Sample Configuration - Select UPF based on S-NSSAI
-This describes a very simple configuration that uses Open5GS and UERANSIM to select the UPF based on S-NSSAI.
+# Open5GS 5GC Cloud Connect 
+<!-- PROJECT LOGO -->
+<img src="Figures/FRA-UAS_Logo_rgb.jpg" width="150"/>
 
----
-
-### [Sample Configurations and Miscellaneous for Mobile Network](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers)
+<h1 align="center">Team Gen5 Designers</h1>
+<p align="center">
+    <strong>Master of Engineering</strong>
+    <br>
+    Information Technology
+    <br>
+    | Nastayeen Abdul Majid(1427970) | Shiva Kumar Biru(1436929) | Jenny Nadar(1427226) | Sriram Karunanithi(1438891) |
+</p>
+<br/>
 
 ---
 
@@ -39,6 +46,241 @@ This describes a very simple configuration that uses Open5GS and UERANSIM to sel
 
 ---
 <a id="overview"></a>
+<h2 align="Left">1. Project Description </h2>
+
+"5G CloudConnect with EURANSIM Integration" is a comprehensive project focusing on the utilization of 5G core network technology in conjunction with EURANSIM, an open-source platform for simulating and testing 5G networks, to facilitate efficient file transfer between two User Equipment (UE) via Nextcloud. The project aims to exploit the capabilities of 5G networks, including ultra-low latency and high bandwidth, to optimize file sharing performance while leveraging EURANSIM for thorough testing and validation of the network infrastructure. By integrating Nextcloud with the advanced features of 5G core networks and utilizing EURANSIM for comprehensive testing, the project seeks to ensure the reliability, scalability, and performance of the file transfer system under varying network conditions. 
+
+---
+<a id="scope"></a>
+<h3 align="Left">1.1 Project Scope </h3>
+
+The scope of the "5G CloudConnect" project encompasses the following key aspects:
+
+<!-- - **5G Core Network Implementation**: Implementation and configuration of a 5G core network infrastructure, leveraging EURANSIM for simulation and testing purposes, to support enhanced Mobile Broadband (eMBB) services and ultra-reliable communication.
+
+- **Integration with Nextcloud**:  Development of interfaces and protocols to seamlessly integrate Nextcloud with the 5G core network, enabling efficient and secure file transfer functionalities.
+
+- **Performance Optimization**:  Fine-tuning network configurations and protocols to maximize file transfer speeds, minimize latency, and optimize resource utilization within the 5G CloudConnect system.
+
+- **Security and Privacy Measures**: Implementation of robust security mechanisms, such as end-to-end encryption and access control, to ensure the confidentiality and integrity of transferred files within the Nextcloud environment.
+
+- **Scalability and Reliability**: Designing the system architecture to be scalable and resilient, capable of handling increasing user loads and maintaining high availability under dynamic network conditions.
+
+- **Usability and User Experience Enhancement**: Conducting usability testing and incorporating user feedback to improve the user interface and overall experience of the file transfer process within the 5G CloudConnect ecosystem.
+
+- **Documentation and Training**: Providing comprehensive documentation, user guides, and training materials to facilitate the deployment, configuration, and usage of the 5G CloudConnect solution, including guidance on integrating with EURANSIM for testing purposes. -->
+
+- Designing and deploying a 5G core network architecture optimized for file transfer applications utilizing Nextcloud.
+- Configuring and utilizing the EURANSIM simulation platform for testing the 5G core network's performance.
+- Implementing two network slices to establish separate connections between User Equipment (UE) and Nextcloud, enabling evaluation of differentiated services.
+- Conducting comprehensive performance testing, including measurement of latency, throughput, and reliability, to assess the network's suitability for file transfer requirements.
+- Analyzing collected data to identify strengths, weaknesses, and potential optimizations of the 5G core network in supporting file transfers.
+- Documenting findings and insights obtained from the evaluation process, providing valuable information for network optimization and future deployments.
+- Offering recommendations for enhancing the 5G core network's capabilities to better support file transfer applications and similar use cases.
+
+By addressing these aspects within the defined scope, the "5G CloudConnect with EURANSIM Integration" project aims to deliver a robust, secure, and high-performance platform for efficient file transfer over 5G networks, validated through thorough testing and simulation using EURANSIM.
+
+---
+<a id="Requirement"></a>
+<h2 align="Left">2. Requirement </h2>
+This section explains all the required installation and pre-requisites and dependencies need to establish a 5G Core network and UERANSIM.
+
+<h2 align="Left">2.1 Installation of Virtual Box</h2>
+
+Download VirtualBox: Visit the official VirtualBox website (https://www.virtualbox.org/) and download the latest version of VirtualBox for your operating system (Windows, macOS, Linux).
+Install VirtualBox: Run the installer and follow the on-screen instructions to install VirtualBox on your computer.
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Virtual%20box.png)
+
+<h3 align="Left">2.1.1 Creation of Virtual machines for both 5Gcore and UERANSIM  </h3>
+
+Open VirtualBox: Launch the VirtualBox application on your computer.
+Click "New": In the VirtualBox main window, click on the "New" button to create a new virtual machine.
+Set Name and Type: Provide a name for your virtual machine (e.g., 5Gcore_VM), select the type (Linux), and choose the version that matches your operating system.
+Allocate Memory: Specify the amount of RAM for the virtual machine. For 5G core and UERANSIM, allocate sufficient memory based on your system requirements.
+Create a Virtual Hard Disk: Create a virtual hard disk and choose the size. Allocate enough space for the operating system and applications.
+Click "Create" and "Create" again to confirm.
+Repeat the process to create another virtual machine for UERANSIM.
+
+<h3 align="Left">2.1.2 Install Operating Systems</h3>
+
+Start the Virtual Machines: Select the virtual machines you created and click "Start" to power them on.
+Install Operating System: Follow the on-screen instructions to install the operating system on each virtual machine. This could involve mounting an ISO file with the installation media and going through the installation process.
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/twoVMs.png)
+
+<h3 align="Left">2.1.3. Go to Network settings in virtual box to enable Adapters 1 and 2 </h3>
+
+Select a Virtual Machine: Choose one of the virtual machines (e.g., 5Gcore_VM) and go to the "Settings."
+Navigate to "Network": In the VM settings, go to the "Network" tab.
+Enable Adapter 1: Check the "Enable Network Adapter" box. Choose "Bridged Adapter" from the drop-down menu. This will allow the VM to connect to the physical network.
+Enable Adapter 2: Click on "Adapter 2" and check the "Enable Network Adapter" box. Choose "Host-Only Adapter" from the drop-down menu. This creates a private network between the two virtual machines.
+Apply and Save: Click "OK" to apply the changes and save the settings.
+Repeat the process for the UERANSIM virtual machine.
+
+<h4 align="Left">Adapter 1:</h4>
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Adapter1%20settings.png)
+
+<h4 align="Left">Adapter 2: </h4>
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Adapter2%20settings.png)
+
+<h2 align="Left">2.2 Installing MongoDB and Open5GS</h2>
+
+<h3 align="Left">2.2.1 Getting MongoDB: </h3>
+Open a terminal on your Ubuntu machine. You can do this by pressing Ctrl + Alt + T or searching for "Terminal" in the applications menu.
+Emter the following bash codes to installDB on Ubuntu
+
+```
+# Importing public key for package management system
+$ sudo apt update
+$ sudo apt install gnupg
+$ curl -fsSL https://pgp.mongodb.com/server-6.0.asc | sudo gpg -o /usr/share/keyrings/mongodb-server-6.0.gpg --dearmor
+```
+```
+# Creating a list file /etc/apt/sources.list.d/mongodb-org-6.0 for our Ubuntu version 22.04
+$ echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+```
+```
+# Installing MongoDB packages 
+$ sudo apt update
+$ sudo apt install -y mongodb-org
+$ sudo systemctl start mongod (if '/usr/bin/mongod' is not running)
+$ sudo systemctl enable mongod
+```
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/mongodb.png)
+
+<h3 align="Left">2.2.2 Installation of Open5GS in our Ubuntu on VM.</h3>
+Installing Open5GS on Ubuntu involves several steps, including installing dependencies, compiling the source code, and configuring the system. Below is a general guide to help installing Open5GS:
+
+```
+#easy way to install Open5GS in ubuntu
+$ sudo add-apt-repository ppa:open5gs/latest
+$ sudo apt update
+$ sudo apt install open5gs
+```
+Ensure that the Open5GS components are running without errors. Check the terminal outputs for any error messages.
+
+<h2 align="Left">2.3 Installation of WebUI of Open5GS</h2>
+
+**Node.js is mandatory for installing WebUI of Open5GS **
+
+Ensure that Node.js and npm (Node Package Manager) are installed on your system. You can typically install them using your system's package manager.
+```
+#Installing Node.js
+$ sudo apt update
+$ sudo apt install curl
+$ curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+$ sudo apt install nodejs
+```
+WebUI is a web interface that allows you to get access to user (subscriber) DB of Open5GS where you can add new user or change information for existing UE (subscribers).
+
+```
+#Installing WebUI of Open5GS
+$ curl -fsSL https://open5gs.org/open5gs/assets/webui/install | sudo -E bash -
+```
+
+<h4 align="Left">After WebUI installation, we get automatically generated username and password : </h4>
+
+```
+Username: admin
+Password: 1432
+```
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/webUI.png)
+
+
+<h2 align="Left">2.4 Installation of UERANSIM</h2>
+
+<h3 align="Left">Getting Started with UERANSIM</h4>
+Firstly, please make sure that you have the latest version of UERANSIM. Use the following commands to clone the UERANSIM repository.
+
+```
+$ cd ~
+$ git clone https://github.com/aligungr/UERANSIM
+```
+<h3 align="Left">Download the dependencies for UERANSIM</h3>
+Firstly it's better to update your apt repositories and upgrade the programs.
+
+```
+sudo apt update
+sudo apt upgrade
+```
+
+Here is the list of dependencies you need to install
+
+```
+sudo apt install make
+sudo apt install gcc
+sudo apt install g++
+sudo apt install libsctp-dev lksctp-tools
+sudo apt install iproute2
+sudo snap install cmake --classic
+```
+
+<h3 align="Left">Building and compiling  UERANSIM</h4>
+And here's command for building:
+
+```
+cd ~/UERANSIM
+make
+```
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM_build.png)
+And that's it. After successfully compiling the project, output binaries will be copied to ~/UERANSIM/build folder. And you should see the following files:
+
+nr-gnb       | Main executable for 5G gNB (RAN)
+
+nr-ue        | Main executable for 5G UE
+
+nr-cli       | CLI tool for 5G gNB and UE
+
+nr-binder    | A tool for utilizing UE's internet connectivity.
+
+libdevbnd.so | A dynamic library for nr-binder
+
+Run `nr-gnb` and `nr-ue` to start using UE and gNB. 
+
+
+## After the Installations of UERANSIM and Open5gs
+
+### Open5gs
+
+The initial topic for discussion is the Access and Mobility Function (AMF). The AMF is accessed by the gNodeB through the N2 interface. It is responsible for managing 5G NAS messaging, which is utilized by User Equipment (UE) or devices for requesting data services, overseeing handovers between gNodeBs during network transitions, and authenticating to the network.
+
+By default, the AMF is configured to bind to a loopback IP. While this setup works well when everything is running on the same server, it becomes problematic for real gNodeBs or when using UERANSIM on a different machine.
+
+To address this issue, it is necessary to configure the AMF to bind to the IP address of the machine it is running on. This configuration can be adjusted in the "/etc/open5gs/amf.yaml" file. Specifically, the ngap address needs to be modified to bind the AMF to the machine's IP. In my case, this IP is 10.0.2.4.
+
+```bash
+ngap:
+  - addr: 10.0.2.4
+```
+
+![Images](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/amf_file.png)
+
+
+Also, Edit the GTPU ip in UPF.yaml file
+
+```bash
+gtpu:
+  - addr: 10.0.2.4
+```
+
+![Images](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/upf_file.png)
+
+
+After the changes of amf.yaml and upf.yaml files, save the changes and restart both services by following the below command.
+
+```bash
+
+sudo systemctl restart open5gs-amfd
+sudo systemctl restart open5gs-upfd
+
+```
+
+## Realization & Analysis 
 
 ## Overview of Open5GS 5GC Simulation Mobile Network
 
@@ -524,3 +766,7 @@ Please refer to the following for building Open5GS and UERANSIM respectively.
  # Supported integrity algorithms by this UE
  integrity:
 ```
+## Conclusion
+
+
+## References
