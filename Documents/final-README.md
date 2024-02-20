@@ -1,5 +1,6 @@
 <!-- PROJECT LOGO -->
 <img src="Figures/FRA-UAS_Logo_rgb.jpg" width="150"/>
+![alt text](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/FRA-UAS_Logo_rgb.jpg)
 
 <h1 align="center">Team Gen5 Designers</h1>
 <p align="center">
