@@ -38,6 +38,7 @@ Starting with AMF configuration changes.
 Note : Only the changes are mentioned here
 
 - `amf.yaml`
+~~~
 - amf:
   sbi:
     server:
@@ -80,8 +81,9 @@ Note : Only the changes are mentioned here
           sd: 000001
         - sst: 2
           sd: 000002
-          
+~~~          
 - `nssf.yaml`
+~~~
   nssf:
   sbi:
     server:
@@ -114,11 +116,12 @@ Note : Only the changes are mentioned here
           s_nssai:
             sst: 2
             sd: 000002
+~~~
 
 ## Changes in configuration of multiple SMFs
 As mentioned we have multiple SMFs, in order to achieve the SMF concept, we have initialized IP subnets for each SMF respectively mentioned as below:
 (We need to update the table)
-| SMFs # | freeDiameter | IP Address | SST | SD | APN |
+| SMFs  | freeDiameter | IP Address | SST | SD | APN |
 | --- | ---| --- | --- | --- | --- |
 | SMF1 | smf1.conf | 10.8.2.112 | 1 | 1 | Internet |
 | SMF2 | smf2.conf | 10.8.2.113 | 1 | 2 | Internet2 |
@@ -126,14 +129,13 @@ As mentioned we have multiple SMFs, in order to achieve the SMF concept, we have
 | SMF4 | smf4.conf | 10.8.2.115 | 2 | 2 | 2voip2 |
 
 - `smf1.yaml`
+~~~
   smf:
   sbi:
     server:
       - address: 127.0.0.4
         port: 7777
     client:
-#      nrf:
-#        - uri: http://127.0.0.10:7777
       scp:
         - uri: http://127.0.0.200:7777
   pfcp:
@@ -164,11 +166,6 @@ As mentioned we have multiple SMFs, in order to achieve the SMF concept, we have
     - 2001:4860:4860::8888
     - 2001:4860:4860::8844
   mtu: 1400
-#  p-cscf:
-#    - 127.0.0.1
-#    - ::1
-#  ctf:
-#    enabled: auto   # auto(default)|yes|no
   freeDiameter: /etc/freeDiameter/smf1.conf
   info:
     - s_nssai:
@@ -181,16 +178,15 @@ As mentioned we have multiple SMFs, in order to achieve the SMF concept, we have
             mcc: 999
             mnc: 70
           tac: 1
-          
+~~~          
 - `smf2.yaml`
+~~~
   smf:
   sbi:
     server:
       - address: 127.0.0.24
         port: 7777
     client:
-#      nrf:
-#        - uri: http://127.0.0.10:7777
       scp:
         - uri: http://127.0.0.200:7777
   pfcp:
@@ -221,11 +217,6 @@ As mentioned we have multiple SMFs, in order to achieve the SMF concept, we have
     - 2001:4860:4860::8888
     - 2001:4860:4860::8844
   mtu: 1400
-#  p-cscf:
-#    - 127.0.0.1
-#    - ::1
-#  ctf:
-#    enabled: auto   # auto(default)|yes|no
   freeDiameter: /etc/freeDiameter/smf2.conf
   info:
     - s_nssai:
@@ -237,16 +228,15 @@ As mentioned we have multiple SMFs, in order to achieve the SMF concept, we have
             mcc: 999
             mnc: 70
           tac: 1
-          
+~~~          
 - `smf3.yaml`
+~~~  
   smf:
   sbi:
     server:
       - address: 127.0.0.25
         port: 7777
     client:
-#      nrf:
-#        - uri: http://127.0.0.10:7777
       scp:
         - uri: http://127.0.0.200:7777
   pfcp:
@@ -270,7 +260,6 @@ As mentioned we have multiple SMFs, in order to achieve the SMF concept, we have
   session:
     - subnet: 10.55.0.1/16
     - dnn: voip
-    
 
   dns:
     - 8.8.8.8
@@ -278,11 +267,6 @@ As mentioned we have multiple SMFs, in order to achieve the SMF concept, we have
     - 2001:4860:4860::8888
     - 2001:4860:4860::8844
   mtu: 1400
-#  p-cscf:
-#    - 127.0.0.1
-#    - ::1
-#  ctf:
-#    enabled: auto   # auto(default)|yes|no
   freeDiameter: /etc/freeDiameter/smf3.conf
   info:
     - s_nssai:
@@ -295,16 +279,15 @@ As mentioned we have multiple SMFs, in order to achieve the SMF concept, we have
             mcc: 999
             mnc: 70
           tac: 1
-          
+~~~          
 - `smf4.yaml`
-- smf:
+  ~~~
+  smf:
   sbi:
     server:
       - address: 127.0.0.26
         port: 7777
     client:
-#      nrf:
-#        - uri: http://127.0.0.10:7777
       scp:
         - uri: http://127.0.0.200:7777
   pfcp:
@@ -335,11 +318,6 @@ As mentioned we have multiple SMFs, in order to achieve the SMF concept, we have
     - 2001:4860:4860::8888
     - 2001:4860:4860::8844
   mtu: 1400
-#  p-cscf:
-#    - 127.0.0.1
-#    - ::1
-#  ctf:
-#    enabled: auto   # auto(default)|yes|no
   freeDiameter: /etc/freeDiameter/smf4.conf
   info:
     - s_nssai:
@@ -351,3 +329,4 @@ As mentioned we have multiple SMFs, in order to achieve the SMF concept, we have
             mcc: 999
             mnc: 70
           tac: 1
+~~~
