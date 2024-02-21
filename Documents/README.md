@@ -73,7 +73,7 @@ By addressing these aspects within the defined scope, the "5G CloudConnect with 
 <a id="architecture"></a>
 <h1 align="Left">2. General Architecture </h1>
 
-This section gives a brief description of the whole project. ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/general_architecture.jpg)
+This section explains the basic architecture of 5G network core. ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/general_architecture.jpg)
 
 <h2 align="Left"> Open5GS </h2>
 Open5GS is an open-source implementation of 5G Core Network (5GC) and EPC (Evolved Packet Core), designed to provide a platform for researchers, developers, and operators to experiment, test, and deploy 5G networks. It offers a flexible and modular architecture, allowing for customization and extension to meet various deployment scenarios and requirements. Open5GS aims to promote innovation and collaboration in the 5G ecosystem by providing an accessible and interoperable framework for building next-generation mobile networks. 
@@ -88,6 +88,9 @@ UERANSIM is an open source 5G UE & 5G RAN (gNodeB) implementation. It can be con
 - Radio Interface (between UE and RAN).  
 
 UERANSIM supports to run with Open5GS and Free5GC 5G Core networks. We can connect UERANSIM to one of these 5G Core network and test the functionality. 
+
+<h2 align="Left"> Network Slicing </h2>
+Network slicing is a fundamental concept in 5G networks that allows the creation of multiple virtual networks, each tailored to serve specific types of applications, services, or customers. It enables the efficient allocation of network resources and the customization of network behaviour to meet diverse requirements, such as ultra-reliable low-latency communication (URLLC), massive machine type communication (mMTC), and enhanced mobile broadband (eMBB).
 
 ---
 
@@ -104,59 +107,65 @@ Please refer to the link below to complete the installation of the dependencies.
 This section explains the work plan for our team and the work distribution, roles and responsiblities for each team members
 
 ***** Addd image of waterfall **
+
 ---
-
-
 <a id="realisation"></a>
 <h1 align="Left">5. Realization of the Project </h1>
 In the realization phase of the "5G CloudConnect with EURANSIM Integration" project, significant configuration changes are made to the 5G core network components, specifically the Access and Mobility Management Function (AMF), the Session Management Function (SMF), and the Network Slice Selection Function (NSSF). These changes are essential to optimize the network architecture for efficient file transfer applications using Nextcloud and to facilitate thorough testing and validation using EURANSIM.
 
-<h2 align="Left"> Overview of Open5GS 5GC Simulation Mobile Network</h2>
-
-The following minimum configuration was set as a condition.
-- The UE selects a pair of SMF and UPF based on S-NSSAI.
-
-The built simulation environment is as follows.
+A brief description of the whole project is demonstrated in the image below.
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM&5G-core.png)
 
 
+<h2 align="Left"> Architecture Explaination </h2>
+<!-- <h3 align="Left"> Overview of Open5GS 5GC Simulation Mobile Network</h3>-->
+
+<!--The following minimum configuration was set as a condition.
+- The UE selects a pair of SMF and UPF based on S-NSSAI.
+
 The 5GC / UE / RAN used are as follows.
 - 5GC - Open5GS v2.6.1 (2023.03.18) - https://github.com/open5gs/open5gs
-- UE / RAN - UERANSIM v3.2.6 (2023.03.17) - https://github.com/aligungr/UERANSIM
+- UE / RAN - UERANSIM v3.2.6 (2023.03.17) - https://github.com/aligungr/UERANSIM -->
+
+The network components are configured in separate Virtual Machine labelled as VM. The details of each VM are mentioned in the table below. 
 
 Each VMs are as follows.  
 | VM # | SW & Role | IP address | OS | Memory (Min) | HDD (Min) |
 | --- | --- | --- | --- | --- | --- |
-| VM1 | UERANSIM UE1 & gNB1 | 10.8.2.2/24 | Ubuntu 22.04 | 1GB | 10GB |
-| VM2 | Open5GS 5GS C-plane | 10.8.2.8/24 <br> 10.8.2.112/24 <br> 10.8.2.114/24 <br> 10.8.2.115/24 | Ubuntu 22.04 | 1GB | 10GB |
-| VM3 | UERANSIM UE2 & gNB2 & UPF | 10.8.2.7/24 | Ubuntu 22.04 | 1GB | 10GB |
+| VM1 | Open5GS 5GS C-plane | 10.8.2.8/24 | Ubuntu 22.04 | 1GB | 10GB |
+| VM2 | UE&RAN (gNodeB &UEs)  | 10.8.2.2/24 | Ubuntu 22.04 | 1GB | 10GB |
+| VM3 | UE&RAN (gNodeB &UEs)  | 10.8.2.14/24 | Ubuntu 22.04 | 1GB | 10GB |
+| VM4 | Open5GS 5GC U-Plane1   | 10.8.2.9/24 | Ubuntu 22.04 | 1GB | 10GB |
+| VM5 | Open5GS 5GC U-Plane1 & Next Cloud for File Sharing  | 10.8.2.15/24 | Ubuntu 22.04 | 1GB | 10GB |
 
-AMF & SMF addresses are as follows.  
-| NF | IP address | IP address on SBI | Supported S-NSSAI |
+Two UEs were created in two separate VMs. We have provided separate slicing to individual User Equipment for File Sharing. UE1 uses the slice marked with colour Red and similarly UE2 uses slice marked with colour Blue.  
+
+As per the project requirement UE1 and UE2 have access to File sharing with UPF1 and UPF2 respectively. The NSSF file is used for network slice selection as per the slicing parameters provided by the UEs. 
+ 
+| NF | IP address | Supported S-NSSAI |
+| --- | --- | --- |
+| AMF | 10.8.2.8/24  | SST:1, SD:1 <br> SST:1, SD:2 |
+| NSSF-SST1-SSD1 | 10.8.2.8/24 | SST:1, SD:1 |
+| NSSF-SST1-SSD2 | 10.8.2.8/24 | SST:1, SD:2 |
+
+Subscriber Information (other information is the same) is as follows. These User informations were registered with Open5GS WebUI
+
+| UE # |	IMSI |	DNN	 |  OP/OPc  |
 | --- | --- | --- | --- |
-| AMF | 10.8.2.112/24 | 127.0.0.5 | SST:1, SD:0x000001 <br> SST:1, SD:0x000002 |
-| SMF1 | 10.8.2.114/24 | 127.0.0.4 | SST:1, SD:0x000001 |
-<!--| SMF2 | 192.168.0.115/24 | 127.0.0.24 | SST:1, SD:0x000002 |-->
-
-gNodeB Information (other information is default) is as follows.  
-| IP address | Supported S-NSSAI |
-| --- | --- |
-| 10.8.2.2 | SST:1, SD:0x000001 <br> SST:1, SD:0x000002 |
-
-Subscriber Information (other information is default) is as follows.  
-**Note. Please select OP or OPc according to the setting of UERANSIM UE configuration files.**
-| UE | IMSI | DNN | OP/OPc | S-NSSAI |
-| --- | --- | --- | --- | --- |
-| UE | 001010000000000 | internet | OPc | SST:1, SD:0x000001 <br> SST:1, SD:0x000002|
-
-<!-- I registered these information with the Open5GS WebUI.
-In addition, [3GPP TS 35.208](https://www.3gpp.org/DynaReport/35208.htm) "4.3 Test Sets" is published by 3GPP as test data for the 3GPP authentication and key generation functions (MILENAGE). -->
+| UE1 | 999700000000001  |	internet | OPc |
+| UE2 |	999700000000003  | internet2	 | OPc |
+| UE3 | 999700000000006  | voip | OPc |
+| UE4 | 999700000000004  | voip2	| OPc |
 
 Each DNs are as follows.
-| DN | S-NSSAI |  TUNnel interface of DN | DNN | TUNnel interface of UE | U-Plane # |
-| --- | --- | --- | --- | --- | --- |
-| 10.45.0.0/16 | SST:1 <br> SD:0x000001 | ogstun | internet | uesimtun0 | U-Plane1 |
-| 10.46.0.0/16 | SST:1 <br> SD:0x000002 | ogstun | internet | uesimtun0 | U-Plane2 |
+
+| DN | TUNnel interface of DN |	APN/DNN	| TUNnel interface of UE | U-Plane # |
+| --- | --- | --- | --- | --- |
+| 10.45.0.0/16 | ogstun | internet | uesimtun0 | U-Plane1 |
+| 10.46.0.0/16 | ogstun | internet | uesimtun1 | U-Plane1 |
+| 10.55.0.0/16 | ogstun2 | voip | uesimtun2 | U-Plane2 |
+| 10.56.0.0/16 | ogstun2 | voip | uesimtun3 | U-Plane2 |
+
 
 <a id="changes"></a>
 
@@ -595,6 +604,64 @@ Please refer to the following for building Open5GS and UERANSIM respectively.
  # Supported integrity algorithms by this UE
  integrity:
 ```
+
+<a id="Analysis"></a>
+<h1 align="Left">6. Execution </h1>
+
+After the configurations of the components of 5GC in Open5GS, to receive the changes in the machine we need to restart the 5GC services as mentioned below
+
+```
+$ sudo systemctl stop open5gs-smfd
+$ sudo systemctl stop open5gs-upfd
+$ sudo systemctl restart open5gs-amfd
+$ sudo systemctl restart open5gs-nrfd
+$ sudo systemctl restart open5gs-scpd
+$ sudo systemctl restart open5gs-ausfd
+$ sudo systemctl restart open5gs-udmd
+$ sudo systemctl restart open5gs-pcfd
+$ sudo systemctl restart open5gs-nssfd
+$ sudo systemctl restart open5gs-bsfd
+$ sudo systemctl restart open5gs-udrd
+$ sudo systemctl restart open5gs-webui
+$ sudo ./open5gs-smfd -c /smf.yaml
+$ sudo ./open5gs-smfd -c /smf2.yaml
+$ sudo ./open5gs-smfd -c /smf3.yaml
+$ sudo ./open5gs-smfd -c /smf4.yaml
+
+```
+
+After restarting the 5G components, we have depicted the working of the architecture through Wireshark traces captured at Service Based Interfaces.
+
+<h3 align="Left">6.1.1 Network Settings of Open5GS 5GC C-Plane </h3>
+
+Before starting the SMF's files, configure the network setting as mentioned below.
+
+Add IP addresses for SMF1 and SMF2 .
+
+```
+ip addr add 10.8.2.112/24 dev enp0s8
+ip addr add 192.168.0.113/24 dev enp0s8 
+```
+
+To run the smf1 and smf2:
+
+```
+sudo /bin/open5gs-smfd -c /etc/open5gs/smf1.yaml 
+sudo /bin/open5gs-smfd -c /etc/open5gs/smf2.yaml 
+```
+
+After running the above commands you will establish a smf connection as show in the image below.
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Open5gs/SMF Connection.png)
+
+
+
+
+
+
+
+
+
 ## Conclusion
 
 
