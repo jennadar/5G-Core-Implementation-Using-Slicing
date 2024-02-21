@@ -73,7 +73,7 @@ By addressing these aspects within the defined scope, the "5G CloudConnect with 
 <a id="architecture"></a>
 <h1 align="Left">2. General Architecture </h1>
 
-This section gives a brief description of the whole project. ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/general_architecture.png)
+This section gives a brief description of the whole project. ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/general_architecture.jpg)
 
 <h2 align="Left"> Open5GS </h2>
 Open5GS is an open-source implementation of 5G Core Network (5GC) and EPC (Evolved Packet Core), designed to provide a platform for researchers, developers, and operators to experiment, test, and deploy 5G networks. It offers a flexible and modular architecture, allowing for customization and extension to meet various deployment scenarios and requirements. Open5GS aims to promote innovation and collaboration in the 5G ecosystem by providing an accessible and interoperable framework for building next-generation mobile networks. 
