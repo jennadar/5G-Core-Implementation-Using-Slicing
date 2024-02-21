@@ -1,4 +1,4 @@
-<h1 align="Center"> Installation Process and basic configuration</h1>
+<h1 align="Center"> Installation Process Guide</h1>
 
 <h2 align="Left">2.1 Installation of Virtual Box</h2>
 
