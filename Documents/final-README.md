@@ -330,3 +330,49 @@ As mentioned we have multiple SMFs, in order to achieve the SMF concept, we have
             mnc: 70
           tac: 1
 ~~~
+## Overview and Changes in configuration files of Open5GS 5GC U-Plane1
+- `upf1.yaml`
+
+~~~
+upf:
+  pfcp:
+    server:
+      - address: 10.8.2.7
+  gtpu:
+    server:
+      - address: 10.8.2.7
+
+  session:
+    - subnet: 10.45.0.1/16
+      dnn: internet
+      dev: ogstun
+    - subnet: 10.55.0.1/16
+      dnn: voip
+      dev: ogstun2
+  metrics:
+    server:
+      - address: 127.0.0.7
+        port: 9090
+~~~
+
+## Overview and Changes in configuration files of Open5GS 5GC U-Plane2
+~~~
+upf:
+  pfcp:
+    server:
+      - address: 10.8.2.15
+  gtpu:
+    server:
+      - address: 10.8.2.15
+  session:
+    - subnet: 10.46.0.1/16
+      dnn: internet
+      dev: ogstun
+    - subnet: 10.56.0.1/16
+      dnn: voip
+      dev: ogstun2
+  metrics:
+    server:
+      - address: 127.0.0.7
+        port: 9090
+~~~
