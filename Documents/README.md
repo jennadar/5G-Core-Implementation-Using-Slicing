@@ -82,7 +82,7 @@ By addressing these aspects within the defined scope, the "5G CloudConnect with 
 
 ---
 <a id="Requirement"></a>
-<h2 align="Left">2. Requirement </h2>
+<h2 align="Left">2. Requirements and Pre-requisite </h2>
 This section explains all the required installation and pre-requisites and dependencies need to establish a 5G Core network and UERANSIM.
 
 <h2 align="Left">2.1 Installation of Virtual Box</h2>
@@ -125,6 +125,39 @@ Repeat the process for the UERANSIM virtual machine.
 <h4 align="Left">Adapter 2: </h4>
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Adapter2%20settings.png)
+
+<h3 align="Left">2.1.4. Changes for creating a static IP for each VM </h3>
+Navigate to `\etc\netplan` directory in Ubuntu. Now you have to make changes to both the files.
+
+Changes to make in `01-netcfg.yaml` 
+
+```
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp0s3:
+      dhcp4: yes
+
+```
+
+Changes to make in `01-network-manager-all.yaml`
+
+```
+# Let NetworkManager manage all devices on this system
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp0s3:
+      addresses:
+        -  10.8.2.2/24
+      nameservers:
+        addresses: [10.8.2.2,1.1.1.1]
+      routes:
+        - to: default
+          via: 10.8.2.1
+```
 
 <h2 align="Left">2.2 Installing MongoDB and Open5GS</h2>
 
@@ -242,43 +275,6 @@ libdevbnd.so | A dynamic library for nr-binder
 
 Run `nr-gnb` and `nr-ue` to start using UE and gNB. 
 
-
-## After the Installations of UERANSIM and Open5gs
-
-### Open5gs
-
-The initial topic for discussion is the Access and Mobility Function (AMF). The AMF is accessed by the gNodeB through the N2 interface. It is responsible for managing 5G NAS messaging, which is utilized by User Equipment (UE) or devices for requesting data services, overseeing handovers between gNodeBs during network transitions, and authenticating to the network.
-
-By default, the AMF is configured to bind to a loopback IP. While this setup works well when everything is running on the same server, it becomes problematic for real gNodeBs or when using UERANSIM on a different machine.
-
-To address this issue, it is necessary to configure the AMF to bind to the IP address of the machine it is running on. This configuration can be adjusted in the "/etc/open5gs/amf.yaml" file. Specifically, the ngap address needs to be modified to bind the AMF to the machine's IP. In my case, this IP is 10.0.2.4.
-
-```bash
-ngap:
-  - addr: 10.0.2.4
-```
-
-![Images](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/amf_file.png)
-
-
-Also, Edit the GTPU ip in UPF.yaml file
-
-```bash
-gtpu:
-  - addr: 10.0.2.4
-```
-
-![Images](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/upf_file.png)
-
-
-After the changes of amf.yaml and upf.yaml files, save the changes and restart both services by following the below command.
-
-```bash
-
-sudo systemctl restart open5gs-amfd
-sudo systemctl restart open5gs-upfd
-
-```
 
 ## Realization & Analysis 
 
