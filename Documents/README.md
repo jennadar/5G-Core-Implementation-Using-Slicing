@@ -135,8 +135,8 @@ Each VMs are as follows.
 | VM1 | Open5GS 5GS C-plane | 10.8.2.8/24 | Ubuntu 22.04 | 1GB | 10GB |
 | VM2 | UE&RAN (gNodeB &UEs)  | 10.8.2.2/24 | Ubuntu 22.04 | 1GB | 10GB |
 | VM3 | UE&RAN (gNodeB &UEs)  | 10.8.2.14/24 | Ubuntu 22.04 | 1GB | 10GB |
-| VM4 | Open5GS 5GC U-Plane1   | 10.8.2.9/24 | Ubuntu 22.04 | 1GB | 10GB |
-| VM5 | Open5GS 5GC U-Plane1 & Next Cloud for File Sharing  | 10.8.2.15/24 | Ubuntu 22.04 | 1GB | 10GB |
+| VM4 | Open5GS 5GC U-Plane1   | 10.8.2.7/24 | Ubuntu 22.04 | 1GB | 10GB |
+| VM5 | Open5GS 5GC U-Plane2 & Next Cloud for File Sharing  | 10.8.2.15/24 | Ubuntu 22.04 | 1GB | 10GB |
 
 Two UEs were created in two separate VMs. We have provided separate slicing to individual User Equipment for File Sharing. UE1 uses the slice marked with colour Red and similarly UE2 uses slice marked with colour Blue.  
 
@@ -144,9 +144,9 @@ As per the project requirement UE1 and UE2 have access to File sharing with UPF1
  
 | NF | IP address | Supported S-NSSAI |
 | --- | --- | --- |
-| AMF | 10.8.2.8/24  | SST:1, SD:1 <br> SST:1, SD:2 |
-| NSSF-SST1-SSD1 | 10.8.2.8/24 | SST:1, SD:1 |
-| NSSF-SST1-SSD2 | 10.8.2.8/24 | SST:1, SD:2 |
+| AMF | 10.8.2.8/24  | SST:1, SD:1 <br> SST:1, SD:2 <br> SST:2, SD:1 <br> SST:2, SD:2 |
+| NSSF | 10.8.2.8/24 | SST:1, SD:1 <br> SST:1, SD:2 <br> SST:2, SD:1 <br> SST:2, SD:2 |
+
 
 Subscriber Information (other information is the same) is as follows. These User informations were registered with Open5GS WebUI
 
@@ -154,8 +154,8 @@ Subscriber Information (other information is the same) is as follows. These User
 | --- | --- | --- | --- |
 | UE1 | 999700000000001  |	internet | OPc |
 | UE2 |	999700000000003  | internet2	 | OPc |
-| UE3 | 999700000000006  | voip | OPc |
-| UE4 | 999700000000004  | voip2	| OPc |
+| UE3 | 999700000000006  | internet | OPc |
+| UE4 | 999700000000004  | internet	| OPc |
 
 Each DNs are as follows.
 
@@ -608,30 +608,6 @@ Please refer to the following for building Open5GS and UERANSIM respectively.
 <a id="Analysis"></a>
 <h1 align="Left">6. Execution </h1>
 
-After the configurations of the components of 5GC in Open5GS, to receive the changes in the machine we need to restart the 5GC services as mentioned below. As multiple SMFs need to be implemented, these services are made to run separately.
-
-```
-$ sudo systemctl stop open5gs-smfd
-$ sudo systemctl stop open5gs-upfd
-$ sudo systemctl restart open5gs-amfd
-$ sudo systemctl restart open5gs-nrfd
-$ sudo systemctl restart open5gs-scpd
-$ sudo systemctl restart open5gs-ausfd
-$ sudo systemctl restart open5gs-udmd
-$ sudo systemctl restart open5gs-pcfd
-$ sudo systemctl restart open5gs-nssfd
-$ sudo systemctl restart open5gs-bsfd
-$ sudo systemctl restart open5gs-udrd
-$ sudo systemctl restart open5gs-webui
-$ sudo ./open5gs-smfd -c /smf.yaml
-$ sudo ./open5gs-smfd -c /smf2.yaml
-$ sudo ./open5gs-smfd -c /smf3.yaml
-$ sudo ./open5gs-smfd -c /smf4.yaml
-
-```
-
-After restarting the 5G components, we have depicted the working of the architecture through Wireshark traces captured at Service Based Interfaces.
-
 <h3 align="Left">6.1.1 Network Settings of Open5GS 5GC C-Plane </h3>
 Before starting the SMF's files, configure the network setting as mentioned below.
 
@@ -639,7 +615,7 @@ Add IP addresses for SMF1 and SMF2 .
 
 ```
 ip addr add 10.8.2.112/24 dev enp0s8
-ip addr add 192.168.0.113/24 dev enp0s8 
+ip addr add 10.8.2.113/24 dev enp0s8 
 ```
 <h3 align="Left">6.1.2 Network Settings of Open5GS 5GC C-Plane UPF-1 </h3>
 
@@ -680,6 +656,29 @@ iptables -t nat -A POSTROUTING -s 10.46.0.0/16 ! -o ogstun -j MASQUERADE
 ```
 
 <h2 align="Left">6.2 SMF to UPF connection Establishment. </h2>
+After the configurations of the components of 5GC in Open5GS, to receive the changes in the machine we need to restart the 5GC services as mentioned below. As multiple SMFs need to be implemented, these services are made to run separately.
+
+```
+$ sudo systemctl stop open5gs-smfd
+$ sudo systemctl stop open5gs-upfd
+$ sudo systemctl restart open5gs-amfd
+$ sudo systemctl restart open5gs-nrfd
+$ sudo systemctl restart open5gs-scpd
+$ sudo systemctl restart open5gs-ausfd
+$ sudo systemctl restart open5gs-udmd
+$ sudo systemctl restart open5gs-pcfd
+$ sudo systemctl restart open5gs-nssfd
+$ sudo systemctl restart open5gs-bsfd
+$ sudo systemctl restart open5gs-udrd
+$ sudo systemctl restart open5gs-webui
+$ sudo ./open5gs-smfd -c /smf.yaml
+$ sudo ./open5gs-smfd -c /smf2.yaml
+$ sudo ./open5gs-smfd -c /smf3.yaml
+$ sudo ./open5gs-smfd -c /smf4.yaml
+
+```
+
+After restarting the 5G components, we have depicted the working of the architecture through Wireshark traces captured at Service Based Interfaces.
 
 <h3 align="Left">6.2.1 SMF1 to UPF1 connection Establishment. </h3>
 
@@ -702,7 +701,7 @@ The MSC of PFCP association b/w SMF1 and UPF1
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Open5gs/MSC-between-SMF1-n-UPF1.png)
 
-<h3 align="Left">6.2.2 SMF1 to UPF1 connection Establishment. </h3>
+<h3 align="Left">6.2.2 SMF2 to UPF2 connection Establishment. </h3>
 
 Similarly, initialization of the UPF in U-Plane2. The following commands can be performed by
 running and stopping the required as mentioned below
