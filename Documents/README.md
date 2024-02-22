@@ -608,7 +608,7 @@ Please refer to the following for building Open5GS and UERANSIM respectively.
 <a id="Analysis"></a>
 <h1 align="Left">6. Execution </h1>
 
-After the configurations of the components of 5GC in Open5GS, to receive the changes in the machine we need to restart the 5GC services as mentioned below
+After the configurations of the components of 5GC in Open5GS, to receive the changes in the machine we need to restart the 5GC services as mentioned below. As multiple SMFs need to be implemented, these services are made to run separately.
 
 ```
 $ sudo systemctl stop open5gs-smfd
@@ -652,7 +652,19 @@ sudo /bin/open5gs-smfd -c /etc/open5gs/smf2.yaml
 
 After running the above commands you will establish a smf connection as show in the image below.
 
-![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Open5gs/SMF Connection.png)
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Open5gs/SMF_Connection.png)
+
+The wireshark traces of PFCP association b/w SMF1 and UPF1
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Open5gs/WT-between-SMF1-n-UPF1.png)
+
+The MSC of PFCP association b/w SMF1 and UPF1
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Open5gs/MSC-between-SMF1-n-UPF1.png)
+
+
+<h3 align="Left">6.1.1 Network Settings of Open5GS 5GC C-Plane </h3>
+
 
 
 
