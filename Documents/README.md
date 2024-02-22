@@ -770,6 +770,41 @@ Similarly, other UEs (UE4, UE2) can be realized.
 
 
 <h2 align="Left">6.3 Accessing Data Networks. </h2>
+<h3 align="Left">6.3.1 Testing the network using UE1</h3>
+To ping google.com
+Open a new terminal
+
+`./nr-binder 10.45.0.4 ping google.com`
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/Ping%20Google%20server%20from%20UE1.png)
+
+Wireshark traces are shown in the image below.
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/Ping%20Google%20server%20from%20UE1-wireshark.png)
+
+MSC diagram is shown below.
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/Ping%20Google%20server%20from%20UE1-MSC.png)
+
+Confirm by using tcpdump that the packet goes through if=ogstun on U-Plane1.
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/U_plane1/UE1_UPLANE1_TCPDUMP.png)
+
+<h3 align="Left">6.3.2 Testing the network using UE2 via</h3>
+To ping google.com
+Open a new terminal
+
+`./nr-binder 10.45.0.4 ping google.com`
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/Ping%20Google%20server%20from%20UE2.png)
+
+Wireshark traces are shown in the image below.
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/Ping%20Google%20server%20from%20UE2-wireshark.png)
+
+MSC diagram is shown below.
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/Ping%20Google%20server%20from%20UE2-msc.png)
+
+
+Confirm by using tcpdump that the packet goes through if=ogstun on U-Plane2.
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/tree/main/Figures/U_plane2)
+
 
 <h1 align="Left">7 Network Slicing. </h1>
 
