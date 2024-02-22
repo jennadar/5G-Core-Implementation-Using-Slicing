@@ -813,13 +813,13 @@ sh nr-binder 10.46.0.2 firefox (for ue2)
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/nextcloud_user1.png)
 
-![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/nextcloud_user2.png)
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/nextcloud_User2.png)
 
 <h3 align="Left">6.4.2 File Sharing from UE1(SST:1, SD:1) to UE2() (Server)</h3>
 
-![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/nextcloud_user2.png)
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/nextcloud_file_from_user1.png)
 
-![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/nextcloud_user2.png)
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/pic_nextcloud_user1(user1).png)
 
 The wireshark traces and MSC is given below
 ***** insert image
