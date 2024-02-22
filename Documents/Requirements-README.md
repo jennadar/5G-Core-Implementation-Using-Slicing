@@ -5,7 +5,7 @@
 Download VirtualBox: Visit the official VirtualBox website (https://www.virtualbox.org/) and download the latest version of VirtualBox for your operating system (Windows, macOS, Linux).
 Install VirtualBox: Run the installer and follow the on-screen instructions to install VirtualBox on your computer.
 
-![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Virtual%20box.png)
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Installations/Virtual%20box.png)
 
 <h3 align="Left">2.1.1 Creation of Virtual machines for both 5Gcore and UERANSIM  </h3>
 
@@ -22,7 +22,6 @@ Repeat the process to create another virtual machine for UERANSIM.
 Start the Virtual Machines: Select the virtual machines you created and click "Start" to power them on.
 Install Operating System: Follow the on-screen instructions to install the operating system on each virtual machine. This could involve mounting an ISO file with the installation media and going through the installation process.
 
-![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/twoVMs.png)
 
 <h3 align="Left">2.1.3. Go to Network settings in virtual box to enable Adapters 1 and 2 </h3>
 
@@ -35,11 +34,11 @@ Repeat the process for the UERANSIM virtual machine.
 
 <h4 align="Left">Adapter 1:</h4>
 
-![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Adapter1%20settings.png)
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Installations/Adapter1%20settings.png)
 
 <h4 align="Left">Adapter 2: </h4>
 
-![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Adapter2%20settings.png)
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Installations/Adapter2%20settings.png)
 
 <h3 align="Left">2.1.4. Changes for creating a static IP for each VM </h3>
 Navigate to `\etc\netplan` directory in Ubuntu. Now you have to make changes to both the files.

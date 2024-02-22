@@ -757,14 +757,14 @@ for initializing the UE0
 
 <h3 align="Left">6.3.2 NG Setup between gNB2 to AMF </h3>
 
-Similarly in UE3 and gnB2 follow the command to run them.
-initialization of the gNB2 & UE3 can be performed by the following
+Similarly in UE2 and gnB2 follow the command to run them.
+initialization of the gNB2 & UE2 can be performed by the following
 commands in the UERANSIM/build directory respectively.
 To run gnb - `sudo build/nr-gnb -c config/open5gs-gnb2.yaml`
 
 To ensure successful connection between 5GC and gnb, we need to receive `NG connection successful` in the same terminal.
 
-To run the first ue, UE1 - `sudo ./build/nr-ue -c config/open5gs-ue3.yam`
+To run the first ue, UE1 - `sudo ./build/nr-ue -c config/open5gs-ue2.yam`
 The successful initialization of UE can be verified by receiving the `PDU Session Establishment successful` with TUNnel interface[uesimtun0,10.45.0.2] in the same terminal. 
 
 Similarly, other UEs (UE4, UE2) can be realized.
@@ -772,21 +772,59 @@ Similarly, other UEs (UE4, UE2) can be realized.
 
 <h2 align="Left">6.3 Accessing Data Networks. </h2>
 
+<h1 align="Left">7 Network Slicing. </h1>
 
+This section Includes all the network slicing that was performed.
 
-<h2 align="Left">6.4 Next Cloud. </h2>
+<h2 align="Left">7.1 Next Cloud. </h2>
 
+The NextCloud File Hosting server has been implemented on a Ip subnet 10.8.2.15 in the User Plane 2. The users who are connected to the 5G Core via ‘internet’ DNN will be able to access the NextCloud server by with pinging to the server Ip. 
 
+<h3 align="Left">7.1.1 Creation on Users in Next Cloud (Server)</h3>
 
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/nectcloud_Usercreations.png)
 
+Below series of steps are involved in accessing the file sharing service:
+1. NG Connection establishment between gNB and 5GC-Control Plane.  
 
+2. PDU session establishment between U-Plane 1 and UE1.  
 
+3. PDU session establishment between U-Plane 2 and UE2.  
 
+4. The IP address for the ‘uesimtun0’ interfaces of both the UEs are shown in Table 7:  
 
+| UE | IP of interface uesimtun0  | Slice used |
+| --- | --- | --- |
+| UE1 | 10.45.0.4  | SST:1, SD:1 |
+| UE2 | 10.46.0.2 | SST:1, SD:2 |
 
+5. Once the UEs are assigned the IP addresses on the ‘uesimtun0’ interface then ‘nr-binder’ tool
+available as a part of UERANSIM is used to access the NextCloud server via web browser already
+installed in both UE1 and UE2 using the below command:
 
+```
+cd UERANSIM/build  
 
+sh nr-binder 10.45.0.4 firefox (for ue1)  
 
+sh nr-binder 10.46.0.2 firefox (for ue2)
+```
+6. In the browser windows the NextCloud server can be accessed from the url https://10.8.2.15/nextcloud/ by logging in to 	users ‘UE1’ and ‘UE2’ already registered in the NextCloud server (10.8.2.15) ‘ue1’ and ‘ue2’ respectively.  
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/nextcloud_user1.png)
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/nextcloud_user2.png)
+
+<h3 align="Left">6.4.2 File Sharing from UE1(SST:1, SD:1) to UE2() (Server)</h3>
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/nextcloud_user2.png)
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/nextcloud_user2.png)
+
+The wireshark traces and MSC is given below
+***** insert image
+
+<h2 align="Left">7.2 Connecting to a Website. </h2>
 
 
 ## Conclusion
