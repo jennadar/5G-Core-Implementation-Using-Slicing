@@ -380,7 +380,7 @@ upf:
 
 ## Overview and Changes in configuration files of UERANSIM UE/RAN
 
-- `Changes in configuration files of RAN (gNB-1)`
+- Changes in configuration files of RAN (gNB-1)
 
 ~~~
 mcc: '999'          # Mobile Country Code value
@@ -410,7 +410,7 @@ slices:
     ignoreStreamIds: true
 ~~~
 
-- `Changes in configuration files of RAN (gNB-2)´
+- Changes in configuration files of RAN (gNB-2)
 
 ~~~
 mcc: '999'          # Mobile Country Code value
