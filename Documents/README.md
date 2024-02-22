@@ -633,7 +633,6 @@ $ sudo ./open5gs-smfd -c /smf4.yaml
 After restarting the 5G components, we have depicted the working of the architecture through Wireshark traces captured at Service Based Interfaces.
 
 <h3 align="Left">6.1.1 Network Settings of Open5GS 5GC C-Plane </h3>
-
 Before starting the SMF's files, configure the network setting as mentioned below.
 
 Add IP addresses for SMF1 and SMF2 .
@@ -642,6 +641,47 @@ Add IP addresses for SMF1 and SMF2 .
 ip addr add 10.8.2.112/24 dev enp0s8
 ip addr add 192.168.0.113/24 dev enp0s8 
 ```
+<h3 align="Left">6.1.2 Network Settings of Open5GS 5GC C-Plane UPF-1 </h3>
+
+First, uncomment the next line in the `/etc/sysctl.conf` file and reflect it in the OS.
+
+```
+net.ipv4.ip_forward=1
+
+# sysctl -p
+```
+
+Next, configure the TUNnel interface and NAPT.
+
+```
+ip tuntap add name ogstun mode tun
+ip addr add 10.45.0.1/16 dev ogstun
+ip link set ogstun up
+
+iptables -t nat -A POSTROUTING -s 10.45.0.0/16 ! -o ogstun -j MASQUERADE
+```
+
+<h3 align="Left">6.1.3 Network Settings of Open5GS 5GC C-Plane UPF-2 </h3>
+
+First, uncomment the next line in the `/etc/sysctl.conf` file and reflect it in the OS.
+```
+net.ipv4.ip_forward=1
+```
+```
+# sysctl -p
+```
+Next, configure the TUNnel interface and NAPT.
+```
+ip tuntap add name ogstun mode tun
+ip addr add 10.46.0.1/16 dev ogstun
+ip link set ogstun up
+
+iptables -t nat -A POSTROUTING -s 10.46.0.0/16 ! -o ogstun -j MASQUERADE
+```
+
+<h2 align="Left">6.2 SMF to UPF connection Establishment. </h2>
+
+<h3 align="Left">6.2.1 SMF1 to UPF1 connection Establishment. </h3>
 
 To run the smf1 and smf2:
 
@@ -662,8 +702,83 @@ The MSC of PFCP association b/w SMF1 and UPF1
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Open5gs/MSC-between-SMF1-n-UPF1.png)
 
+<h3 align="Left">6.2.2 SMF1 to UPF1 connection Establishment. </h3>
 
-<h3 align="Left">6.1.1 Network Settings of Open5GS 5GC C-Plane </h3>
+Similarly, initialization of the UPF in U-Plane2. The following commands can be performed by
+running and stopping the required as mentioned below
+
+```
+$ sudo systemctl stop open5gs-smfd
+$ sudo systemctl stop open5gs-amfd
+$ sudo systemctl stop open5gs-nrfd
+$ sudo systemctl stop open5gs-scpd
+$ sudo systemctl stop open5gs-ausfd
+$ sudo systemctl stop open5gs-udmd
+$ sudo systemctl stop open5gs-pcfd
+$ sudo systemctl stop open5gs-nssfd
+$ sudo systemctl stop open5gs-bsfd
+$ sudo systemctl stop open5gs-udrd
+$ sudo systemctl stop open5gs-webui
+$ sudo systemctl restart open5gs-upfd
+
+```
+
+So the wireshark traces of PFCP association between SMF2 and UPF2 is given below
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Open5gs/WT-between-SMF2-n-UPF2.png)
+
+The MSC of PFCP association between SMF2 and UPF2
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Open5gs/MSC-between-SMF2-n-UPF2.png)
+
+<h2 align="Left">6.3 Running UERAN </h2>
+<h3 align="Left">6.3.1 NG Setup between gNB1 to AMF </h3>
+
+Once the 5GC is up and running, initialization of the gNB1 & UE1 can be performed by the following
+commands in the UERANSIM/build directory respectively.
+To run gnb - `sudo build/nr-gnb -c config/open5gs-gnb1.yaml`
+
+To ensure successful connection between 5GC and gnb, we need to receive `NG connection successful` in the same terminal.
+
+To run the first ue, UE1 - `sudo ./build/nr-ue -c config/open5gs-ue1.yam`
+The successful initialization of UE can be verified by receiving the `PDU Session Establishment successful` with TUNnel interface[uesimtun0,10.45.0.2] in the same terminal. 
+888888 image terminal 88888
+
+The above figure represents the Wireshark traces and message sequence chart (MSC) which is
+generated after successful start of UERANSIM gNB, between gnb and AMF
+
+88888imageeeee ws88888
+
+The NGAP traces has
+the NG set up request and response to initialize a gNB and PDU association request and response
+for initializing the UE0
+
+88888image msg8888
+
+<h3 align="Left">6.3.2 NG Setup between gNB2 to AMF </h3>
+
+Similarly in UE3 and gnB2 follow the command to run them.
+initialization of the gNB2 & UE3 can be performed by the following
+commands in the UERANSIM/build directory respectively.
+To run gnb - `sudo build/nr-gnb -c config/open5gs-gnb2.yaml`
+
+To ensure successful connection between 5GC and gnb, we need to receive `NG connection successful` in the same terminal.
+
+To run the first ue, UE1 - `sudo ./build/nr-ue -c config/open5gs-ue3.yam`
+The successful initialization of UE can be verified by receiving the `PDU Session Establishment successful` with TUNnel interface[uesimtun0,10.45.0.2] in the same terminal. 
+
+Similarly, other UEs (UE4, UE2) can be realized.
+
+
+<h2 align="Left">6.3 Accessing Data Networks. </h2>
+
+
+
+<h2 align="Left">6.4 Next Cloud. </h2>
+
+
+
+
 
 
 

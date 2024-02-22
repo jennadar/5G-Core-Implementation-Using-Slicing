@@ -213,4 +213,5 @@ cd Nextcloud-Script
 
 sudo bash Nextcloud-Script/Nextcloud-Script.sh
 ``` 
+
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/NextCloud/nextcloud.png)
