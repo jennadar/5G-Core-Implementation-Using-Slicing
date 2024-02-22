@@ -74,9 +74,16 @@ network:
           via: 10.8.2.1
 ```
 
-<h2 align="Left">2.2 Installing MongoDB and Open5GS</h2>
+<h2 align="Left">2.2 Installation of Wireshark</h2>
 
-<h3 align="Left">2.2.1 Getting MongoDB: </h3>
+To download Wireshark, visit the [Wireshark official website](https://www.wireshark.org) and navigate to the download section. 
+Choose the version compatible with your operating system and initiate the download. Once the download is complete, run the installer and follow the on-screen instructions to install Wireshark. Customize the installation settings as needed. After installation, launch Wireshark from the desktop shortcut or applications menu. Optionally, explore additional tools like TShark or Wireshark Portable for advanced functionality.
+
+---
+
+<h2 align="Left">2.3 Installing MongoDB and Open5GS</h2>
+
+<h3 align="Left">2.3.1 Getting MongoDB: </h3>
 Open a terminal on your Ubuntu machine. You can do this by pressing Ctrl + Alt + T or searching for "Terminal" in the applications menu.
 Emter the following bash codes to installDB on Ubuntu
 
@@ -100,7 +107,7 @@ $ sudo systemctl enable mongod
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/mongodb.png)
 
-<h3 align="Left">2.2.2 Installation of Open5GS in our Ubuntu on VM.</h3>
+<h3 align="Left">2.3.2 Installation of Open5GS in our Ubuntu on VM.</h3>
 Installing Open5GS on Ubuntu involves several steps, including installing dependencies, compiling the source code, and configuring the system. Below is a general guide to help installing Open5GS:
 
 ```
@@ -111,7 +118,7 @@ $ sudo apt install open5gs
 ```
 Ensure that the Open5GS components are running without errors. Check the terminal outputs for any error messages.
 
-<h2 align="Left">2.3 Installation of WebUI of Open5GS</h2>
+<h2 align="Left">2.4 Installation of WebUI of Open5GS</h2>
 
 **Node.js is mandatory for installing WebUI of Open5GS **
 
@@ -140,7 +147,7 @@ Password: 1432
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/webUI.png)
 
 
-<h2 align="Left">2.4 Installation of UERANSIM</h2>
+<h2 align="Left">2.5 Installation of UERANSIM</h2>
 
 <h3 align="Left">Getting Started with UERANSIM</h4>
 Firstly, please make sure that you have the latest version of UERANSIM. Use the following commands to clone the UERANSIM repository.
@@ -191,3 +198,18 @@ libdevbnd.so | A dynamic library for nr-binder
 Run `nr-gnb` and `nr-ue` to start using UE and gNB. 
 
 ---
+
+<h2 align="Left">2.6 Installation of Next Cloud</h2>
+
+
+Nextcloud has been set up on the Virtual Machine 5 to enable seamless file sharing among users. Moreover, the Firefox browser has been configured within the Virtual Machine 5 to manage both admin and user profiles on the Nextcloud server. Access to the admin interface of the Nextcloud server is available through the following URL: https://10.8.2.15/nextcloud/, where the IP address 10.8.2.15 corresponds to VM 5 hosting the Nextcloud server installation. Upon admin registration in Nextcloud, two user profiles are created to facilitate file sharing services. These profiles are designated for usage by two distinct User Equipments and are linked with slice identifiers SST1, SD1, and SST1, SD2.
+
+Linux command to install NextCloud: 
+
+```
+git clone https://github.com/RedxLus/Nextcloud-Script.git 
+
+cd Nextcloud-Script 
+
+sudo bash Nextcloud-Script/Nextcloud-Script.sh
+``` 
