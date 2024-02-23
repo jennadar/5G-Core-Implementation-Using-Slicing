@@ -353,6 +353,7 @@ for initializing the UE1
 Similarly in UE2 and gnB2 follow the command to run them.
 initialization of the gNB2 & UE2 can be performed by the following
 commands in the UERANSIM/build directory respectively.
+
 To run gnb - `sudo build/nr-gnb -c config/open5gs-gnb2.yaml`
 
 To ensure the successful connection between 5GC and gnb, we need to receive `NG connection successful` in the same terminal.
@@ -361,6 +362,7 @@ To ensure the successful connection between 5GC and gnb, we need to receive `NG 
 
 
 To run the first ue, UE2 - `sudo ./build/nr-ue -c config/open5gs-ue2.yaml`
+
 The successful initialization of UE can be verified by receiving the `PDU Session Establishment successful` with TUNnel interface[uesimtun0,10.46.0.2] in the same terminal. 
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM/PDU%20session%20successfully%20established%D1%8Ffor%D1%8FUE2.png)
