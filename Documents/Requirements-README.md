@@ -1,36 +1,36 @@
 <h1 align="Center"> Installation Process Guide</h1>
 
-<h2 align="Left">2.1 Installation of Virtual Box</h2>
+<h2 align="Left">1 Installation of Virtual Box</h2>
 
 Download VirtualBox: Visit the official VirtualBox website (https://www.virtualbox.org/) and download the latest version of VirtualBox for your operating system (Windows, macOS, Linux).
 Install VirtualBox: Run the installer and follow the on-screen instructions to install VirtualBox on your computer.
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Installations/Virtual%20box.png)
 
-<h3 align="Left">2.1.1 Creation of Virtual machines for both 5Gcore and UERANSIM  </h3>
+<h3 align="Left">Step 1: Creation of Virtual machines for both 5Gcore and UERANSIM  </h3>
 
-Open VirtualBox: Launch the VirtualBox application on your computer.
-Click "New": In the VirtualBox main window, click on the "New" button to create a new virtual machine.
-Set Name and Type: Provide a name for your virtual machine (e.g., 5Gcore_VM), select the type (Linux), and choose the version that matches your operating system.
-Allocate Memory: Specify the amount of RAM for the virtual machine. For 5G core and UERANSIM, allocate sufficient memory based on your system requirements.
-Create a Virtual Hard Disk: Create a virtual hard disk and choose the size. Allocate enough space for the operating system and applications.
-Click "Create" and "Create" again to confirm.
-Repeat the process to create another virtual machine for UERANSIM.
+- Open VirtualBox: Launch the VirtualBox application on your computer.
+- Click "New": In the VirtualBox main window, click on the "New" button to create a new virtual machine.
+- Set Name and Type: Provide a name for your virtual machine (e.g., 5Gcore_VM), select the type (Linux), and choose the version that matches your operating system.
+- Allocate Memory: Specify the amount of RAM for the virtual machine. For 5G core and UERANSIM, allocate sufficient memory based on your system requirements.
+- Create a Virtual Hard Disk: Create a virtual hard disk and choose the size.Allocate enough space for the operating system and applications.
+- Click "Create" and "Create" again to confirm.
+- Repeat the process to create another virtual machine for UERANSIM.
 
-<h3 align="Left">2.1.2 Install Operating Systems</h3>
+<h3 align="Left">Step 2: Install Operating Systems</h3>
 
-Start the Virtual Machines: Select the virtual machines you created and click "Start" to power them on.
-Install Operating System: Follow the on-screen instructions to install the operating system on each virtual machine. This could involve mounting an ISO file with the installation media and going through the installation process.
+- Start the Virtual Machines: Select the virtual machines you created and click "Start" to power them on.
+- Install Operating System: Follow the on-screen instructions to install the operating system on each virtual machine. This could involve mounting an ISO file with the installation media and going through the installation process.
 
 
-<h3 align="Left">2.1.3. Go to Network settings in virtual box to enable Adapters 1 and 2 </h3>
+<h3 align="Left">Step 3: Go to Network settings in virtual box to enable Adapters 1 and 2 </h3>
 
-Select a Virtual Machine: Choose one of the virtual machines (e.g., 5Gcore_VM) and go to the "Settings."
-Navigate to "Network": In the VM settings, go to the "Network" tab.
-Enable Adapter 1: Check the "Enable Network Adapter" box. Choose "Bridged Adapter" from the drop-down menu. This will allow the VM to connect to the physical network.
-Enable Adapter 2: Click on "Adapter 2" and check the "Enable Network Adapter" box. Choose "Host-Only Adapter" from the drop-down menu. This creates a private network between the two virtual machines.
-Apply and Save: Click "OK" to apply the changes and save the settings.
-Repeat the process for the UERANSIM virtual machine.
+- Select a Virtual Machine: Choose one of the virtual machines (e.g., 5Gcore_VM) and go to the "Settings."
+- Navigate to "Network": In the VM settings, go to the "Network" tab.
+- Enable Adapter 1: Check the "Enable Network Adapter" box. Choose "Bridged Adapter" from the drop-down menu. This will allow the VM to connect to the physical network.
+- Enable Adapter 2: Click on "Adapter 2" and check the "Enable Network Adapter" box. Choose "Host-Only Adapter" from the drop-down menu. This creates a private network between the two virtual machines.
+- Apply and Save: Click "OK" to apply the changes and save the settings.
+- Repeat the process for the UERANSIM virtual machine.
 
 <h4 align="Left">Adapter 1:</h4>
 
@@ -40,7 +40,7 @@ Repeat the process for the UERANSIM virtual machine.
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Installations/Adapter2%20settings.png)
 
-<h3 align="Left">2.1.4. Changes for creating a static IP for each VM </h3>
+<h3 align="Left">Step 4: Changes for creating a static IP for each VM </h3>
 Navigate to `\etc\netplan` directory in Ubuntu. Now you have to make changes to both the files.
 
 Changes to make in `01-netcfg.yaml` 
@@ -73,16 +73,19 @@ network:
           via: 10.8.2.1
 ```
 
-<h2 align="Left">2.2 Installation of Wireshark</h2>
+<h2 align="Left">2 Installation of Wireshark</h2>
 
-To download Wireshark, visit the [Wireshark official website](https://www.wireshark.org) and navigate to the download section. 
-Choose the version compatible with your operating system and initiate the download. Once the download is complete, run the installer and follow the on-screen instructions to install Wireshark. Customize the installation settings as needed. After installation, launch Wireshark from the desktop shortcut or applications menu. Optionally, explore additional tools like TShark or Wireshark Portable for advanced functionality.
+- To download Wireshark, visit the [Wireshark official website](https://www.wireshark.org) and navigate to the download section. 
+- Choose the version compatible with your operating system and initiate the download. 
+- Once the download is complete, run the installer and follow the on-screen instructions to install Wireshark. 
+- Customize the installation settings as needed. 
+- After installation, launch Wireshark from the desktop shortcut or applications menu. Optionally, explore additional tools like TShark or Wireshark Portable for advanced functionality.
 
 ---
 
-<h2 align="Left">2.3 Installing MongoDB and Open5GS</h2>
+<h2 align="Left">3 Installing MongoDB and Open5GS</h2>
 
-<h3 align="Left">2.3.1 Getting MongoDB: </h3>
+<h3 align="Left">Step 1: Getting MongoDB: </h3>
 Open a terminal on your Ubuntu machine. You can do this by pressing Ctrl + Alt + T or searching for "Terminal" in the applications menu.
 Emter the following bash codes to installDB on Ubuntu
 
@@ -106,7 +109,7 @@ $ sudo systemctl enable mongod
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/mongodb.png)
 
-<h3 align="Left">2.3.2 Installation of Open5GS in our Ubuntu on VM.</h3>
+<h3 align="Left">Step 2: Installation of Open5GS in our Ubuntu on VM.</h3>
 Installing Open5GS on Ubuntu involves several steps, including installing dependencies, compiling the source code, and configuring the system. Below is a general guide to help installing Open5GS:
 
 ```
@@ -117,7 +120,7 @@ $ sudo apt install open5gs
 ```
 Ensure that the Open5GS components are running without errors. Check the terminal outputs for any error messages.
 
-<h2 align="Left">2.4 Installation of WebUI of Open5GS</h2>
+<h2 align="Left">4. Installation of WebUI of Open5GS</h2>
 
 **Node.js is mandatory for installing WebUI of Open5GS **
 
@@ -146,7 +149,7 @@ Password: 1432
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/webUI.png)
 
 
-<h2 align="Left">2.5 Installation of UERANSIM</h2>
+<h2 align="Left">5. Installation of UERANSIM</h2>
 
 <h3 align="Left">Getting Started with UERANSIM</h4>
 Firstly, please make sure that you have the latest version of UERANSIM. Use the following commands to clone the UERANSIM repository.
@@ -198,7 +201,7 @@ Run `nr-gnb` and `nr-ue` to start using UE and gNB.
 
 ---
 
-<h2 align="Left">2.6 Installation of Next Cloud</h2>
+<h2 align="Left">6. Installation of Next Cloud</h2>
 
 
 Nextcloud has been set up on the Virtual Machine 5 to enable seamless file sharing among users. Moreover, the Firefox browser has been configured within the Virtual Machine 5 to manage both admin and user profiles on the Nextcloud server. Access to the admin interface of the Nextcloud server is available through the following URL: https://10.8.2.15/nextcloud/, where the IP address 10.8.2.15 corresponds to VM 5 hosting the Nextcloud server installation. Upon admin registration in Nextcloud, two user profiles are created to facilitate file sharing services. These profiles are designated for usage by two distinct User Equipments and are linked with slice identifiers SST1, SD1, and SST1, SD2.
