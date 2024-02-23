@@ -1,10 +1,34 @@
+# Overview and Changes in configuration files of Open5GS 5GC C-Plane and UERANSIM
 
 
-## Overview and Changes in configuration files of Open5GS 5GC C-Plane and UERANSIM
+## Table of Contents
+
+1. Open5GS 5GC C-Plane Configuration Changes
+   - AMF Configuration Changes
+   - NSSF Configuration Changes
+   - SMF Configuration Changes
+
+2. Open5GS 5GC U-Plane1 Configuration Changes
+   - UPF1 Configuration Changes
+
+3. Open5GS 5GC U-Plane2 Configuration Changes
+   - UPF2 Configuration Changes
+
+4. UERANSIM UE/RAN Configuration Changes
+   - RAN (gNB-1) Configuration Changes
+   - RAN (gNB-2) Configuration Changes
+   - UE1 Configuration Changes
+   - UE2 Configuration Changes
+   - UE3 Configuration Changes
+   - UE4 Configuration Changes
+
+
+
 
 The Core Control Plane of Open5GS 5GC comprises essential components such as AMF, NSSF, NRF, UDM, PCF, NEF, AUSF, and SMF, each serving specific functions. In our setup, we've made slight modifications where we have multiple instances of SMF, totaling four, each assigned to a dedicated APN/DNN. Below are the configuration changes starting with AMF:
 
-The AMF configuration has been modified as follows:
+
+The AMF configuration has been modified as follows:  <a id="intro"></a>
 
 - `amf.yaml`
 ~~~
@@ -162,7 +186,7 @@ client:
 pfcp:
 server:
   - address: 10.8.2.113
-    dnn: internet2
+    dnn: internet
 client:
   upf:
     - address: 10.8.2.15
@@ -218,11 +242,11 @@ client:
 pfcp:
 server:
   - address: 10.8.2.114
-    dnn: voip
+    dnn: internet2
 client:
   upf:
     - address: 10.8.2.7
-      dnn: voip
+      dnn: internet2
 gtpc:
 server:
   - address: 127.0.0.25
@@ -249,7 +273,7 @@ info:
     - sst: 2
       sd: 000001
       dnn:
-        - voip
+        - internet2
   tai:
     - plmn_id:
         mcc: 999
@@ -276,7 +300,7 @@ client:
 pfcp:
 server:
   - address: 10.8.2.115
-    dnn: voip2
+    dnn: internet2
 client:
   upf:
     - address: 10.8.2.15
@@ -292,7 +316,7 @@ server:
     port: 9090
 session:
 - subnet: 10.56.0.1/16
-- dnn: voip2
+- dnn: internet2
   dev: ogstun2
 
 dns:
@@ -337,7 +361,7 @@ upf:
       dnn: internet
       dev: ogstun
     - subnet: 10.55.0.1/16
-      dnn: voip
+      dnn: internet2
       dev: ogstun2
   metrics:
     server:
@@ -360,7 +384,7 @@ upf:
       dnn: internet
       dev: ogstun
     - subnet: 10.56.0.1/16
-      dnn: voip
+      dnn: internet2
       dev: ogstun2
   metrics:
     server:
@@ -649,7 +673,7 @@ uacAcc:
 # Initial PDU sessions to be established
 sessions:
   - type: 'IPv4'
-    apn: 'voip'
+    apn: 'internet2'
     slice:
       sst: 2
       sd: 0x000001
@@ -733,7 +757,7 @@ uacAcc:
 # Initial PDU sessions to be established
 sessions:
   - type: 'IPv4'
-    apn: 'voip'
+    apn: 'internet2'
     slice:
       sst: 2
       sd: 0x000002
