@@ -14,8 +14,6 @@ The AMF configuration has been modified as follows:
       - address: 127.0.0.5
         port: 7777
     client:
-#      nrf:
-#        - uri: http://127.0.0.10:7777
       scp:
         - uri: http://127.0.0.200:7777
   ngap:
@@ -59,8 +57,6 @@ server:
   - address: 127.0.0.14
     port: 7777
 client:
-#      nrf:
-#        - uri: http://127.0.0.10:7777
   scp:
     - uri: http://127.0.0.200:7777
   nsi:
@@ -93,9 +89,9 @@ As mentioned we have multiple SMFs, in order to achieve the SMF concept, we have
 | SMFs  | freeDiameter | IP Address | SST | SD | APN |
 | --- | ---| --- | --- | --- | --- |
 | SMF1 | smf1.conf | 10.8.2.112 | 1 | 1 | Internet |
-| SMF2 | smf2.conf | 10.8.2.113 | 1 | 2 | Internet2 |
-| SMF3 |  smf3.conf | 10.8.2.114 | 2 | 1 | voip |
-| SMF4 | smf4.conf | 10.8.2.115 | 2 | 2 | 2voip2 |
+| SMF2 | smf2.conf | 10.8.2.113 | 1 | 2 | Internet|
+| SMF3 |  smf3.conf | 10.8.2.114 | 2 | 1 | internet2 |
+| SMF4 | smf4.conf | 10.8.2.115 | 2 | 2 | internet2 |
 
 - `smf1.yaml`
 ~~~
