@@ -1,36 +1,4 @@
-<!-- PROJECT LOGO -->
-<img src="Figures/FRA-UAS_Logo_rgb.jpg" width="150"/>
-![alt text](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/FRA-UAS_Logo_rgb.jpg)
 
-<h1 align="center">Team Gen5 Designers</h1>
-<p align="center">
-    <strong>Master of Engineering</strong>
-    <br>
-    Information Technology
-    <br>
-    Nastayeen Abdul Majid(1427970)
-    Shiva Kumar Biru(1436929)
-    Jenny Nadar(1427226)
-    Sriram Karunanithi(1438891)
-</p>
-<br/>
-
-## Contents
-
-*   [Introduction](#what-is-this)
-*   [Requirements and Planning](#when-should-i-use-this)
-*   [Realization and Analysis](#getting-started)
-    *   [Requirements](#requirements)
-    *   [Install](#install)
-    *   [Usage](#usage)
-*   [Don't forget anything](#dont-forget-anything)
-    * [Used Technologies](#used-technologies)
-    * [Testing](#testing)
-    * [Logging](#logging)
-*   [Contribute](#contribute)
-*   [License](#license)
-*   [Sources](#sources)
-*   [Conclusion](#conclusion)
 
 ## Overview and Changes in configuration files of Open5GS 5GC C-Plane
 The Basic Control Plane consists of AMF, NSSF, NRF, UDM, PCF, NEF, AUSF, SMF and each of them perform their respective tasks. Here in our architecture we have small changes where SMF is more than one. We have four SMFs and each with dedicated APN/DNN.
@@ -178,6 +146,11 @@ info:
         mcc: 999
         mnc: 70
       tac: 1
+~~~
+freeDiameter file used in smf1.yaml - `smf1.conf`
+~~~
+ListenOn = "127.0.0.4"
+
 ~~~          
 - `smf2.yaml`
 ~~~
@@ -228,6 +201,12 @@ info:
         mcc: 999
         mnc: 70
       tac: 1
+
+~~~
+freeDiameter file used in smf2.yaml - `smf2.conf`
+~~~
+ListenOn = "127.0.0.24"
+
 ~~~          
 - `smf3.yaml`
 ~~~  
@@ -279,6 +258,13 @@ info:
         mcc: 999
         mnc: 70
       tac: 1
+
+~~~
+freeDiameter file used in smf3.yaml - `smf3.conf`
+~~~
+ListenOn = "127.0.0.25"
+
+
 ~~~
 - `smf4.yaml`
 ~~~
@@ -329,6 +315,13 @@ info:
         mcc: 999
         mnc: 70
       tac: 1
+
+~~~
+freeDiameter file used in smf4.yaml - `smf4.conf`
+~~~
+ListenOn = "127.0.0.26"
+
+
 ~~~
 ## Overview and Changes in configuration files of Open5GS 5GC U-Plane1
 - `upf1.yaml`
