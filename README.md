@@ -66,14 +66,14 @@ The scope of the "5G CloudConnect" project encompasses the following key aspects
 - Documenting findings and insights obtained from the evaluation process, providing valuable information for network optimization and future deployments.
 - Offering recommendations for enhancing the 5G core network's capabilities to better support file transfer applications and similar use cases.
 
-By addressing these aspects within the defined scope, the "5G CloudConnect with EURANSIM Integration" project aims to deliver a robust, secure, and high-performance platform for efficient file transfer over 5G networks, validated through thorough testing and simulation using EURANSIM.
+By addressing these aspects within the defined scope, the "5G CloudConnect with UERANSIM Integration" project aims to deliver a robust, secure, and high-performance platform for efficient file transfer over 5G networks, validated through thorough testing and simulation using UERANSIM.
 
 ---
 
 <a id="architecture"></a>
 <h1 align="Left">2. General Architecture </h1>
 
-This section explains the basic architecture of 5G network core. ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/general_architecture.jpg)
+This section explains the basic architecture of 5G network core. ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Installations/General_architecture.jpeg)
 
 <h2 align="Left"> Open5GS </h2>
 Open5GS is an open-source implementation of 5G Core Network (5GC) and EPC (Evolved Packet Core), designed to provide a platform for researchers, developers, and operators to experiment, test, and deploy 5G networks. It offers a flexible and modular architecture, allowing for customization and extension to meet various deployment scenarios and requirements. Open5GS aims to promote innovation and collaboration in the 5G ecosystem by providing an accessible and interoperable framework for building next-generation mobile networks. 
