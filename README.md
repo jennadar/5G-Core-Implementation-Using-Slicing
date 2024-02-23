@@ -138,9 +138,9 @@ Each VMs are as follows.
 | VM4 | Open5GS 5GC U-Plane1   | 10.8.2.7/24 | Ubuntu 22.04 | 1GB | 10GB |
 | VM5 | Open5GS 5GC U-Plane2 & Next Cloud for File Sharing  | 10.8.2.15/24 | Ubuntu 22.04 | 1GB | 10GB |
 
-Two UEs were created in two separate VMs. We have provided separate slicing to individual User Equipment for File Sharing. UE1 uses the slice marked with colour Red and similarly UE2 uses slice marked with colour Blue.  
+Four UEs were created in two separate VMs. We have provided separate slicing to individual User Equipment for File Sharing. UE1 uses the slice marked with colour Red and similarly UE2 uses slice marked with colour Blue and the other two UE's UE3,UE4 is used to connect to the website 
 
-As per the project requirement UE1 and UE2 have access to File sharing with UPF1 and UPF2 respectively. The NSSF file is used for network slice selection as per the slicing parameters provided by the UEs. 
+As per the project requirement UE1 and UE2 have access to File sharing with UPF1 and UPF2 respectively and the remaining UE's is for connecting to Data network. The NSSF file is used for network slice selection as per the slicing parameters provided by the UEs. 
  
 | NF | IP address | Supported S-NSSAI |
 | --- | --- | --- |
@@ -152,19 +152,19 @@ Subscriber Information (other information is the same) is as follows. These User
 
 | UE # |	IMSI |	DNN	 |  OP/OPc  |
 | --- | --- | --- | --- |
-| UE1 | 999700000000001  |	internet | OPc |
-| UE2 |	999700000000003  | internet2	 | OPc |
-| UE3 | 999700000000006  | internet | OPc |
-| UE4 | 999700000000004  | internet	| OPc |
+| UE1 | 999700000000001  | internet | OPc |
+| UE2 |	999700000000003  | internet	 | OPc |
+| UE3 | 999700000000006  | internet2 | OPc |
+| UE4 | 999700000000004  | internet2| OPc |
 
 Each DNs are as follows.
 
 | DN | TUNnel interface of DN |	APN/DNN	| TUNnel interface of UE | U-Plane # |
 | --- | --- | --- | --- | --- |
 | 10.45.0.0/16 | ogstun | internet | uesimtun0 | U-Plane1 |
-| 10.46.0.0/16 | ogstun | internet | uesimtun1 | U-Plane1 |
-| 10.55.0.0/16 | ogstun2 | voip | uesimtun2 | U-Plane2 |
-| 10.56.0.0/16 | ogstun2 | voip | uesimtun3 | U-Plane2 |
+| 10.46.0.0/16 | ogstun | internet | uesimtun0 | U-Plane1 |
+| 10.55.0.0/16 | ogstun2 | internet2 | uesimtun0 | U-Plane2 |
+| 10.56.0.0/16 | ogstun2 | internet2 | uesimtun0 | U-Plane2 |
 
 
 <a id="changes"></a>
@@ -172,13 +172,6 @@ Each DNs are as follows.
 ## Changes in configuration files of Open5GS 5GC and UERANSIM UE / RAN
 
 Please refer to the following for building Open5GS and UERANSIM respectively.
-- Open5GS v2.6.1 (2023.03.18) - https://open5gs.org/open5gs/docs/guide/02-building-open5gs-from-sources/
-- UERANSIM v3.2.6 (2023.03.17) - https://github.com/aligungr/UERANSIM/wiki/Installation
-
-<a id="changes_cp"></a>
-
-### Changes in configuration files of Open5GS 5GC C-Plane
-
 
 
 <a id="Analysis"></a>
@@ -187,12 +180,15 @@ Please refer to the following for building Open5GS and UERANSIM respectively.
 <h3 align="Left">6.1.1 Network Settings of Open5GS 5GC C-Plane </h3>
 Before starting the SMF's files, configure the network setting as mentioned below.
 
-Add IP addresses for SMF1 and SMF2 .
+Add IP addresses for SMF1 and SMF2.
 
 ```
 ip addr add 10.8.2.112/24 dev enp0s8
-ip addr add 10.8.2.113/24 dev enp0s8 
+ip addr add 10.8.2.113/24 dev enp0s8
 ```
+
+Similarly do it for SMF3 and SMF4
+
 <h3 align="Left">6.1.2 Network Settings of Open5GS 5GC C-Plane UPF-1 </h3>
 
 First, uncomment the next line in the `/etc/sysctl.conf` file and reflect it in the OS.
@@ -231,6 +227,8 @@ ip link set ogstun up
 iptables -t nat -A POSTROUTING -s 10.46.0.0/16 ! -o ogstun -j MASQUERADE
 ```
 
+Similarly do it for the 10.55.0.2, 10.56.0.2 if=ogstun2 
+
 <h2 align="Left">6.2 SMF to UPF connection Establishment. </h2>
 After the configurations of the components of 5GC in Open5GS, to receive the changes in the machine we need to restart the 5GC services as mentioned below. As multiple SMFs need to be implemented, these services are made to run separately.
 
@@ -247,10 +245,26 @@ $ sudo systemctl restart open5gs-nssfd
 $ sudo systemctl restart open5gs-bsfd
 $ sudo systemctl restart open5gs-udrd
 $ sudo systemctl restart open5gs-webui
-$ sudo ./open5gs-smfd -c /smf.yaml
-$ sudo ./open5gs-smfd -c /smf2.yaml
-$ sudo ./open5gs-smfd -c /smf3.yaml
-$ sudo ./open5gs-smfd -c /smf4.yaml
+$ sudo /bin/open5gs-smfd -c /etc/open5gs/smf1.yaml
+$ sudo /bin/open5gs-smfd -c /etc/open5gs/smf2.yaml
+$ sudo /bin/open5gs-smfd -c /etc/open5gs/smf3.yaml
+$ sudo /bin/open5gs-smfd -c /etc/open5gs/smf4.yaml
+
+```
+In U-Plane
+
+```
+$ sudo systemctl stop open5gs-smfd
+$ sudo systemctl stop open5gs-amfd
+$ sudo systemctl stop open5gs-nrfd
+$ sudo systemctl stop open5gs-scpd
+$ sudo systemctl stop open5gs-ausfd
+$ sudo systemctl stop open5gs-udmd
+$ sudo systemctl stop open5gs-pcfd
+$ sudo systemctl stop open5gs-nssfd
+$ sudo systemctl stop open5gs-bsfd
+$ sudo systemctl stop open5gs-udrd
+$ sudo systemctl restart open5gs-upfd
 
 ```
 
@@ -265,38 +279,23 @@ sudo /bin/open5gs-smfd -c /etc/open5gs/smf1.yaml
 sudo /bin/open5gs-smfd -c /etc/open5gs/smf2.yaml 
 ```
 
-After running the above commands you will establish a smf connection as show in the image below.
+After running the above commands you will establish a PFCP connection as shown in the image below.
 
-![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Open5gs/SMF_Connection.png)
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Open5gs/PFCP%20association%20between%20SMF1_2and%20UPF1_2.png)
 
-The wireshark traces of PFCP association b/w SMF1 and UPF1
+The wireshark traces of PFCP association between SMF1 and UPF1
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Open5gs/WT-between-SMF1-n-UPF1.png)
 
-The MSC of PFCP association b/w SMF1 and UPF1
+The MSC of PFCP association between SMF1 and UPF1
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Open5gs/MSC-between-SMF1-n-UPF1.png)
 
 <h3 align="Left">6.2.2 SMF2 to UPF2 connection Establishment. </h3>
 
 Similarly, initialization of the UPF in U-Plane2. The following commands can be performed by
-running and stopping the required as mentioned below
+running and stopping the required as mentioned above
 
-```
-$ sudo systemctl stop open5gs-smfd
-$ sudo systemctl stop open5gs-amfd
-$ sudo systemctl stop open5gs-nrfd
-$ sudo systemctl stop open5gs-scpd
-$ sudo systemctl stop open5gs-ausfd
-$ sudo systemctl stop open5gs-udmd
-$ sudo systemctl stop open5gs-pcfd
-$ sudo systemctl stop open5gs-nssfd
-$ sudo systemctl stop open5gs-bsfd
-$ sudo systemctl stop open5gs-udrd
-$ sudo systemctl stop open5gs-webui
-$ sudo systemctl restart open5gs-upfd
-
-```
 
 So the wireshark traces of PFCP association between SMF2 and UPF2 is given below
 
@@ -306,27 +305,46 @@ The MSC of PFCP association between SMF2 and UPF2
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Open5gs/MSC-between-SMF2-n-UPF2.png)
 
+Similarly, you will do the same process for the PFCP association between the SMF3 and UPF1 
+
+Similarly, you will do the same process for the PFCP association between the SMF4 and UPF2
+
+
+```
+sudo /bin/open5gs-smfd -c /etc/open5gs/smf3.yaml 
+sudo /bin/open5gs-smfd -c /etc/open5gs/smf4.yaml 
+```
+
 <h2 align="Left">6.3 Running UERAN </h2>
 <h3 align="Left">6.3.1 NG Setup between gNB1 to AMF </h3>
 
 Once the 5GC is up and running, initialization of the gNB1 & UE1 can be performed by the following
 commands in the UERANSIM/build directory respectively.
+
 To run gnb - `sudo build/nr-gnb -c config/open5gs-gnb1.yaml`
 
-To ensure successful connection between 5GC and gnb, we need to receive `NG connection successful` in the same terminal.
+To ensure the successful connection between 5GC and gnb, we need to receive `NG connection successful` in the same terminal.
 
-To run the first ue, UE1 - `sudo ./build/nr-ue -c config/open5gs-ue1.yam`
-The successful initialization of UE can be verified by receiving the `PDU Session Establishment successful` with TUNnel interface[uesimtun0,10.45.0.2] in the same terminal. 
-888888 image terminal 88888
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM/NG%20Connection%20setup%20between%20gnb1_amf.png)
 
-The above figure represents the Wireshark traces and message sequence chart (MSC) which is
-generated after successful start of UERANSIM gNB, between gnb and AMF
+
+The below figure represents the Wireshark traces and message sequence chart (MSC) which is
+generated after the successful start of UERANSIM gNB, between gnb and AMF
+
+
+
+
+To run the first ue, UE1 - `sudo ./build/nr-ue -c config/open5gs-ue1.yaml`
+
+The successful initialization of UE can be verified by receiving the `PDU Session Establishment successful` with TUNnel interface[uesimtun0,10.45.0.4] in the same terminal. 
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM/PDU%20session%20successfully%20established%D1%8Ffor%D1%8FUE1.png)
 
 88888imageeeee ws88888
 
 The NGAP traces has
-the NG set up request and response to initialize a gNB and PDU association request and response
-for initializing the UE0
+the NG set up a request and response to initialize a gNB and PDU association request and response
+for initializing the UE1
 
 88888image msg8888
 
@@ -337,12 +355,17 @@ initialization of the gNB2 & UE2 can be performed by the following
 commands in the UERANSIM/build directory respectively.
 To run gnb - `sudo build/nr-gnb -c config/open5gs-gnb2.yaml`
 
-To ensure successful connection between 5GC and gnb, we need to receive `NG connection successful` in the same terminal.
+To ensure the successful connection between 5GC and gnb, we need to receive `NG connection successful` in the same terminal.
 
-To run the first ue, UE1 - `sudo ./build/nr-ue -c config/open5gs-ue2.yam`
-The successful initialization of UE can be verified by receiving the `PDU Session Establishment successful` with TUNnel interface[uesimtun0,10.45.0.2] in the same terminal. 
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM/NG%20Connection%20setup%20between%20gnb2_amf.png)
 
-Similarly, other UEs (UE4, UE2) can be realized.
+
+To run the first ue, UE2 - `sudo ./build/nr-ue -c config/open5gs-ue2.yaml`
+The successful initialization of UE can be verified by receiving the `PDU Session Establishment successful` with TUNnel interface[uesimtun0,10.46.0.2] in the same terminal. 
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM/PDU%20session%20successfully%20established%D1%8Ffor%D1%8FUE2.png)
+
+Similarly, other UEs (UE3, UE4) can be realized.
 
 
 <h2 align="Left">6.3 Accessing Data Networks. </h2>
