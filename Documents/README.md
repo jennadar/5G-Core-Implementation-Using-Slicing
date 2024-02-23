@@ -421,9 +421,10 @@ sh nr-binder 10.46.0.2 firefox (for ue2)
 ```
 6. In the browser windows the NextCloud server can be accessed from the url https://10.8.2.15/nextcloud/ by logging in to 	users ‘UE1’ and ‘UE2’ already registered in the NextCloud server (10.8.2.15) ‘ue1’ and ‘ue2’ respectively.  
 
-![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/nextcloud_user1.png)
-
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/nextcloud_User2.png)
+
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/nextcloud_user1.png)
 
 <h3 align="Left">6.4.2 File Sharing from UE1(SST:1, SD:1) to UE2(SST:1, SD:2) </h3>
 
