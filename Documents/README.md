@@ -1,4 +1,4 @@
-# Open5GS 5GC Cloud Connect using EURANSIM
+# Open5GS 5GC Cloud Connect using UERANSIM
 <!-- PROJECT LOGO -->
 <img src="Figures/FRA-UAS_Logo_rgb.jpg" width="150"/>
 
