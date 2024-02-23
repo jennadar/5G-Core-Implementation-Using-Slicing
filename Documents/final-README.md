@@ -1,9 +1,10 @@
 
 
-## Overview and Changes in configuration files of Open5GS 5GC C-Plane
-The Basic Control Plane consists of AMF, NSSF, NRF, UDM, PCF, NEF, AUSF, SMF and each of them perform their respective tasks. Here in our architecture we have small changes where SMF is more than one. We have four SMFs and each with dedicated APN/DNN.
-Starting with AMF configuration changes.
-Note : Only the changes are mentioned here
+## Overview and Changes in configuration files of Open5GS 5GC C-Plane and UERANSIM
+
+The Core Control Plane of Open5GS 5GC comprises essential components such as AMF, NSSF, NRF, UDM, PCF, NEF, AUSF, and SMF, each serving specific functions. In our setup, we've made slight modifications where we have multiple instances of SMF, totaling four, each assigned to a dedicated APN/DNN. Below are the configuration changes starting with AMF:
+
+The AMF configuration has been modified as follows:
 
 - `amf.yaml`
 ~~~
