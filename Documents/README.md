@@ -340,7 +340,7 @@ To run gnb - `sudo build/nr-gnb -c config/open5gs-gnb2.yaml`
 To ensure successful connection between 5GC and gnb, we need to receive `NG connection successful` in the same terminal.
 
 To run the first ue, UE1 - `sudo ./build/nr-ue -c config/open5gs-ue2.yam`
-The successful initialization of UE can be verified by receiving the `PDU Session Establishment successful` with TUNnel interface[uesimtun0,10.45.0.2] in the same terminal. 
+The successful initialization of UE can be verified by receiving the `PDU Session Establishment successful` with TUNnel interface[uesimtun0,10.45.0.4] in the same terminal. 
 
 Similarly, other UEs (UE4, UE2) can be realized.
 
@@ -363,7 +363,7 @@ MSC diagram is shown below.
 Confirm by using tcpdump that the packet goes through if=ogstun on U-Plane1.
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/U_plane1/UE1_UPLANE1_TCPDUMP.png)
 
-<h3 align="Left">6.3.2 Testing the network using UE2 via</h3>
+<h3 align="Left">6.3.2 Testing the network using UE2 </h3>
 To ping google.com
 Open a new terminal
 
