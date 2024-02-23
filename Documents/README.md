@@ -78,7 +78,7 @@ This section explains the basic architecture of 5G network core. ![image](https:
 <h2 align="Left"> Open5GS </h2>
 Open5GS is an open-source implementation of 5G Core Network (5GC) and EPC (Evolved Packet Core), designed to provide a platform for researchers, developers, and operators to experiment, test, and deploy 5G networks. It offers a flexible and modular architecture, allowing for customization and extension to meet various deployment scenarios and requirements. Open5GS aims to promote innovation and collaboration in the 5G ecosystem by providing an accessible and interoperable framework for building next-generation mobile networks. 
 
-<h2 align="Left"> EURANSIM </h2>
+<h2 align="Left"> UERANSIM </h2>
 UERANSIM is an open source 5G UE & 5G RAN (gNodeB) implementation. It can be considered as a 5G mobile phone and a base station in basic terms. There are 3 main interfaces in UE/RAN perspective,  
 
 - Control Interface (between RAN and AMF) 
