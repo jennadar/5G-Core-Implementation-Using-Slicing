@@ -47,7 +47,7 @@ uacAcc:
 # Initial PDU sessions to be established
 sessions:
   - type: 'IPv4'
-    apn: 'voip'
+    apn: 'internet2'
     slice:
       sst: 2
       sd: 0x000001
