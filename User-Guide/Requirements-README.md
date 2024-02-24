@@ -81,6 +81,28 @@ network:
 - Customize the installation settings as needed. 
 - After installation, launch Wireshark from the desktop shortcut or applications menu. Optionally, explore additional tools like TShark or Wireshark Portable for advanced functionality.
 
+- Open Terminal Add the Wireshark stable official PPA:
+
+  ```
+  sudo add-apt-repository ppa:wireshark-dev/stable
+  ```
+
+- Update the repository:
+
+  ```
+  sudo apt update
+  ```
+
+- Install Wireshark:-
+
+  ```
+  sudo apt install wireshark
+  ```
+- After Installation, Execute the command below so that non-root users can also capture the live packets.
+  ```
+  sudo chmod +x /usr/bin/dumpcap
+  ```
+
 ---
 
 <h2 align="Left">3 Installing MongoDB and Open5GS</h2>
@@ -107,7 +129,7 @@ $ sudo systemctl start mongod (if '/usr/bin/mongod' is not running)
 $ sudo systemctl enable mongod
 ```
 
-![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/mongodb.png)
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Installations/mongodb.png)
 
 <h3 align="Left">Step 2: Installation of Open5GS in our Ubuntu on VM.</h3>
 Installing Open5GS on Ubuntu involves several steps, including installing dependencies, compiling the source code, and configuring the system. Below is a general guide to help installing Open5GS:
@@ -146,7 +168,7 @@ Username: admin
 Password: 1432
 ```
 
-![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/webUI.png)
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Installations/webUI.png)
 
 
 <h2 align="Left">5. Installation of UERANSIM</h2>
@@ -216,4 +238,4 @@ cd Nextcloud-Script
 sudo bash Nextcloud-Script/Nextcloud-Script.sh
 ``` 
 
-![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/NextCloud/nextcloud.png)
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextCloud/nextcloud.png)
