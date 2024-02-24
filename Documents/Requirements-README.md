@@ -27,7 +27,7 @@ Install VirtualBox: Run the installer and follow the on-screen instructions to i
 
 - Select a Virtual Machine: Choose one of the virtual machines (e.g., 5Gcore_VM) and go to the "Settings."
 - Navigate to "Network": In the VM settings, go to the "Network" tab.
-- Enable Adapter 1: Check the "Enable Network Adapter" box. Choose "Bridged Adapter" from the drop-down menu. This will allow the VM to connect to the physical network.
+- Enable Adapter 1: Check the "Enable Network Adapter" box. Choose "Nat Network" from the drop-down menu. This will allow the VM to connect to the physical network.
 - Enable Adapter 2: Click on "Adapter 2" and check the "Enable Network Adapter" box. Choose "Host-Only Adapter" from the drop-down menu. This creates a private network between the two virtual machines.
 - Apply and Save: Click "OK" to apply the changes and save the settings.
 - Repeat the process for the UERANSIM virtual machine.

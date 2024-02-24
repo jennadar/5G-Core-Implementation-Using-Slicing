@@ -75,10 +75,10 @@ By addressing these aspects within the defined scope, the "5G CloudConnect with 
 
 This section explains the basic architecture of 5G network core. ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Installations/General_architecture.jpeg)
 
-<h2 align="Left"> Open5GS </h2>
+<h2 align="Left">2.1: Open5GS </h2>
 Open5GS is an open-source implementation of 5G Core Network (5GC) and EPC (Evolved Packet Core), designed to provide a platform for researchers, developers, and operators to experiment, test, and deploy 5G networks. It offers a flexible and modular architecture, allowing for customization and extension to meet various deployment scenarios and requirements. Open5GS aims to promote innovation and collaboration in the 5G ecosystem by providing an accessible and interoperable framework for building next-generation mobile networks. 
 
-<h2 align="Left"> EURANSIM </h2>
+<h2 align="Left">2.2: EURANSIM </h2>
 UERANSIM is an open source 5G UE & 5G RAN (gNodeB) implementation. It can be considered as a 5G mobile phone and a base station in basic terms. There are 3 main interfaces in UE/RAN perspective,  
 
 - Control Interface (between RAN and AMF) 
@@ -89,7 +89,7 @@ UERANSIM is an open source 5G UE & 5G RAN (gNodeB) implementation. It can be con
 
 UERANSIM supports to run with Open5GS and Free5GC 5G Core networks. We can connect UERANSIM to one of these 5G Core network and test the functionality. 
 
-<h2 align="Left"> Network Slicing </h2>
+<h2 align="Left">2.3: Network Slicing </h2>
 Network slicing is a fundamental concept in 5G networks that allows the creation of multiple virtual networks, each tailored to serve specific types of applications, services, or customers. It enables the efficient allocation of network resources and the customization of network behaviour to meet diverse requirements, such as ultra-reliable low-latency communication (URLLC), massive machine type communication (mMTC), and enhanced mobile broadband (eMBB).
 
 ---
@@ -106,7 +106,7 @@ Please refer to the link below to complete the installation of the dependencies.
 
 This section explains the work plan for our team and the work distribution, roles and responsiblities for each team members
 
-***** Addd image of waterfall **
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Roadmap.png)
 
 ---
 <a id="realisation"></a>
@@ -114,7 +114,7 @@ This section explains the work plan for our team and the work distribution, role
 In the realization phase of the "5G CloudConnect with EURANSIM Integration" project, significant configuration changes are made to the 5G core network components, specifically the Access and Mobility Management Function (AMF), the Session Management Function (SMF), and the Network Slice Selection Function (NSSF). These changes are essential to optimize the network architecture for efficient file transfer applications using Nextcloud and to facilitate thorough testing and validation using EURANSIM.
 
 A brief description of the whole project is demonstrated in the image below.
-![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM&5G-core.png)
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Installations/architecture.jpeg)
 
 
 <h2 align="Left"> Architecture Explaination </h2>
@@ -316,7 +316,7 @@ sudo /bin/open5gs-smfd -c /etc/open5gs/smf4.yaml
 ```
 
 <h2 align="Left">6.3 Running UERAN </h2>
-<h3 align="Left">6.3.1 NG Setup between gNB1 to AMF </h3>
+<h3 align="Left">6.3.1: NG Setup between gNB1 to AMF </h3>
 
 Once the 5GC is up and running, initialization of the gNB1 & UE1 can be performed by the following
 commands in the UERANSIM/build directory respectively.
@@ -331,7 +331,7 @@ To ensure the successful connection between 5GC and gnb, we need to receive `NG 
 The below figure represents the Wireshark traces and message sequence chart (MSC) which is
 generated after the successful start of UERANSIM gNB, between gnb and AMF
 
-
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM/NG%20Connection%20setup%20between%20gnb1_amf.png)
 
 
 To run the first ue, UE1 - `sudo ./build/nr-ue -c config/open5gs-ue1.yaml`
@@ -340,15 +340,14 @@ The successful initialization of UE can be verified by receiving the `PDU Sessio
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM/PDU%20session%20successfully%20established%D1%8Ffor%D1%8FUE1.png)
 
-88888imageeeee ws88888
 
 The NGAP traces has
 the NG set up a request and response to initialize a gNB and PDU association request and response
 for initializing the UE1
 
-88888image msg8888
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM/PDU%20session%20successfully%20established%D1%8Ffor%D1%8FUE1.png)
 
-<h3 align="Left">6.3.2 NG Setup between gNB2 to AMF </h3>
+<h3 align="Left">6.3.2: NG Setup between gNB2 to AMF </h3>
 
 Similarly in UE2 and gnB2 follow the command to run them.
 initialization of the gNB2 & UE2 can be performed by the following
@@ -370,8 +369,8 @@ The successful initialization of UE can be verified by receiving the `PDU Sessio
 Similarly, other UEs (UE3, UE4) can be realized.
 
 
-<h2 align="Left">6.3 Accessing Data Networks. </h2>
-<h3 align="Left">6.3.1 Testing the network using UE1</h3>
+<h2 align="Left">6.4 Accessing Data Networks. </h2>
+<h3 align="Left">6.4.1: Testing the network using UE1</h3>
 To ping google.com
 Open a new terminal
 
@@ -388,7 +387,7 @@ MSC diagram is shown below.
 Confirm by using tcpdump that the packet goes through if=ogstun on U-Plane1.
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/U_plane1/UE1_UPLANE1_TCPDUMP.png)
 
-<h3 align="Left">6.3.2 Testing the network using UE2 via</h3>
+<h3 align="Left">6.4.2: Testing the network using UE2 via</h3>
 To ping google.com
 Open a new terminal
 
@@ -407,15 +406,15 @@ Confirm by using tcpdump that the packet goes through if=ogstun on U-Plane2.
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/tree/main/Figures/U_plane2)
 
 
-<h1 align="Left">7 Network Slicing. </h1>
+<h1 align="Left">7. Network Slicing. </h1>
 
 This section Includes all the network slicing that was performed.
 
-<h2 align="Left">7.1 Next Cloud. </h2>
+<h2 align="Left">7.1: Next Cloud. </h2>
 
 The NextCloud File Hosting server has been implemented on a Ip subnet 10.8.2.15 in the User Plane 2. The users who are connected to the 5G Core via ‘internet’ DNN will be able to access the NextCloud server by with pinging to the server Ip. 
 
-<h3 align="Left">7.1.1 Creation on Users in Next Cloud (Server)</h3>
+<h3 align="Left">7.1.1: Creation on Users in Next Cloud (Server)</h3>
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/nectcloud_Usercreations.png)
 
@@ -450,7 +449,7 @@ sh nr-binder 10.46.0.2 firefox (for ue2)
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/nextcloud_User2.png)
 
-<h3 align="Left">6.4.2 File Sharing from UE1(SST:1, SD:1) to UE2(SST:1, SD:2) </h3>
+<h3 align="Left">7.1.2: File Sharing from UE1(SST:1, SD:1) to UE2(SST:1, SD:2) </h3>
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/pic_nextcloud_user1(user1).png)
 
