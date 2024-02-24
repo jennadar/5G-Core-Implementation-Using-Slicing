@@ -1,16 +1,19 @@
 #  Implementation and Testing of a 5G Core Network for Slicing and Application Connectivity using UERANSIM
 <!-- PROJECT LOGO -->
-<img src="/Figures/Installations/FRA-UAS_Logo_rgb.jpg" width="550" align="center"/>
+<p align="center">
+<img src="/Figures/Installations/FRA-UAS_Logo_rgb.jpg" width="650"/>
+</p>
 
 <h1 align="center">Team Gen5 Designers</h1>
 <p align="center">
-    <strong>Master of Engineering</strong>
-    <br>
-    Information Technology
-    <br>
-    | Nastayeen Abdul Majid(1427970) | Shiva Kumar Biru(1436929) | Jenny Nadar(1427226) | Sriram Karunanithi(1438891) |
+    <h3 align="center">Master of Engineering</h3>
+    <h3 align="center">Information Technology</h3>
+    <h5 align="center">Nastayeen Abdul Majid(1427970)</h5> 
+    <h5 align="center">Shiva Kumar Biru(1436929)</h5> 
+    <h5 align="center"> Jenny Nadar(1427226) </h5>
+    <h5 align="center"> Sriram Karunanithi(1438891) </h5>
 </p>
-<br/>
+
 
 ---
 
@@ -28,24 +31,26 @@
 - [4. Planning](#Planning)
 - [5. Realization of the Project ](#realisation)
     - [5.1: Project Architecture Explaination](#archi)
-    - [Changes in configuration files of UE[SST:1, SD:0x000001] (IMSI-001010000000000)](#changes_ue_sd1)
-    - [Changes in configuration files of UE[SST:1, SD:0x000002] (IMSI-001010000000000)](#changes_ue_sd2)
-- [Network settings of Open5GS 5GC and UERANSIM UE / RAN](#network_settings)
-  - [Network settings of Open5GS 5GC C-Plane](#network_settings_cp)
-  - [Network settings of Open5GS 5GC U-Plane1](#network_settings_up1)
-  - [Network settings of Open5GS 5GC U-Plane2](#network_settings_up2)
-- [Build Open5GS and UERANSIM](#build)
-- [Run Open5GS 5GC and UERANSIM UE / RAN](#run)
-  - [Run Open5GS 5GC C-Plane](#run_cp)
-  - [Run Open5GS 5GC U-Plane1 & U-Plane2](#run_up)
-  - [Run UERANSIM (gNodeB)](#run_ran)
-  - [Run UERANSIM (UE[SST:1, SD:0x000001])](#run_sd1)
-    - [UE connects to U-Plane1 based on SST:1 and SD:0x000001](#con_sd1)
-    - [Ping google.com going through DN=10.45.0.0/16 on U-Plane1](#ping_sd1)
-  - [Run UERANSIM (UE[SST:1, SD:0x000002])](#run_sd2)
-    - [UE connects to U-Plane2 based on SST:1 and SD:0x000002](#con_sd2)
-    - [Ping google.com going through DN=10.46.0.0/16 on U-Plane2](#ping_sd2)
-- [Changelog (summary)](#changelog)
+    - [5.2:  Changes in configuration files of Open5GS 5GC and UERANSIM UE / RAN](#changes)
+- [6. Execution](#execution)
+    - [6.1 Network Setting](#network-set)
+        - [6.1.1 Network Settings of Open5GS 5GC C-Plane ](#network-set)
+        - [6.1.2 Network Settings of Open5GS 5GC C-Plane UPF-1](#network-set-up1)
+        - [6.1.3 Network Settings of Open5GS 5GC C-Plane UPF-2](#network-set-up2)
+  - [6.2 SMF to UPF connection Establishment.](#SMF-UPF)
+        - [6.2.1 SMF1 to UPF1 connection Establishment.](#smf1-upf1)
+        - [6.2.2 SMF2 to UPF2 connection Establishment.](#smf2-upf2)
+  - [6.3 Running UERAN ](#run-ran)
+        - [6.3.1: NG Setup between gNB1 to AMF](#run-ran)
+        - [6.3.2: NG Setup between gNB2 to AMF](#ng-setup)
+  - [6.4 Accessing Data Networks.](#data)
+      - [6.4.1: Testing the network using UE1](#data)
+      - [6.4.2: Testing the network using UE2](#data2)
+- [7. Network Slicing.](#slice)
+    - [7.1.1: Creation on Users in Next Cloud (Server)](#slice)
+    - [7.2 Connecting to a Website.](#slice2)
+- [Conclusion](#conclusion)
+- [Reference](#refer)
 
 ---
 <a id="intro"></a>
@@ -76,7 +81,7 @@ By addressing these aspects within the defined scope, the " Implementation and T
 <a id="architecture"></a>
 <h1 align="Left">2. General Architecture </h1>
 
-This section explains the basic architecture of 5G network core. ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Installations/General_architecture.jpeg)
+This section explains the basic architecture of 5G network core. ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Architecture/General_architecture.jpeg)
 
 <a id="Open5GS"></a>
 <h2 align="Left">2.1: Open5GS </h2>
@@ -120,7 +125,7 @@ This section explains the work plan for our team and the work distribution, role
 In the realization phase of the "5G CloudConnect with EURANSIM Integration" project, significant configuration changes are made to the 5G core network components, specifically the Access and Mobility Management Function (AMF), the Session Management Function (SMF), and the Network Slice Selection Function (NSSF). These changes are essential to optimize the network architecture for efficient file transfer applications using Nextcloud and to facilitate thorough testing and validation using EURANSIM.
 
 A brief description of the whole project is demonstrated in the image below.
-![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Installations/architecture.jpeg)
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Architecture/Project%20architecture.jpeg)
 
 <a id="archi"></a>
 <h2 align="Left">5.1: Project Architecture Explaination </h2>
@@ -172,9 +177,9 @@ Please refer to the following for building Open5GS and UERANSIM respectively.
 [Configuration](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Documents/Configurations-README.md)
 
 
-<a id="Analysis"></a>
+<a id="execution"></a>
 <h1 align="Left">6. Execution </h1>
-
+<a id="network-set">
 <h3 align="Left">6.1.1 Network Settings of Open5GS 5GC C-Plane </h3>
 Before starting the SMF's files, configure the network setting as mentioned below.
 
@@ -186,7 +191,7 @@ ip addr add 10.8.2.113/24 dev enp0s8
 ```
 
 Similarly do it for SMF3 and SMF4
-
+<a id="network-set-upf1">
 <h3 align="Left">6.1.2 Network Settings of Open5GS 5GC C-Plane UPF-1 </h3>
 
 First, uncomment the next line in the `/etc/sysctl.conf` file and reflect it in the OS.
@@ -206,7 +211,7 @@ ip link set ogstun up
 
 iptables -t nat -A POSTROUTING -s 10.45.0.0/16 ! -o ogstun -j MASQUERADE
 ```
-
+<a id="network-set-up2">
 <h3 align="Left">6.1.3 Network Settings of Open5GS 5GC C-Plane UPF-2 </h3>
 
 First, uncomment the next line in the `/etc/sysctl.conf` file and reflect it in the OS.
@@ -226,7 +231,7 @@ iptables -t nat -A POSTROUTING -s 10.46.0.0/16 ! -o ogstun -j MASQUERADE
 ```
 
 Similarly do it for the 10.55.0.2, 10.56.0.2 if=ogstun2 
-
+<a id="SMF-UPF">
 <h2 align="Left">6.2 SMF to UPF connection Establishment. </h2>
 After the configurations of the components of 5GC in Open5GS, to receive the changes in the machine we need to restart the 5GC services as mentioned below. As multiple SMFs need to be implemented, these services are made to run separately.
 
@@ -268,7 +273,8 @@ $ sudo systemctl restart open5gs-upfd
 
 After restarting the 5G components, we have depicted the working of the architecture through Wireshark traces captured at Service Based Interfaces.
 
-<h3 align="Left">6.2.1 SMF1 to UPF1 connection Establishment. </h3>
+<a id="smf1-up1">
+<h3 align="Left">6.2.1: SMF1 to UPF1 connection Establishment. </h3>
 
 To run the smf1 and smf2:
 
@@ -289,6 +295,7 @@ The MSC of PFCP association between SMF1 and UPF1
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Open5gs/MSC-between-SMF1-n-UPF1.png)
 
+<a id="smf2-up2">
 <h3 align="Left">6.2.2 SMF2 to UPF2 connection Establishment. </h3>
 
 Similarly, initialization of the UPF in U-Plane2. The following commands can be performed by
@@ -312,7 +319,7 @@ Similarly, you will do the same process for the PFCP association between the SMF
 sudo /bin/open5gs-smfd -c /etc/open5gs/smf3.yaml 
 sudo /bin/open5gs-smfd -c /etc/open5gs/smf4.yaml 
 ```
-
+<a id="Run-ran">
 <h2 align="Left">6.3 Running UERAN </h2>
 <h3 align="Left">6.3.1: NG Setup between gNB1 to AMF </h3>
 
@@ -342,6 +349,7 @@ The NGAP traces has the NG set up a request and response to initialize a gNB and
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/U_plane1/PDU-session.png)
 
+<a id="ng-setup">
 <h3 align="Left">6.3.2: NG Setup between gNB2 to AMF </h3>
 
 Similarly in UE2 and gnB2 follow the command to run them.
@@ -372,7 +380,7 @@ The NGAP traces has the NG set up a request and response to initialize a gNB and
 
 Similarly, other UEs (UE3, UE4) can be realized.
 
-
+<a id="data">
 <h2 align="Left">6.4 Accessing Data Networks. </h2>
 <h3 align="Left">6.4.1: Testing the network using UE1</h3>
 To ping google.com
@@ -391,6 +399,7 @@ MSC diagram is shown below.
 Confirm by using tcpdump that the packet goes through if=ogstun on U-Plane1.
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/U_plane1/UE1_UPLANE1_TCPDUMP.png)
 
+<a id="data2">
 <h3 align="Left">6.4.2: Testing the network using UE2 via</h3>
 To ping google.com
 Open a new terminal
@@ -409,7 +418,7 @@ MSC diagram is shown below.
 Confirm by using tcpdump that the packet goes through if=ogstun on U-Plane2.
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/tree/main/Figures/U_plane2)
 
-
+<a id="slice">
 <h1 align="Left">7. Network Slicing. </h1>
 
 This section Includes all the network slicing that was performed.
@@ -418,6 +427,7 @@ This section Includes all the network slicing that was performed.
 
 The NextCloud File Hosting server has been implemented on a Ip subnet 10.8.2.15 in the User Plane 2. The users who are connected to the 5G Core via ‘internet’ DNN will be able to access the NextCloud server by with pinging to the server Ip. 
 
+<a id="slice1">
 <h3 align="Left">7.1.1: Creation on Users in Next Cloud (Server)</h3>
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/nectcloud_Usercreations.png)
@@ -469,10 +479,12 @@ The wireshark traces are captured at UE1. This traces show that the UE2 is conne
 Similarly the wireshark traces are captured at UE2. This traces show that the UE2 is connected to Next cloud Server.
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/WS-FileTransfer-UE2.png)
 
+<a id="slice2">
 <h2 align="Left">7.2 Connecting to a Website. </h2>
 
-
+<a id="conclusion">
 ## Conclusion
+In conclusion, the implementation and testing of the 5G core network utilizing UERANSIM have demonstrated the feasibility and efficacy of slicing in catering to diverse user requirements. By assigning different slices to individual UE devices, the network effectively allocated resources and prioritized traffic for file transfer and website access. The project highlights the potential of slicing in enhancing network efficiency, scalability, and flexibility in 5G deployments. Moving forward, further optimization and refinement of slicing strategies can contribute to the seamless integration of diverse services and applications in future 5G networks.
 
-
+<a id="refer">
 ## References
