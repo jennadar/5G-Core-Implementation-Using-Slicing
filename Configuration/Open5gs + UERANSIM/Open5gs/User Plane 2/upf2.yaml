@@ -25,7 +25,7 @@ upf:
       dnn: internet
       dev: ogstun
     - subnet: 10.56.0.1/16
-      dnn: voip
+      dnn: internet2
       dev: ogstun2
   metrics:
     server:
