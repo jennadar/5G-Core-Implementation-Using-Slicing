@@ -33,16 +33,16 @@
     - [5.1: Project Architecture Explaination](#archi)
     - [5.2:  Changes in configuration files of Open5GS 5GC and UERANSIM UE / RAN](#changes)
 - [6. Execution](#execution)
-    - [6.1 Network Setting](#network-set)
-        - [6.1.1 Network Settings of Open5GS 5GC C-Plane ](#network-set)
-        - [6.1.2 Network Settings of Open5GS 5GC C-Plane UPF-1](#network-set-up1)
-        - [6.1.3 Network Settings of Open5GS 5GC C-Plane UPF-2](#network-set-up2)
+  - [6.1 Network Setting](#network-set)
+      - [6.1.1 Network Settings of Open5GS 5GC C-Plane ](#network-set)
+      - [6.1.2 Network Settings of Open5GS 5GC C-Plane UPF-1](#network-set-up1)
+      - [6.1.3 Network Settings of Open5GS 5GC C-Plane UPF-2](#network-set-up2)
   - [6.2 SMF to UPF connection Establishment.](#SMF-UPF)
-        - [6.2.1 SMF1 to UPF1 connection Establishment.](#smf1-upf1)
-        - [6.2.2 SMF2 to UPF2 connection Establishment.](#smf2-upf2)
+      - [6.2.1 SMF1 to UPF1 connection Establishment.](#smf1-upf1)
+      - [6.2.2 SMF2 to UPF2 connection Establishment.](#smf2-upf2)
   - [6.3 Running UERAN ](#run-ran)
-        - [6.3.1: NG Setup between gNB1 to AMF](#run-ran)
-        - [6.3.2: NG Setup between gNB2 to AMF](#ng-setup)
+      - [6.3.1: NG Setup between gNB1 to AMF](#run-ran)
+      - [6.3.2: NG Setup between gNB2 to AMF](#ng-setup)
   - [6.4 Accessing Data Networks.](#data)
       - [6.4.1: Testing the network using UE1](#data)
       - [6.4.2: Testing the network using UE2](#data2)
@@ -125,7 +125,7 @@ This section explains the work plan for our team and the work distribution, role
 In the realization phase of the "5G CloudConnect with EURANSIM Integration" project, significant configuration changes are made to the 5G core network components, specifically the Access and Mobility Management Function (AMF), the Session Management Function (SMF), and the Network Slice Selection Function (NSSF). These changes are essential to optimize the network architecture for efficient file transfer applications using Nextcloud and to facilitate thorough testing and validation using EURANSIM.
 
 A brief description of the whole project is demonstrated in the image below.
-![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Architecture/Project%20architecture.jpeg)
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Architecture/Project%20Architecture.png)
 
 <a id="archi"></a>
 <h2 align="Left">5.1: Project Architecture Explaination </h2>
@@ -179,8 +179,11 @@ Please refer to the following for building Open5GS and UERANSIM respectively.
 
 <a id="execution"></a>
 <h1 align="Left">6. Execution </h1>
+
 <a id="network-set">
+
 <h3 align="Left">6.1.1 Network Settings of Open5GS 5GC C-Plane </h3>
+
 Before starting the SMF's files, configure the network setting as mentioned below.
 
 Add IP addresses for SMF1 and SMF2.
@@ -364,7 +367,7 @@ To ensure the successful connection between 5GC and gnb, we need to receive `NG 
 
 The below figure represents the Wireshark traces which is generated after the successful start of UERANSIM gNB, between gnb and AMF
 
-![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM/ngap-gnb1.png)
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM/gnb1.png)
 
 
 To run the first ue, UE2 - `sudo ./build/nr-ue -c config/open5gs-ue2.yaml`
@@ -416,7 +419,7 @@ MSC diagram is shown below.
 
 
 Confirm by using tcpdump that the packet goes through if=ogstun on U-Plane2.
-![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/tree/main/Figures/U_plane2)
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/U_plane2/UE2_UPLANE2_TCPDUMP.png)
 
 <a id="slice">
 <h1 align="Left">7. Network Slicing. </h1>
@@ -484,7 +487,9 @@ Similarly the wireshark traces are captured at UE2. This traces show that the UE
 
 <a id="conclusion">
 ## Conclusion
+
 In conclusion, the implementation and testing of the 5G core network utilizing UERANSIM have demonstrated the feasibility and efficacy of slicing in catering to diverse user requirements. By assigning different slices to individual UE devices, the network effectively allocated resources and prioritized traffic for file transfer and website access. The project highlights the potential of slicing in enhancing network efficiency, scalability, and flexibility in 5G deployments. Moving forward, further optimization and refinement of slicing strategies can contribute to the seamless integration of diverse services and applications in future 5G networks.
 
 <a id="refer">
 ## References
+
