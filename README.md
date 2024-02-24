@@ -328,8 +328,7 @@ To ensure the successful connection between 5GC and gnb, we need to receive `NG 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM/NG%20Connection%20setup%20between%20gnb1_amf.png)
 
 
-The below figure represents the Wireshark traces and message sequence chart (MSC) which is
-generated after the successful start of UERANSIM gNB, between gnb and AMF
+The below figure represents the Wireshark traces which is generated after the successful start of UERANSIM gNB, between gnb1 and AMF
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM/gnb1.png)
 
@@ -357,8 +356,7 @@ To ensure the successful connection between 5GC and gnb, we need to receive `NG 
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM/NG%20Connection%20setup%20between%20gnb2_amf.png)
 
-The below figure represents the Wireshark traces and message sequence chart (MSC) which is
-generated after the successful start of UERANSIM gNB, between gnb and AMF
+The below figure represents the Wireshark traces which is generated after the successful start of UERANSIM gNB, between gnb and AMF
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM/ngap-gnb1.png)
 
@@ -465,8 +463,8 @@ sh nr-binder 10.46.0.2 firefox (for ue2)
 
 
 
-The wireshark traces and MSC is given below
-***** insert image
+The wireshark traces are captured at UE1.
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/WS-FileTransfer-UE1.png)
 
 <h2 align="Left">7.2 Connecting to a Website. </h2>
 
