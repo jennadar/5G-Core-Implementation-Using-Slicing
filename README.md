@@ -119,7 +119,7 @@ Please refer to the link below to complete the installation of the dependencies.
 
 This section explains the work plan for our team and the work distribution, roles and responsiblities for each team members
 
-![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Roadmap.png)
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Project%20Planning.png)
 
 ---
 <a id="realisation"></a>
