@@ -18,13 +18,16 @@
 
 ## Table of Contents
 
-- [Overview of Open5GS 5GC Simulation Mobile Network](#overview)
-- [Changes in configuration files of Open5GS 5GC and UERANSIM UE / RAN](#changes)
-  - [Changes in configuration files of Open5GS 5GC C-Plane](#changes_cp)
-  - [Changes in configuration files of Open5GS 5GC U-Plane1](#changes_up1)
-  - [Changes in configuration files of Open5GS 5GC U-Plane2](#changes_up2)
-  - [Changes in configuration files of UERANSIM UE / RAN](#changes_ueransim)
-    - [Changes in configuration files of RAN (gNodeB)](#changes_ran)
+- [1. Introduction](#intro)
+  - [1.1 Project Scope](#scope)
+- [2. General Architecture](#architecture)
+  - [2.1: Open5GS](#Open5GS)
+  - [2.2: UERANSIM](#UERANSIM)
+  - [2.3: Network Slicing](#slicing)
+- [3. Requirements](#Requirement)
+- [4. Planning](#Planning)
+- [5. Realization of the Project ](#realisation)
+    - [5.1: Project Architecture Explaination](#archi)
     - [Changes in configuration files of UE[SST:1, SD:0x000001] (IMSI-001010000000000)](#changes_ue_sd1)
     - [Changes in configuration files of UE[SST:1, SD:0x000002] (IMSI-001010000000000)](#changes_ue_sd2)
 - [Network settings of Open5GS 5GC and UERANSIM UE / RAN](#network_settings)
@@ -75,10 +78,12 @@ By addressing these aspects within the defined scope, the "5G CloudConnect with 
 
 This section explains the basic architecture of 5G network core. ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Installations/General_architecture.jpeg)
 
+<a id="Open5GS"></a>
 <h2 align="Left">2.1: Open5GS </h2>
 Open5GS is an open-source implementation of 5G Core Network (5GC) and EPC (Evolved Packet Core), designed to provide a platform for researchers, developers, and operators to experiment, test, and deploy 5G networks. It offers a flexible and modular architecture, allowing for customization and extension to meet various deployment scenarios and requirements. Open5GS aims to promote innovation and collaboration in the 5G ecosystem by providing an accessible and interoperable framework for building next-generation mobile networks. 
 
-<h2 align="Left">2.2: EURANSIM </h2>
+<a id="UERANSIM"></a>
+<h2 align="Left">2.2: UERANSIM </h2>
 UERANSIM is an open source 5G UE & 5G RAN (gNodeB) implementation. It can be considered as a 5G mobile phone and a base station in basic terms. There are 3 main interfaces in UE/RAN perspective,  
 
 - Control Interface (between RAN and AMF) 
@@ -89,6 +94,7 @@ UERANSIM is an open source 5G UE & 5G RAN (gNodeB) implementation. It can be con
 
 UERANSIM supports to run with Open5GS and Free5GC 5G Core networks. We can connect UERANSIM to one of these 5G Core network and test the functionality. 
 
+<a id="slicing"></a>
 <h2 align="Left">2.3: Network Slicing </h2>
 Network slicing is a fundamental concept in 5G networks that allows the creation of multiple virtual networks, each tailored to serve specific types of applications, services, or customers. It enables the efficient allocation of network resources and the customization of network behaviour to meet diverse requirements, such as ultra-reliable low-latency communication (URLLC), massive machine type communication (mMTC), and enhanced mobile broadband (eMBB).
 
@@ -116,16 +122,8 @@ In the realization phase of the "5G CloudConnect with EURANSIM Integration" proj
 A brief description of the whole project is demonstrated in the image below.
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Installations/architecture.jpeg)
 
-
-<h2 align="Left"> Architecture Explaination </h2>
-<!-- <h3 align="Left"> Overview of Open5GS 5GC Simulation Mobile Network</h3>-->
-
-<!--The following minimum configuration was set as a condition.
-- The UE selects a pair of SMF and UPF based on S-NSSAI.
-
-The 5GC / UE / RAN used are as follows.
-- 5GC - Open5GS v2.6.1 (2023.03.18) - https://github.com/open5gs/open5gs
-- UE / RAN - UERANSIM v3.2.6 (2023.03.17) - https://github.com/aligungr/UERANSIM -->
+<a id="archi"></a>
+<h2 align="Left">5.1: Project Architecture Explaination </h2>
 
 The network components are configured in separate Virtual Machine labelled as VM. The details of each VM are mentioned in the table below. 
 
