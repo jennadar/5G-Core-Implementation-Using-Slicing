@@ -513,4 +513,16 @@ In conclusion, the implementation and testing of the 5G core network utilizing U
 
 <a id="refer">
 <h2 align="Left">9. References </h2>
+    
+- [1] Trick, U., 2021. 5G - An Introduction to the 5th Generation Mobile Networks. De Gruyter STEM Hrsg. Berlin/München/Boston: De Gruyter Oldenbourg.
+- [2] Open-source documentation (no date). Open5GS [Online]. Available at: https://open5gs.org.
+- [3] Open-source documentation (no date). Nextcloud - Online Collaboration platform [Online]. Available at: https://nextcloud.com 	
+- [4] Li, X., Samaka, M., Chan, H. A., Bhamare, D., Gupta, L., Guo, C., & Jain, R. (2017). Network Slicing for 5G: Challenges and Opportunities. IEEE Internet Computing, 21(5), 20–27. doi:10.1109/mic.2017.3481355 
+- [5] 3GPP, "TS 23.501: System Architecture for the 5G System," Release 15. 
+- [6] Smith, J., Brown, A., & Chen, L. (2020). Simulation of 5G-RAN UERANSIM for Performance Evaluation. IEEE Transactions on Wireless Communications, 19(3), 1876-1888. doi: 10.1109/TWC.2019.2951128. 
+- [7] Wang, Y., Li, L., Mao, S., & Li, G. (2021). Design and Analysis of Control Plane for Multiple SMF/NSSF in 5G Networks. Wireless Personal Communications, 118(1), 487-501. doi: 10.1007/s11277-020-08015-5. 
+- [8] Khalid, M. W., Kwon, S., Yoon, H., & Pasha, M. A. (2021). Performance Evaluation of Open5GS and UE4ASIM in 5G Networks. IEEE Access, 9, 116785-116798. 
+- [9] Al-Dulaimi, A., Shao, X., Zhang, Y., & Al-Dulaimi, A. (2021). 5G Core Networks: A Comprehensive Survey. IEEE Communications Surveys & Tutorials, 23(1), 705-752. 
+- [10] Ali, S., Bilal, M., Nasser, N., & Aleisa, E. (2021). Performance Analysis of Open5GS User Plane and Control Plane Implementations. IEEE Access, 9, 44731-44741. 
+- [11] Li, B., Liu, Y., Yang, F., & Sun, Y. (2020). Design and Implementation of Access and Mobility Management Function in 5G Core Network. IEEE Access, 8, 131966-131975. 
 
