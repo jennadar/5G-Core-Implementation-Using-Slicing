@@ -1,6 +1,6 @@
 # Open5GS 5GC Cloud Connect using UERANSIM
 <!-- PROJECT LOGO -->
-<img src="Figures/FRA-UAS_Logo_rgb.jpg" width="150"/>
+<img src="/Figures/Installations/FRA-UAS_Logo_rgb.jpg" width="150"/>
 
 <h1 align="center">Team Gen5 Designers</h1>
 <p align="center">
@@ -331,7 +331,7 @@ To ensure the successful connection between 5GC and gnb, we need to receive `NG 
 The below figure represents the Wireshark traces and message sequence chart (MSC) which is
 generated after the successful start of UERANSIM gNB, between gnb and AMF
 
-![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM/NG%20Connection%20setup%20between%20gnb1_amf.png)
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM/gnb1.png)
 
 
 To run the first ue, UE1 - `sudo ./build/nr-ue -c config/open5gs-ue1.yaml`
@@ -341,11 +341,9 @@ The successful initialization of UE can be verified by receiving the `PDU Sessio
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM/PDU%20session%20successfully%20established%D1%8Ffor%D1%8FUE1.png)
 
 
-The NGAP traces has
-the NG set up a request and response to initialize a gNB and PDU association request and response
-for initializing the UE1
+The NGAP traces has the NG set up a request and response to initialize a gNB and PDU association request and response for initializing the UE1
 
-![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM/PDU%20session%20successfully%20established%D1%8Ffor%D1%8FUE1.png)
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/U_plane1/PDU-session.png)
 
 <h3 align="Left">6.3.2: NG Setup between gNB2 to AMF </h3>
 
@@ -359,12 +357,22 @@ To ensure the successful connection between 5GC and gnb, we need to receive `NG 
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM/NG%20Connection%20setup%20between%20gnb2_amf.png)
 
+The below figure represents the Wireshark traces and message sequence chart (MSC) which is
+generated after the successful start of UERANSIM gNB, between gnb and AMF
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM/ngap-gnb1.png)
+
 
 To run the first ue, UE2 - `sudo ./build/nr-ue -c config/open5gs-ue2.yaml`
 
 The successful initialization of UE can be verified by receiving the `PDU Session Establishment successful` with TUNnel interface[uesimtun0,10.46.0.2] in the same terminal. 
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM/PDU%20session%20successfully%20established%D1%8Ffor%D1%8FUE2.png)
+
+The NGAP traces has the NG set up a request and response to initialize a gNB and PDU association request and response for initializing the UE1
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/U_plane2/PDU-session.png)
+
 
 Similarly, other UEs (UE3, UE4) can be realized.
 
