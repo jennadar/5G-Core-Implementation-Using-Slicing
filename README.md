@@ -404,12 +404,15 @@ Open a new terminal
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/Ping%20Google%20server%20from%20UE1.png)
 
 Wireshark traces are shown in the image below.
+
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/Ping%20Google%20server%20from%20UE1-wireshark.png)
 
 MSC diagram is shown below.
+
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/Ping%20Google%20server%20from%20UE1-MSC.png)
 
 Confirm by using tcpdump that the packet goes through if=ogstun on U-Plane1.
+
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/U_plane1/UE1_UPLANE1_TCPDUMP.png)
 
 <a id="data2">
@@ -422,13 +425,16 @@ Open a new terminal
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/Ping%20Google%20server%20from%20UE2.png)
 
 Wireshark traces are shown in the image below.
+
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/Ping%20Google%20server%20from%20UE2-wireshark.png)
 
 MSC diagram is shown below.
+
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/Ping%20Google%20server%20from%20UE2-msc.png)
 
 
 Confirm by using tcpdump that the packet goes through if=ogstun on U-Plane2.
+
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/U_plane2/UE2_UPLANE2_TCPDUMP.png)
 
 <a id="slice">
@@ -446,6 +452,7 @@ The NextCloud File Hosting server has been implemented on a Ip subnet 10.8.2.15 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/nectcloud_Usercreations.png)
 
 Below series of steps are involved in accessing the file sharing service:
+
 1. NG Connection establishment between gNB and 5GC-Control Plane.  
 
 2. PDU session establishment between U-Plane 1 and UE1.  
@@ -489,9 +496,11 @@ The below picture show that the file is transfered to User2 via Next Cloud serve
 
 
 The wireshark traces are captured at UE1. This traces show that the UE2 is connected to Next cloud Server.
+
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/WS-FileTransfer-UE1.png)
 
 Similarly the wireshark traces are captured at UE2. This traces show that the UE2 is connected to Next cloud Server.
+
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/WS-FileTransfer-UE2.png)
 
 <a id="slice2">
