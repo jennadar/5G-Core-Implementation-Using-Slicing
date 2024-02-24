@@ -20,7 +20,7 @@ smf:
   pfcp:
     server:
       - address: 10.8.2.115
-        dnn: voip2
+        dnn: internet2
     client:
       upf:
         - address: 10.8.2.15
@@ -36,7 +36,7 @@ smf:
         port: 9090
   session:
     - subnet: 10.56.0.1/16
-    - dnn: voip2
+    - dnn: internet2
       dev: ogstun2
 
   dns:
@@ -55,7 +55,7 @@ smf:
     - s_nssai:
         - sst: 2
           sd: 000002
-          dnn: voip
+          dnn: internet2
       tai:
         - plmn_id:
             mcc: 999

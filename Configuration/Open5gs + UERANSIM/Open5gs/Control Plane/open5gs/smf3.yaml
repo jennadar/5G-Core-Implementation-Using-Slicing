@@ -20,11 +20,11 @@ smf:
   pfcp:
     server:
       - address: 10.8.2.114
-        dnn: voip
+        dnn: internet2
     client:
       upf:
         - address: 10.8.2.7
-          dnn: voip
+          dnn: internet2
   gtpc:
     server:
       - address: 127.0.0.25
@@ -37,7 +37,7 @@ smf:
         port: 9090
   session:
     - subnet: 10.55.0.1/16
-    - dnn: voip
+    - dnn: internet2
     
 
   dns:
@@ -57,7 +57,7 @@ smf:
         - sst: 2
           sd: 000001
           dnn:
-            - voip
+            - internet2
       tai:
         - plmn_id:
             mcc: 999
