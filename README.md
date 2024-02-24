@@ -1,6 +1,6 @@
-# Open5GS 5GC Cloud Connect using UERANSIM
+#  Implementation and Testing of a 5G Core Network for Slicing and Application Connectivity using UERANSIM
 <!-- PROJECT LOGO -->
-<img src="/Figures/Installations/FRA-UAS_Logo_rgb.jpg" width="150"/>
+<img src="/Figures/Installations/FRA-UAS_Logo_rgb.jpg" width="550" align="center"/>
 
 <h1 align="center">Team Gen5 Designers</h1>
 <p align="center">
@@ -53,7 +53,7 @@
 
 <h3 align="Left"> Project Description: </h3>
 
-"5G CloudConnect with EURANSIM Integration" is a comprehensive project focusing on the utilization of 5G core network technology in conjunction with EURANSIM, an open-source platform for simulating and testing 5G networks, to facilitate efficient file transfer between two User Equipment (UE) via Nextcloud. The project aims to exploit the capabilities of 5G networks, including ultra-low latency and high bandwidth, to optimize file sharing performance while leveraging EURANSIM for thorough testing and validation of the network infrastructure. By integrating Nextcloud with the advanced features of 5G core networks and utilizing EURANSIM for comprehensive testing, the project seeks to ensure the reliability, scalability, and performance of the file transfer system under varying network conditions. 
+This project focuses on the design, implementation, and testing of a 5G core network infrastructure with slicing capabilities using UERANSIM. The network architecture enables multiple User Equipment (UE) devices to utilize different network slices for distinct applications, such as file transfer via Nextcloud and web browsing. Specifically, four UEs are employed to test the network, with UE1 and UE2 assigned to transfer files via Nextcloud, while UE3 and UE4 connect to websites like google.com. Through this setup, the project aims to assess the efficacy and performance of 5G network slicing in facilitating diverse application requirements while ensuring efficient resource allocation and management. 
 
 ---
 <a id="scope"></a>
@@ -63,13 +63,13 @@ The scope of the "5G CloudConnect" project encompasses the following key aspects
 
 - Designing and deploying a 5G core network architecture optimized for file transfer applications utilizing Nextcloud.
 - Configuring and utilizing the EURANSIM simulation platform for testing the 5G core network's performance.
-- Implementing two network slices to establish separate connections between User Equipment (UE) and Nextcloud, enabling evaluation of differentiated services.
+- Implementing four network slices to establish separate connections between User Equipment (UE) and Nextcloud, and connecting to different application/webservices enabling evaluation of differentiated services.
 - Conducting comprehensive performance testing, including measurement of latency, throughput, and reliability, to assess the network's suitability for file transfer requirements.
 - Analyzing collected data to identify strengths, weaknesses, and potential optimizations of the 5G core network in supporting file transfers.
 - Documenting findings and insights obtained from the evaluation process, providing valuable information for network optimization and future deployments.
 - Offering recommendations for enhancing the 5G core network's capabilities to better support file transfer applications and similar use cases.
 
-By addressing these aspects within the defined scope, the "5G CloudConnect with UERANSIM Integration" project aims to deliver a robust, secure, and high-performance platform for efficient file transfer over 5G networks, validated through thorough testing and simulation using UERANSIM.
+By addressing these aspects within the defined scope, the " Implementation and Testing of a 5G Core Network for Slicing and Application Connectivity using UERANSIM" project aims to deliver a robust, secure, and high-performance platform for efficient file transfer over 5G networks, validated through thorough testing and simulation using UERANSIM.
 
 ---
 
@@ -166,10 +166,10 @@ Each DNs are as follows.
 
 
 <a id="changes"></a>
-
-## Changes in configuration files of Open5GS 5GC and UERANSIM UE / RAN
+<h2 align="Left">5.2:  Changes in configuration files of Open5GS 5GC and UERANSIM UE / RAN </h2>
 
 Please refer to the following for building Open5GS and UERANSIM respectively.
+[Configuration](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Documents/Configurations-README.md)
 
 
 <a id="Analysis"></a>
@@ -455,14 +455,19 @@ sh nr-binder 10.46.0.2 firefox (for ue2)
 
 <h3 align="Left">7.1.2: File Sharing from UE1(SST:1, SD:1) to UE2(SST:1, SD:2) </h3>
 
+
+
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/pic_nextcloud_user1(user1).png)
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/nextcloud_file_from_user1.png)
 
 
 
-The wireshark traces are captured at UE1.
+The wireshark traces are captured at UE1. This traces show that the UE2 is connected to Next cloud Server.
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/WS-FileTransfer-UE1.png)
+
+Similarly the wireshark traces are captured at UE2. This traces show that the UE2 is connected to Next cloud Server.
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/WS-FileTransfer-UE2.png)
 
 <h2 align="Left">7.2 Connecting to a Website. </h2>
 
