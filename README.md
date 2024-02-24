@@ -468,9 +468,11 @@ sh nr-binder 10.46.0.2 firefox (for ue2)
 
 <h3 align="Left">7.1.2: File Sharing from UE1(SST:1, SD:1) to UE2(SST:1, SD:2) </h3>
 
-
+The below figure shows the file is selected to transfer to User2. 
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/pic_nextcloud_user1(user1).png)
+
+The below picture show that the file is transfered to User2 via Next Cloud server.
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/nextcloud_file_from_user1.png)
 
@@ -486,10 +488,10 @@ Similarly the wireshark traces are captured at UE2. This traces show that the UE
 <h2 align="Left">7.2 Connecting to a Website. </h2>
 
 <a id="conclusion">
-## Conclusion
+<h2 align="Left">8. Conclusion </h2>
 
 In conclusion, the implementation and testing of the 5G core network utilizing UERANSIM have demonstrated the feasibility and efficacy of slicing in catering to diverse user requirements. By assigning different slices to individual UE devices, the network effectively allocated resources and prioritized traffic for file transfer and website access. The project highlights the potential of slicing in enhancing network efficiency, scalability, and flexibility in 5G deployments. Moving forward, further optimization and refinement of slicing strategies can contribute to the seamless integration of diverse services and applications in future 5G networks.
 
 <a id="refer">
-## References
+<h2 align="Left">9. References </h2>
 
