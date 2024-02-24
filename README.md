@@ -81,7 +81,9 @@ By addressing these aspects within the defined scope, the " Implementation and T
 <a id="architecture"></a>
 <h1 align="Left">2. General Architecture </h1>
 
-This section explains the basic architecture of 5G network core. ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Architecture/General_architecture.jpeg)
+This section explains the basic architecture of 5G network core.
+
+![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Architecture/General_architecture.jpeg)
 
 <a id="Open5GS"></a>
 <h2 align="Left">2.1: Open5GS </h2>
@@ -125,6 +127,8 @@ This section explains the work plan for our team and the work distribution, role
 In the realization phase of the "5G CloudConnect with EURANSIM Integration" project, significant configuration changes are made to the 5G core network components, specifically the Access and Mobility Management Function (AMF), the Session Management Function (SMF), and the Network Slice Selection Function (NSSF). These changes are essential to optimize the network architecture for efficient file transfer applications using Nextcloud and to facilitate thorough testing and validation using EURANSIM.
 
 A brief description of the whole project is demonstrated in the image below.
+
+
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Architecture/Project%20Architecture.png)
 
 <a id="archi"></a>
@@ -236,7 +240,28 @@ iptables -t nat -A POSTROUTING -s 10.46.0.0/16 ! -o ogstun -j MASQUERADE
 Similarly do it for the 10.55.0.2, 10.56.0.2 if=ogstun2 
 <a id="SMF-UPF">
 <h2 align="Left">6.2 SMF to UPF connection Establishment. </h2>
-After the configurations of the components of 5GC in Open5GS, to receive the changes in the machine we need to restart the 5GC services as mentioned below. As multiple SMFs need to be implemented, these services are made to run separately.
+
+After the configurations of the components of 5GC in Open5GS, to receive the changes in the machine we need to restart the 5GC services as mentioned below. 
+
+
+In U-Plane
+
+```
+$ sudo systemctl stop open5gs-smfd
+$ sudo systemctl stop open5gs-amfd
+$ sudo systemctl stop open5gs-nrfd
+$ sudo systemctl stop open5gs-scpd
+$ sudo systemctl stop open5gs-ausfd
+$ sudo systemctl stop open5gs-udmd
+$ sudo systemctl stop open5gs-pcfd
+$ sudo systemctl stop open5gs-nssfd
+$ sudo systemctl stop open5gs-bsfd
+$ sudo systemctl stop open5gs-udrd
+$ sudo systemctl restart open5gs-upfd
+
+```
+
+As multiple SMFs need to be implemented, these services are made to run separately.
 
 ```
 $ sudo systemctl stop open5gs-smfd
@@ -257,22 +282,7 @@ $ sudo /bin/open5gs-smfd -c /etc/open5gs/smf3.yaml
 $ sudo /bin/open5gs-smfd -c /etc/open5gs/smf4.yaml
 
 ```
-In U-Plane
 
-```
-$ sudo systemctl stop open5gs-smfd
-$ sudo systemctl stop open5gs-amfd
-$ sudo systemctl stop open5gs-nrfd
-$ sudo systemctl stop open5gs-scpd
-$ sudo systemctl stop open5gs-ausfd
-$ sudo systemctl stop open5gs-udmd
-$ sudo systemctl stop open5gs-pcfd
-$ sudo systemctl stop open5gs-nssfd
-$ sudo systemctl stop open5gs-bsfd
-$ sudo systemctl stop open5gs-udrd
-$ sudo systemctl restart open5gs-upfd
-
-```
 
 After restarting the 5G components, we have depicted the working of the architecture through Wireshark traces captured at Service Based Interfaces.
 
