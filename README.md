@@ -177,7 +177,9 @@ Each DNs are as follows.
 <h2 align="Left">5.2:  Changes in configuration files of Open5GS 5GC and UERANSIM UE / RAN </h2>
 
 Please refer to the following for building Open5GS and UERANSIM respectively.
-[Configuration](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/User-Guide/Configurations-README.md)
+
+
+[Configuration files](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/User-Guide/Configurations-README.md)
 
 
 <a id="execution"></a>
