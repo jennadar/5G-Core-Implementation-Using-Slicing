@@ -47,8 +47,7 @@
       - [6.4.1: Testing the network using UE1](#data)
       - [6.4.2: Testing the network using UE2](#data2)
 - [7. Network Slicing.](#slice)
-    - [7.1.1: Creation on Users in Next Cloud (Server)](#slice)
-    - [7.2 Connecting to a Website.](#slice2)
+    - [7.1: Creation on Users in Next Cloud (Server)](#slice)
 - [Conclusion](#conclusion)
 - [Reference](#refer)
 
@@ -447,10 +446,10 @@ This section Includes all the network slicing that was performed.
 
 <h2 align="Left">7.1: Next Cloud. </h2>
 
-The NextCloud File Hosting server has been implemented on an Ip subnet 10.8.2.15 in the User Plane 2. The users who are connected to the 5G Core via ‘internet’ DNN will be able to access the NextCloud server by pinging to the server IP. 
+The NextCloud File Hosting server has been implemented on an IP subnet 10.8.2.15 in the User Plane 2. The users who are connected to the 5G Core via ‘internet’ DNN will be able to access the NextCloud server by pinging to the server IP. 
 
 <a id="slice1">
-<h3 align="Left">7.1.1: Creation on Users in Next Cloud (Server)</h3>
+<h3 align="Left">7.1: Creation on Users in Next Cloud (Server)</h3>
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/nectcloud_Usercreations.png)
 
@@ -502,12 +501,12 @@ The wireshark traces are captured at UE1. These traces show that the UE2 is conn
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/WS-FileTransfer-UE1.png)
 
-Similarly, the wireshark traces are captured at UE2. These traces show that the UE2 is connected to the Next cloud Server.
+Similarly, the Wireshark traces are captured at UE2. These traces show that the UE2 is connected to the Next cloud Server.
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/WS-FileTransfer-UE2.png)
 
-<a id="slice2">
-<h2 align="Left">7.2 Connecting to a Website. </h2>
+
+
 
 <a id="conclusion">
 <h2 align="Left">8. Conclusion </h2>
