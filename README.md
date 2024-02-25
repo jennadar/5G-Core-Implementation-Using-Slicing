@@ -421,7 +421,7 @@ The below figure represents the Wireshark traces which is generated after the su
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM/gnb1.png)
 
 
-To run the first ue, UE2 - `sudo ./build/nr-ue -c config/open5gs-ue2.yaml`
+To run the UE2 - `sudo ./build/nr-ue -c config/open5gs-ue2.yaml`
 
 The successful initialization of UE can be verified by receiving the `PDU Session Establishment successful` with the TUNnel interface[uesimtun0,10.46.0.2] in the same terminal. 
 
@@ -482,7 +482,7 @@ Similarly for UE3:
 To ping google.com
 Open a new terminal
 
-`./nr-binder 10.45.0.4 ping google.com`
+`./nr-binder 10.46.0.2 ping google.com`
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/Ping%20Google%20server%20from%20UE2.png)
 
