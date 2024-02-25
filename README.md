@@ -253,7 +253,9 @@ ip link set ogstun up
 iptables -t nat -A POSTROUTING -s 10.46.0.0/16 ! -o ogstun -j MASQUERADE
 ```
 
-Similarly do it for the 10.55.0.2, 10.56.0.2 if=ogstun2 
+Similarly do it for the  other TUNnel interface 10.55.0.2, 10.56.0.2 if=ogstun2 
+
+
 <a id="SMF-UPF">
 <h2 align="Left">6.2 SMF to UPF Connection Establishment. </h2>
 
