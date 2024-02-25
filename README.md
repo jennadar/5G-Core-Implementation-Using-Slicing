@@ -418,7 +418,7 @@ Confirm by using tcpdump that the packet goes through if=ogstun on U-Plane1.
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/U_plane1/UE1_UPLANE1_TCPDUMP.png)
 
 <a id="data2">
-<h3 align="Left">6.4.2: Testing the network using UE2 via</h3>
+<h3 align="Left">6.4.2: Testing the network using UE2 </h3>
 To ping google.com
 Open a new terminal
 
