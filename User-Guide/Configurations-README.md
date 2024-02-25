@@ -330,7 +330,7 @@ info:
 - s_nssai:
     - sst: 2
       sd: 000002
-      dnn: voip
+      dnn: internet2
   tai:
     - plmn_id:
         mcc: 999
