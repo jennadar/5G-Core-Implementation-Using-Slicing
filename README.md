@@ -156,7 +156,7 @@ As per the project requirement UE1 and UE2 have access to File sharing with UPF1
 | NSSF | 10.8.2.8/24 | SST:1, SD:1 <br> SST:1, SD:2 <br> SST:2, SD:1 <br> SST:2, SD:2 |
 
 
-Subscriber Information (other information is the same) is as follows. This user informations were registered with Open5GS WebUI
+Subscriber Information (other information is the same) is as follows. This user information were registered with Open5GS WebUI
 
 | UE # |	IMSI |	DNN	 |  OP/OPc  |
 | --- | --- | --- | --- |
@@ -213,9 +213,13 @@ First, uncomment the next line in the `/etc/sysctl.conf` file and reflect it in 
 
 ```
 net.ipv4.ip_forward=1
-
-# sysctl -p
 ```
+To Verify :
+
+```
+sysctl -p
+```
+
 
 Next, configure the TUNnel interface and NAPT.
 
@@ -233,8 +237,10 @@ First, uncomment the next line in the `/etc/sysctl.conf` file and reflect it in 
 ```
 net.ipv4.ip_forward=1
 ```
+To Verify :
+
 ```
-# sysctl -p
+sysctl -p
 ```
 Next, configure the TUNnel interface and NAPT.
 ```
@@ -386,6 +392,17 @@ The NGAP traces have the NG set up a request and response to initialize a gNB an
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/U_plane1/PDU-session.png)
 
+
+Similarly, other UE3 as follows :
+
+To run the UE3 - `sudo ./build/nr-ue -c config/open5gs-ue3.yaml`
+
+[UE3 PDU session Terminal Image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM/PDU%20session%20successfully%20established_for_UE3.png)
+
+[UE3 PDU Wireshark Traces](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Traces/UE3/PDU%20session%20successfully%20established_for_UE3.pcapng)
+
+
+
 <a id="ng-setup">
 <h3 align="Left">6.3.2: NG Setup between gNB2 to AMF </h3>
 
@@ -415,11 +432,10 @@ The NGAP traces have the NG set up a request and response to initialize a gNB an
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/U_plane2/PDU-session.png)
 
 
-Similarly, other UEs (UE3, UE4) can be realized.
+Similarly, other UE4 can be realized : 
 
-[UE3 PDU session Terminal Image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM/PDU%20session%20successfully%20established_for_UE3.png)
 
-[UE3 PDU Wireshark Traces](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Traces/UE3/PDU%20session%20successfully%20established_for_UE3.pcapng)
+To run the UE4 - `sudo ./build/nr-ue -c config/open5gs-ue4.yaml`
 
 [UE4 PDU session Terminal Image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM/PDU%20session%20successfully%20established_for_UE4.png)
 
@@ -455,7 +471,9 @@ Similarly for UE3:
 `./nr-binder 10.55.0.2 ping google.com`
 
 [Terminal output Image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/Ping%20Google%20server%20from%20UE3.png)
+
 [WireShark Traces](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Traces/UE3/Ping%20Google%20server%20from%20UE3.pcapng)
+
 [TCP Dump](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/U_plane1/UE3_uplane1_tcpdump.png)
 
 
@@ -487,7 +505,9 @@ Similarly for UE4:
 `./nr-binder 10.56.0.2 ping google.com`
 
 [Terminal output Image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/Ping%20Google%20server%20from%20UE4.png)
+
 [WireShark Traces](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Traces/UE4/Ping%20Google%20server%20from%20UE4.pcapng)
+
 [TCP Dump](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/U_plane2/UE4_uplane2_tcpdump.png)
 
 
