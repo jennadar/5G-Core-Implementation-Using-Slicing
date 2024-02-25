@@ -91,7 +91,7 @@ Open5GS is an open-source implementation of 5G Core Network (5GC) and EPC (Evolv
 
 <a id="UERANSIM"></a>
 <h2 align="Left">2.2: UERANSIM </h2>
-UERANSIM is an open source 5G UE & 5G RAN (gNodeB) implementation. It can be considered as a 5G mobile phone and a base station in basic terms. There are 3 main interfaces in UE/RAN perspective,  
+UERANSIM is an open-source 5G UE & 5G RAN (gNodeB) implementation. It can be considered as a 5G mobile phone and a base station in basic terms. There are 3 main interfaces in UE/RAN perspective,  
 
 - Control Interface (between RAN and AMF) 
 
@@ -99,25 +99,25 @@ UERANSIM is an open source 5G UE & 5G RAN (gNodeB) implementation. It can be con
 
 - Radio Interface (between UE and RAN).  
 
-UERANSIM supports to run with Open5GS and Free5GC 5G Core networks. We can connect UERANSIM to one of these 5G Core network and test the functionality. 
+UERANSIM supports to run with Open5GS and Free5GC 5G Core networks. We can connect UERANSIM to one of these 5G Core networks and test the functionality. 
 
 <a id="slicing"></a>
 <h2 align="Left">2.3: Network Slicing </h2>
-Network slicing is a fundamental concept in 5G networks that allows the creation of multiple virtual networks, each tailored to serve specific types of applications, services, or customers. It enables the efficient allocation of network resources and the customization of network behaviour to meet diverse requirements, such as ultra-reliable low-latency communication (URLLC), massive machine type communication (mMTC), and enhanced mobile broadband (eMBB).
+Network slicing is a fundamental concept in 5G networks that allows the creation of multiple virtual networks, each tailored to serve specific types of applications, services, or customers. It enables the efficient allocation of network resources and the customization of network behavior to meet diverse requirements, such as ultra-reliable low-latency communication (URLLC), massive machine type communication (mMTC), and enhanced mobile broadband (eMBB).
 
 ---
 
 <a id="Requirement"></a>
 <h1 align="Left">3. Requirements </h1>
 
-This section explains all the required installation and pre-requisites and dependencies need to establish a 5G Core network and UERANSIM.
+This section explains all the required installation pre-requisites and dependencies needed to establish a 5G Core network and UERANSIM.
 Please refer to the link below to complete the installation of the dependencies. [Installations Process Guide](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/User-Guide/Requirements-README.md)
 
 
 <a id="Planning"></a>
 <h1 align="Left">4. Planning </h1>
 
-This section explains the work plan for our team and the work distribution, roles and responsiblities for each team members
+This section explains the work plan for our team and the work distribution, roles, and responsiblities of each team member
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Project%20Planning.png)
 
@@ -134,9 +134,9 @@ A brief description of the whole project is demonstrated in the image below.
 <a id="archi"></a>
 <h2 align="Left">5.1: Project Architecture Explaination </h2>
 
-The network components are configured in separate Virtual Machine labelled as VM. The details of each VM are mentioned in the table below. 
+The network components are configured in a separate Virtual Machine labeled as VM. The details of each VM are mentioned in the table below. 
 
-Each VMs are as follows.  
+Each VM's are as follows.  
 | VM # | SW & Role | IP address | OS | Memory (Min) | HDD (Min) |
 | --- | --- | --- | --- | --- | --- |
 | VM1 | Open5GS 5GS C-plane | 10.8.2.8/24 | Ubuntu 22.04 | 1GB | 10GB |
@@ -145,7 +145,7 @@ Each VMs are as follows.
 | VM4 | Open5GS 5GC U-Plane1   | 10.8.2.7/24 | Ubuntu 22.04 | 1GB | 10GB |
 | VM5 | Open5GS 5GC U-Plane2 & Next Cloud for File Sharing  | 10.8.2.15/24 | Ubuntu 22.04 | 1GB | 10GB |
 
-Four UEs were created in two separate VMs. We have provided separate slicing to individual User Equipment for File Sharing. UE1 uses the slice marked with colour Red and similarly UE2 uses slice marked with colour Blue and the other two UE's UE3,UE4 is used to connect to the website 
+Four UEs were created in two separate VMs. We have provided separate slicing to individual User Equipment for File Sharing. UE1 uses the slice marked with colour Red and similarly UE2 uses the slice marked with the colour Blue the other two UE's UE3,UE4 are used to connect to the website 
 
 As per the project requirement UE1 and UE2 have access to File sharing with UPF1 and UPF2 respectively and the remaining UE's is for connecting to Data network. The NSSF file is used for network slice selection as per the slicing parameters provided by the UEs. 
  
@@ -239,7 +239,7 @@ iptables -t nat -A POSTROUTING -s 10.46.0.0/16 ! -o ogstun -j MASQUERADE
 
 Similarly do it for the 10.55.0.2, 10.56.0.2 if=ogstun2 
 <a id="SMF-UPF">
-<h2 align="Left">6.2 SMF to UPF connection Establishment. </h2>
+<h2 align="Left">6.2 SMF to UPF Connection Establishment. </h2>
 
 After the configurations of the components of 5GC in Open5GS, to receive the changes in the machine we need to restart the 5GC services as mentioned below. 
 
@@ -303,7 +303,7 @@ After running the above commands you will establish a PFCP connection as shown i
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Open5gs/PFCP%20association%20between%20SMF1_2and%20UPF1_2.png)
 
-The wireshark traces of PFCP association between SMF1 and UPF1
+The Wireshark traces of PFCP association between SMF1 and UPF1
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Open5gs/WT-between-SMF1-n-UPF1.png)
 
@@ -318,7 +318,7 @@ Similarly, initialization of the UPF in U-Plane2. The following commands can be 
 running and stopping the required as mentioned above
 
 
-So the wireshark traces of PFCP association between SMF2 and UPF2 is given below
+So the wireshark traces of the PFCP association between SMF2 and UPF2 are given below
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Open5gs/WT-between-SMF2-n-UPF2.png)
 
@@ -356,12 +356,12 @@ The below figure represents the Wireshark traces which is generated after the su
 
 To run the first ue, UE1 - `sudo ./build/nr-ue -c config/open5gs-ue1.yaml`
 
-The successful initialization of UE can be verified by receiving the `PDU Session Establishment successful` with TUNnel interface[uesimtun0,10.45.0.4] in the same terminal. 
+The successful initialization of UE can be verified by receiving the `PDU Session Establishment successful` with the TUNnel interface[uesimtun0,10.45.0.4] in the same terminal. 
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM/PDU%20session%20successfully%20established%D1%8Ffor%D1%8FUE1.png)
 
 
-The NGAP traces has the NG set up a request and response to initialize a gNB and PDU association request and response for initializing the UE1
+The NGAP traces have the NG set up a request and response to initialize a gNB and PDU association request and response for initializing the UE1
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/U_plane1/PDU-session.png)
 
@@ -385,11 +385,11 @@ The below figure represents the Wireshark traces which is generated after the su
 
 To run the first ue, UE2 - `sudo ./build/nr-ue -c config/open5gs-ue2.yaml`
 
-The successful initialization of UE can be verified by receiving the `PDU Session Establishment successful` with TUNnel interface[uesimtun0,10.46.0.2] in the same terminal. 
+The successful initialization of UE can be verified by receiving the `PDU Session Establishment successful` with the TUNnel interface[uesimtun0,10.46.0.2] in the same terminal. 
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM/PDU%20session%20successfully%20established%D1%8Ffor%D1%8FUE2.png)
 
-The NGAP traces has the NG set up a request and response to initialize a gNB and PDU association request and response for initializing the UE1
+The NGAP traces have the NG set up a request and response to initialize a gNB and PDU association request and response for initializing the UE1
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/U_plane2/PDU-session.png)
 
@@ -410,7 +410,7 @@ Wireshark traces are shown in the image below.
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/Ping%20Google%20server%20from%20UE1-wireshark.png)
 
-MSC diagram is shown below.
+The MSC diagram is shown below.
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/Ping%20Google%20server%20from%20UE1-MSC.png)
 
@@ -431,7 +431,7 @@ Wireshark traces are shown in the image below.
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/Ping%20Google%20server%20from%20UE2-wireshark.png)
 
-MSC diagram is shown below.
+The MSC diagram is shown below.
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/Ping%20Google%20server%20from%20UE2-msc.png)
 
@@ -447,14 +447,14 @@ This section Includes all the network slicing that was performed.
 
 <h2 align="Left">7.1: Next Cloud. </h2>
 
-The NextCloud File Hosting server has been implemented on a Ip subnet 10.8.2.15 in the User Plane 2. The users who are connected to the 5G Core via ‘internet’ DNN will be able to access the NextCloud server by with pinging to the server Ip. 
+The NextCloud File Hosting server has been implemented on an Ip subnet 10.8.2.15 in the User Plane 2. The users who are connected to the 5G Core via ‘internet’ DNN will be able to access the NextCloud server by pinging to the server IP. 
 
 <a id="slice1">
 <h3 align="Left">7.1.1: Creation on Users in Next Cloud (Server)</h3>
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/nectcloud_Usercreations.png)
 
-Below series of steps are involved in accessing the file sharing service:
+Below series of steps are involved in accessing the file-sharing service:
 
 1. NG Connection establishment between gNB and 5GC-Control Plane.  
 
@@ -469,8 +469,8 @@ Below series of steps are involved in accessing the file sharing service:
 | UE1 | 10.45.0.4  | SST:1, SD:1 |
 | UE2 | 10.46.0.2 | SST:1, SD:2 |
 
-5. Once the UEs are assigned the IP addresses on the ‘uesimtun0’ interface then ‘nr-binder’ tool
-available as a part of UERANSIM is used to access the NextCloud server via web browser already
+5. Once the UEs are assigned the IP addresses on the ‘uesimtun0’ interface then the ‘nr-binder’ tool
+available as a part of UERANSIM is used to access the NextCloud server via a web browser already
 installed in both UE1 and UE2 using the below command:
 
 ```
@@ -480,7 +480,7 @@ sh nr-binder 10.45.0.4 firefox (for ue1)
 
 sh nr-binder 10.46.0.2 firefox (for ue2)
 ```
-6. In the browser windows the NextCloud server can be accessed from the url https://10.8.2.15/nextcloud/ by logging in to 	users ‘UE1’ and ‘UE2’ already registered in the NextCloud server (10.8.2.15) ‘ue1’ and ‘ue2’ respectively.  
+6. In the browser windows the NextCloud server can be accessed from the URL https://10.8.2.15/nextcloud/ by logging in to users ‘UE1’ and ‘UE2’ already registered in the NextCloud server (10.8.2.15) ‘ue1’ and ‘ue2’ respectively.  
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/nextcloud_user1.png)
 
@@ -492,17 +492,17 @@ The below figure shows the file is selected to transfer to User2.
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/pic_nextcloud_user1(user1).png)
 
-The below picture show that the file is transfered to User2 via Next Cloud server.
+The below picture shows that the file is transferred to User2 via the Next Cloud server.
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/nextcloud_file_from_user1.png)
 
 
 
-The wireshark traces are captured at UE1. This traces show that the UE2 is connected to Next cloud Server.
+The wireshark traces are captured at UE1. These traces show that the UE2 is connected to the Next Cloud server.
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/WS-FileTransfer-UE1.png)
 
-Similarly the wireshark traces are captured at UE2. This traces show that the UE2 is connected to Next cloud Server.
+Similarly, the wireshark traces are captured at UE2. These traces show that the UE2 is connected to the Next cloud Server.
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/WS-FileTransfer-UE2.png)
 
