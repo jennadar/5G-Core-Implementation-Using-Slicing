@@ -312,6 +312,7 @@ The MSC of PFCP association between SMF1 and UPF1
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Open5gs/MSC-between-SMF1-n-UPF1.png)
 
+
 <a id="smf2-up2">
 <h3 align="Left">6.2.2 SMF2 to UPF2 connection Establishment. </h3>
 
@@ -329,13 +330,25 @@ The MSC of PFCP association between SMF2 and UPF2
 
 Similarly, you will do the same process for the PFCP association between the SMF3 and UPF1 
 
-Similarly, you will do the same process for the PFCP association between the SMF4 and UPF2
-
-
 ```
 sudo /bin/open5gs-smfd -c /etc/open5gs/smf3.yaml 
+```
+
+[Terminal image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Open5gs/PFCP%20association%20between%20SMF3_4and%20UPF1_2.png)
+
+[Wireshark Trace](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Traces/OPEN5GS/PFCP%20association%20between%20SMF3%20and%20UPF1.pcapng)
+
+Similarly, you will do the same process for the PFCP association between the SMF4 and UPF2
+
+```
 sudo /bin/open5gs-smfd -c /etc/open5gs/smf4.yaml 
 ```
+
+[Terminal image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Open5gs/PFCP%20association%20between%20SMF3_4and%20UPF1_2.png)
+
+[Wireshark Trace](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Traces/OPEN5GS/PFCP%20association%20between%20SMF4%20and%20UPF2.pcapng)
+
+
 <a id="Run-ran">
 <h2 align="Left">6.3 Running UERAN </h2>
 <h3 align="Left">6.3.1: NG Setup between gNB1 to AMF </h3>
@@ -379,7 +392,7 @@ To ensure the successful connection between 5GC and gnb, we need to receive `NG 
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM/NG%20Connection%20setup%20between%20gnb2_amf.png)
 
-The below figure represents the Wireshark traces which is generated after the successful start of UERANSIM gNB, between gnb and AMF
+The below figure represents the Wireshark traces which is generated after the successful start of UERANSIM gNB, between gNB and AMF
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM/gnb1.png)
 
@@ -397,10 +410,21 @@ The NGAP traces have the NG set up a request and response to initialize a gNB an
 
 Similarly, other UEs (UE3, UE4) can be realized.
 
+[UE3 PDU session Terminal Image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM/PDU%20session%20successfully%20established_for_UE3.png)
+
+[UE3 PDU Wireshark Traces](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Traces/UE3/PDU%20session%20successfully%20established_for_UE3.pcapng)
+
+[UE4 PDU session Terminal Image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/UERANSIM/PDU%20session%20successfully%20established_for_UE4.png)
+
+[UE4 PDU Wireshark Traces](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Traces/UE4/PDU%20session%20successfully%20established_for_UE4.pcapng)
+
+
+
 <a id="data">
 <h2 align="Left">6.4 Accessing Data Networks. </h2>
 <h3 align="Left">6.4.1: Testing the network using UE1</h3>
 To ping google.com
+    
 Open a new terminal
 
 `./nr-binder 10.45.0.4 ping google.com`
@@ -418,6 +442,15 @@ The MSC diagram is shown below.
 Confirm by using tcpdump that the packet goes through if=ogstun on U-Plane1.
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/U_plane1/UE1_UPLANE1_TCPDUMP.png)
+
+Similarly for UE3:
+
+`./nr-binder 10.55.0.2 ping google.com`
+
+[Terminal output Image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/Ping%20Google%20server%20from%20UE3.png)
+[WireShark Traces](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Traces/UE3/Ping%20Google%20server%20from%20UE3.pcapng)
+[TCP Dump](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/U_plane1/UE3_uplane1_tcpdump.png)
+
 
 <a id="data2">
 <h3 align="Left">6.4.2: Testing the network using UE2 </h3>
@@ -441,6 +474,16 @@ Confirm by using tcpdump that the packet goes through if=ogstun on U-Plane2.
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/U_plane2/UE2_UPLANE2_TCPDUMP.png)
 
+
+Similarly for UE4:
+
+`./nr-binder 10.56.0.2 ping google.com`
+
+[Terminal output Image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/Ping%20Google%20server%20from%20UE4.png)
+[WireShark Traces](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Traces/UE4/Ping%20Google%20server%20from%20UE4.pcapng)
+[TCP Dump](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/U_plane2/UE4_uplane2_tcpdump.png)
+
+
 <a id="slice">
 <h1 align="Left">7. Network Slicing. </h1>
 
@@ -451,7 +494,7 @@ This section Includes all the network slicing that was performed.
 The NextCloud File Hosting server has been implemented on an IP subnet 10.8.2.15 in the User Plane 2. The users who are connected to the 5G Core via ‘internet’ DNN will be able to access the NextCloud server by pinging to the server IP. 
 
 <a id="slice1">
-<h3 align="Left">7.1: Creation on Users in Next Cloud (Server)</h3>
+<h3 align="Left">7.1: Creation of Users in Next Cloud (Server)</h3>
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/nectcloud_Usercreations.png)
 
@@ -503,7 +546,7 @@ The wireshark traces are captured at UE1. These traces show that the UE2 is conn
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/WS-FileTransfer-UE1.png)
 
-Similarly, the Wireshark traces are captured at UE2. These traces show that the UE2 is connected to the Next cloud Server.
+Similarly, the Wireshark traces are captured at UE2. These traces show that the UE2 is connected to the Next Cloud Server.
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/DataNetwork/nextcloud/WS-FileTransfer-UE2.png)
 
