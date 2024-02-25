@@ -201,6 +201,11 @@ ip addr add 10.8.2.113/24 dev enp0s8
 ```
 
 Similarly do it for SMF3 and SMF4
+```
+ip addr add 10.8.2.114/24 dev enp0s8
+ip addr add 10.8.2.115/24 dev enp0s8
+```
+
 <a id="network-set-upf1">
 <h3 align="Left">6.1.2 Network Settings of Open5GS 5GC C-Plane UPF-1 </h3>
 
