@@ -259,6 +259,9 @@ $ sudo systemctl stop open5gs-bsfd
 $ sudo systemctl stop open5gs-udrd
 $ sudo systemctl restart open5gs-upfd
 
+sudo /bin/open5gs-upfd -c /etc/open5gs/upf1.yaml 
+sudo /bin/open5gs-upfd -c /etc/open5gs/upf2.yaml 
+
 ```
 
 As multiple SMFs need to be implemented, these services are made to run separately.

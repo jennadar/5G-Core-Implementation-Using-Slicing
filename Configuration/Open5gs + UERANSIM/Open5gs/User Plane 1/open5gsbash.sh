@@ -3,12 +3,6 @@
 
 sudo sysctl -w net.ipv4.ip_forward=1
 
-sudo ip addr add 10.0.2.25/24 dev enp0s3
-sudo ip addr add 10.0.2.35/24 dev enp0s3
-
-sudo systemctl restart apache2.service
-sudo ufw allow 80,443/tcp
-sudo ufw allow 8080/tcp
 
 sudo ip tuntap add name ogstun mode tun
 sudo ip addr add 10.45.0.1/16 dev ogstun
@@ -33,6 +27,4 @@ sudo systemctl stop open5gs-pcfd
 sudo systemctl stop open5gs-nssfd
 sudo systemctl stop open5gs-bsfd
 sleep 5
-sudo systemctl restart open5gs-upfd
-sleep 5
-sudo systemctl status open5gs-upfd
+sudo /bin/open5gs-upfd -c /etc/open5gs/upf1.yaml
