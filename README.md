@@ -8,10 +8,10 @@
 <p align="center">
     <h3 align="center">Master of Engineering</h3>
     <h3 align="center">Information Technology</h3>
-    <h5 align="center">Nastayeen Abdul Majid(1427970)</h5> 
-    <h5 align="center">Shiva Kumar Biru(1436929)</h5> 
-    <h5 align="center"> Jenny Nadar(1427226) </h5>
-    <h5 align="center"> Sriram Karunanithi(1438891) </h5>
+    <h5 align="center">Nastayeen Abdul Majid (1427970)</h5> 
+    <h5 align="center">Shiva Kumar Biru (1436929)</h5> 
+    <h5 align="center"> Jenny Nadar (1427226) </h5>
+    <h5 align="center"> Sriram Karunanithi (1438891) </h5>
 </p>
 
 
