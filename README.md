@@ -80,7 +80,7 @@ By addressing these aspects within the defined scope, the " Implementation and T
 <a id="architecture"></a>
 <h1 align="Left">2. General Architecture </h1>
 
-This section explains the basic architecture of 5G network core.
+This section explains the basic architecture of the 5G network core.
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Architecture/General_architecture.jpeg)
 
@@ -109,14 +109,16 @@ Network slicing is a fundamental concept in 5G networks that allows the creation
 <a id="Requirement"></a>
 <h1 align="Left">3. Requirements </h1>
 
-This section explains all the required installation pre-requisites and dependencies needed to establish a 5G Core network and UERANSIM.
-Please refer to the link below to complete the installation of the dependencies. [Installations Process Guide](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/User-Guide/Requirements-README.md)
+This section explains all the required installation prerequisites and dependencies needed to establish a 5G Core network and UERANSIM.
+Please refer to the link below to complete the installation of the dependencies. 
+
+[Installations Process Guide](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/User-Guide/Requirements-README.md)
 
 
 <a id="Planning"></a>
 <h1 align="Left">4. Planning </h1>
 
-This section explains the work plan for our team and the work distribution, roles, and responsiblities of each team member
+This section explains the work plan for our team and the work distribution, roles, and responsibilities of each team member
 
 ![image](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/Figures/Project%20Planning.png)
 
@@ -144,9 +146,9 @@ Each VM's are as follows.
 | VM4 | Open5GS 5GC U-Plane1   | 10.8.2.7/24 | Ubuntu 22.04 | 1GB | 10GB |
 | VM5 | Open5GS 5GC U-Plane2 & Next Cloud for File Sharing  | 10.8.2.15/24 | Ubuntu 22.04 | 1GB | 10GB |
 
-Four UEs were created in two separate VMs. We have provided separate slicing to individual User Equipment for File Sharing. UE1 uses the slice marked with colour Red and similarly UE2 uses the slice marked with the colour Blue the other two UE's UE3,UE4 are used to connect to the website 
+Four UEs were created in two separate VMs. We have provided separate slicing to individual User Equipment for File Sharing. UE1 uses the slice marked with the color Red and similarly, UE2 uses the slice marked with the color Blue the other two UE's UE3, UE4 are used to connect to the website 
 
-As per the project requirement UE1 and UE2 have access to File sharing with UPF1 and UPF2 respectively and the remaining UE's is for connecting to Data network. The NSSF file is used for network slice selection as per the slicing parameters provided by the UEs. 
+As per the project requirement UE1 and UE2 have access to File sharing with UPF1 and UPF2 respectively and the remaining UE's are for connecting to the Data network. The NSSF file is used for network slice selection as per the slicing parameters provided by the UEs. 
  
 | NF | IP address | Supported S-NSSAI |
 | --- | --- | --- |
@@ -154,7 +156,7 @@ As per the project requirement UE1 and UE2 have access to File sharing with UPF1
 | NSSF | 10.8.2.8/24 | SST:1, SD:1 <br> SST:1, SD:2 <br> SST:2, SD:1 <br> SST:2, SD:2 |
 
 
-Subscriber Information (other information is the same) is as follows. These User informations were registered with Open5GS WebUI
+Subscriber Information (other information is the same) is as follows. This user informations were registered with Open5GS WebUI
 
 | UE # |	IMSI |	DNN	 |  OP/OPc  |
 | --- | --- | --- | --- |
