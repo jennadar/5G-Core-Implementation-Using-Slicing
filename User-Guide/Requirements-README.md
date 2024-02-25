@@ -11,7 +11,7 @@ Install VirtualBox: Run the installer and follow the on-screen instructions to i
 
 - Open VirtualBox: Launch the VirtualBox application on your computer.
 - Click "New": In the VirtualBox main window, click on the "New" button to create a new virtual machine.
-- Set Name and Type: Provide a name for your virtual machine (e.g., 5Gcore_VM), select the type (Linux), and choose the version that matches your operating system.
+- Set Name and Type: Provide a name for your virtual machine (e.g., mobile computing), select the type (Linux), and choose the version that matches your operating system.
 - Allocate Memory: Specify the amount of RAM for the virtual machine. For 5G core and UERANSIM, allocate sufficient memory based on your system requirements.
 - Create a Virtual Hard Disk: Create a virtual hard disk and choose the size.Allocate enough space for the operating system and applications.
 - Click "Create" and "Create" again to confirm.
