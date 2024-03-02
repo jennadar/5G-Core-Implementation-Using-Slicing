@@ -1,10 +1,4 @@
 #  Implementation and Testing of a 5G Core Network for Slicing and Application Connectivity using UERANSIM
-
-<p align="center">
-    <h5 align="center"> By Jenny Nadar (1427226) </h5>
-</p>
-
-
 ---
 
 <a id="toc"></a>
@@ -592,5 +586,11 @@ In conclusion, the implementation and testing of the 5G core network utilizing U
 - [8] Khalid, M. W., Kwon, S., Yoon, H., & Pasha, M. A. (2021). Performance Evaluation of Open5GS and UE4ASIM in 5G Networks. IEEE Access, 9, 116785-116798. 
 - [9] Al-Dulaimi, A., Shao, X., Zhang, Y., & Al-Dulaimi, A. (2021). 5G Core Networks: A Comprehensive Survey. IEEE Communications Surveys & Tutorials, 23(1), 705-752. 
 - [10] Ali, S., Bilal, M., Nasser, N., & Aleisa, E. (2021). Performance Analysis of Open5GS User Plane and Control Plane Implementations. IEEE Access, 9, 44731-44741. 
-- [11] Li, B., Liu, Y., Yang, F., & Sun, Y. (2020). Design and Implementation of Access and Mobility Management Function in 5G Core Network. IEEE Access, 8, 131966-131975. 
+- [11] Li, B., Liu, Y., Yang, F., & Sun, Y. (2020). Design and Implementation of Access and Mobility Management Function in 5G Core Network. IEEE Access, 8, 131966-131975.
+
+---
+<p align="Right">
+    <h5 align="center"> By Jenny Nadar </h5>
+</p>
+
 
