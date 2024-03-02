@@ -96,7 +96,7 @@ Network slicing is a fundamental concept in 5G networks that allows the creation
 This section explains all the required installation prerequisites and dependencies needed to establish a 5G Core network and UERANSIM.
 Please refer to the link below to complete the installation of the dependencies. 
 
-[Installations Process Guide](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/User-Guide/Requirements-README.md)
+[Installations Process Guide](https://github.com/jennadar/5G-Core-Implementation-Using-Slicing/blob/main/User-Guide/Requirements-README.md)
 
 
 <a id="Planning"></a>
@@ -167,7 +167,7 @@ Each DNs are as follows.
 Please refer to the following for building Open5GS and UERANSIM respectively.
 
 
-[Configuration files](https://github.com/FRA-UAS/mobcomwise23-24-team_gen5_designers/blob/main/User-Guide/Configurations-README.md)
+[Configuration files](https://github.com/jennadar/5G-Core-Implementation-Using-Slicing/blob/main/User-Guide/Configurations-README.md)
 
 
 <a id="execution"></a>
