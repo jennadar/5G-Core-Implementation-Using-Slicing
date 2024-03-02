@@ -1,17 +1,7 @@
 #  Implementation and Testing of a 5G Core Network for Slicing and Application Connectivity using UERANSIM
-<!-- PROJECT LOGO -->
-<p align="center">
-<img src="/Figures/Installations/FRA-UAS_Logo_rgb.jpg" width="650"/>
-</p>
 
-<h1 align="center">Team Gen5 Designers</h1>
 <p align="center">
-    <h3 align="center">Master of Engineering</h3>
-    <h3 align="center">Information Technology</h3>
-    <h5 align="center">Nastayeen Abdul Majid (1427970)</h5> 
-    <h5 align="center">Shiva Kumar Biru (1436929)</h5> 
-    <h5 align="center"> Jenny Nadar (1427226) </h5>
-    <h5 align="center"> Sriram Karunanithi (1438891) </h5>
+    <h5 align="center"> By Jenny Nadar (1427226) </h5>
 </p>
 
 
